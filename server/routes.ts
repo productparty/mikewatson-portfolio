@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { generateChatResponse } from "./chat";
+import { generateChatResponse } from "./openai";
 import { fetchGithubUpdates } from "./github";
 import { insertChatMessageSchema, insertNewsletterSchema, insertPageViewSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
@@ -138,7 +138,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!message.isBot) {
         // Generate personalized response using OpenAI
         const sessionId = 'default'; // Simplified session handling
-        const botResponse = await generateChatResponse(message.content);
+        const botResponse = await generateChatResponse(message.content, sessionId);
 
         const botMessage = await storage.addChatMessage({
           content: botResponse,
