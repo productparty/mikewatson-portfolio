@@ -1,6 +1,6 @@
 export const PERSONAL_INFO = {
   name: "Michael Watson",
-  title: "Senior Product Owner",
+  title: "Senior Product Owner / Manager",
   bio: "Senior Product Owner with 14+ years experience across financial services and tech, spanning startups and Fortune 500 companies. Expert in upgrading systems, enhancing B2B/B2C experiences, and driving agile transformations to accelerate software delivery.",
   avatar: "https://media.licdn.com/dms/image/v2/D5603AQHeV9VTV4xRqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729626205006?e=1746057600&v=beta&t=K7ODVRUgP4CjnFJVQ1xyVeUan3AA4uQIefDmVncHspQ",
   social: {
