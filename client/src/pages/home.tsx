@@ -48,6 +48,22 @@ export default function Home() {
         <section>
           <NonprofitSupport />
         </section>
+
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-center">Projects</h2>
+          <div className="flex flex-col items-center gap-4">
+            <div className="border rounded-lg p-4 shadow-md w-full max-w-md">
+              <h3 className="text-xl font-semibold">Golf Club UI</h3>
+              <p className="text-muted-foreground">A modern and responsive UI for a golf club website.</p>
+              <p className="text-sm text-muted-foreground">Technologies: React, Tailwind CSS, Vercel</p>
+              <Button asChild variant="outline" className="mt-2">
+                <a href="https://golf-club-ui-lac.vercel.app/" target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
+              </Button>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
