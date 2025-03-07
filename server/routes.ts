@@ -51,7 +51,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }, {} as Record<string, number>);
 
       const trendData = Object.entries(visitTrends)
-        .map(([date, visits]) => ({ date, visits }))
+        .map(([date, visits]) => ({ date, visits, previousVisits: 0 }))
         .sort((a, b) => a.date.localeCompare(b.date));
 
       // If comparing with previous period, get previous period data
@@ -138,7 +138,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!message.isBot) {
         // Generate personalized response using OpenAI
         const sessionId = 'default'; // Simplified session handling
-        const botResponse = await generateChatResponse(message.content, sessionId);
+        const botResponse = await generateChatResponse(message.content);
 
         const botMessage = await storage.addChatMessage({
           content: botResponse,
