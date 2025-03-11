@@ -10,8 +10,8 @@ export const PERSONAL_INFO = {
     newsletter: "https://www.productparty.us/feed"
   },
   resume: {
-    pdf: "https://mikewatson.us/Michael Watson_Senior Product Manager.pdf",
-    word: "https://mikewatson.us/Michael Watson_Senior Product Manager.docx"
+    pdf: "https://mikewatson.us/Michael Watson_Senior Product Owner Manager.pdf",
+    word: "https://mikewatson.us/Michael Watson_Senior Product Owner Manager.docx"
   },
   skills: [
     "Product Management",
