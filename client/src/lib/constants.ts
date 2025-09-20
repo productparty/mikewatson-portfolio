@@ -10,7 +10,8 @@ export const PERSONAL_INFO = {
     newsletter: "https://www.productparty.us/feed",
     notion: "https://www.notion.so/marketplace/profiles/productparty",
     stackShelf: "https://stackshelf.app/shelf/mike-w",
-    buyMeACoffee: "https://buymeacoffee.com/productparty"
+    buyMeACoffee: "https://buymeacoffee.com/productparty",
+    constants: "https://constants.com/u/productparty"
   },
   resume: {
     pdf: "https://mikewatson.us/MichaelWatson-ResumeSeptember2025.pdf",
