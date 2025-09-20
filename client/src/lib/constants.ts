@@ -7,11 +7,14 @@ export const PERSONAL_INFO = {
     github: "https://github.com/productparty/",
     linkedin: "https://www.linkedin.com/in/michaeljameswatson/",
     bluesky: "https://bsky.app/profile/watsonitis.bsky.social",
-    newsletter: "https://www.productparty.us/feed"
+    newsletter: "https://www.productparty.us/feed",
+    notion: "https://www.notion.so/marketplace/profiles/productparty",
+    stackShelf: "https://stackshelf.app/shelf/mike-w",
+    buyMeACoffee: "https://buymeacoffee.com/productparty"
   },
   resume: {
-    pdf: "https://mikewatson.us/Michael Watson - Senior Product Owner and Product Manager Resume.pdf",
-    word: "https://mikewatson.us/Michael Watson - Senior Product Owner and Product Manager Resume.docx"
+    pdf: "https://mikewatson.us/MichaelWatson-ResumeSeptember2025.pdf",
+    word: "https://mikewatson.us/MichaelWatson-ResumeSeptember2025.docx"
   },
   skills: [
     "Product Management",
