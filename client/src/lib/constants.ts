@@ -14,8 +14,8 @@ export const PERSONAL_INFO = {
     constants: "https://constants.com/u/productparty"
   },
   resume: {
-    pdf: "https://mikewatson.us/Michael Watson - Resume October 2025.pdf",
-    word: "https://mikewatson.us/Michael Watson - Resume October 2025.docx"
+    pdf: "https://mikewatson.us/Michael_Watson_Resume_December%202025.pdf",
+    word: "https://mikewatson.us/Michael_Watson_Resume_December%202025.docx"
   },
   skills: [
     "Product Management",
