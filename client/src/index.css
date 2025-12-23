@@ -3,11 +3,40 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 45 20% 97%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 160 32% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 10% 94%;
+    --secondary-foreground: 0 0% 20%;
+    --muted: 45 10% 94%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 160 32% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 160 32% 50%;
+    --radius: 0.375rem;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply mx-auto w-full max-w-[1040px] px-4 sm:px-6 lg:px-8;
   }
 }
