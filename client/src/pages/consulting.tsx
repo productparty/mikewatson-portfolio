@@ -4,6 +4,7 @@ import { ServicePillars } from "@/components/consulting/service-pillars";
 import { HowIThink } from "@/components/consulting/how-i-think";
 import { BackgroundContext } from "@/components/consulting/background-context";
 import { CaseStudies } from "@/components/consulting/case-studies";
+import { WhyWorkWithMe } from "@/components/consulting/why-work-with-me";
 import { HowWeWork } from "@/components/consulting/how-we-work";
 import { FinalCTA } from "@/components/consulting/final-cta";
 import { SeoHead } from "@/components/seo-head";
@@ -30,6 +31,7 @@ export default function Consulting() {
           <HowIThink articles={THOUGHT_LEADERSHIP} />
           <BackgroundContext />
           <CaseStudies studies={CASE_STUDIES} />
+          <WhyWorkWithMe />
           <HowWeWork steps={WORK_TOGETHER_STEPS} />
           <FinalCTA />
         </main>

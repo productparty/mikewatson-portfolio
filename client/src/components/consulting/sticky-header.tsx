@@ -31,23 +31,23 @@ export function StickyHeader() {
         <div className="hidden md:flex items-center gap-6">
           <a
             href="#how-i-think"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
+            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
           >
             How I Think
           </a>
           <a
             href="#services"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
+            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
           >
             Services
           </a>
           <a
             href="#case-studies"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors"
+            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
           >
             Case Studies
           </a>
-          <Button asChild size="sm">
+          <Button asChild size="sm" className="ml-2">
             <a href={HERO_CONTENT.primaryCta.href}>
               {HERO_CONTENT.primaryCta.label}
             </a>

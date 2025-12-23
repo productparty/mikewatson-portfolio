@@ -15,7 +15,6 @@ export function ServiceCard({ service }: ServiceCardProps) {
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-base md:text-lg text-foreground leading-relaxed">
-          <span className="font-semibold">You bring me in when</span>{" "}
           {service.bringMeIn}
         </p>
         <div className="space-y-2">

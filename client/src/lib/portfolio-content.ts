@@ -63,13 +63,13 @@ export const THOUGHT_LEADERSHIP: ThoughtLeadershipLink[] = [
     title: "Why Users Ignore Your Best Features",
     url: "https://www.productparty.us/p/why-users-ignore-your-best-features",
     takeaway:
-      "Adoption isn't a launch problem; it's usually a clarity and relevance problem.",
+      "Adoption isn't a launch problem—it's usually a 'we built something no one asked for' problem.",
   },
   {
     title: "The Anti-Pattern Playbook",
     url: "https://www.productparty.us/p/the-anti-pattern-playbook",
     takeaway:
-      "Expensive delivery failures have early signals; most teams ignore them.",
+      "Expensive delivery failures have early signals; most teams ignore them until it's too late.",
   },
   {
     title: "You Should Join the Feature Diet",
@@ -87,27 +87,38 @@ export const THOUGHT_LEADERSHIP: ThoughtLeadershipLink[] = [
     title: "Are You Paying the Shadow Work Tax?",
     url: "https://www.productparty.us/p/are-you-paying-the-shadow-work-tax",
     takeaway:
-      "Invisible coordination work compounds until builders spend half their time managing.",
+      "Invisible coordination work compounds until builders spend half their time managing instead of building.",
   },
   {
     title: "\"It Depends\" Isn't a Cop-Out",
     url: "https://www.productparty.us/p/it-depends-isnt-a-cop-out",
     takeaway:
-      "Context beats dogma; good decisions are defensible tradeoffs.",
+      "Context beats dogma; good decisions are defensible tradeoffs, not framework compliance.",
   },
 ];
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: "stalled-initiative",
-    title: "Stalled initiative → predictable delivery",
+    id: "retail-loyalty-modernization",
+    title: "Mid-Market Retail Loyalty Modernization",
     context:
-      "Multi-team, cross-system program with competing priorities",
+      "Mid-market specialty retailer · multi-system loyalty platform",
     whatChanged:
-      "Clarified scope, defined decision rights, reduced coordination overhead, rebuilt stakeholder trust",
+      "Clarified scope and ownership, re-sequenced delivery milestones, reduced coordination overhead across teams",
     results:
-      "Improved predictability, fewer escalations, clearer ownership",
+      "Delivered pilot on revised timeline, restored stakeholder confidence, platform supporting ~18M customers",
     featured: true,
+  },
+  {
+    id: "dealer-test-drive-pilot",
+    title: "Dealer Test Drive Pilot Program",
+    context:
+      "Auto finance company · nationwide dealership network",
+    whatChanged:
+      "Led pilot program leveraging A/B testing methodology, optimized enrollment flows, identified state-specific barriers",
+    results:
+      "33% enrollment increase in underperforming states, resulting in nationwide rollout across 450+ dealership network",
+    featured: false,
   },
 ];
 
@@ -116,19 +127,19 @@ export const WORK_TOGETHER_STEPS: WorkTogetherStep[] = [
     step: 1,
     title: "We start with a 30-minute intro",
     description:
-      "You share the challenge, I ask questions, we decide if there's a fit.",
+      "You share the challenge, I ask questions, we decide if there's a fit. No commitment, no sales pitch—just a conversation to see if I can help.",
   },
   {
     step: 2,
     title: "I diagnose the friction",
     description:
-      "I observe how work flows (or doesn't), identify bottlenecks, and map where context gets lost.",
+      "Over 2-3 weeks, I conduct stakeholder interviews, shadow sprint ceremonies, audit your tools and workflows, and map where context gets lost. I deliver a diagnosis document with specific friction points and recommended fixes.",
   },
   {
     step: 3,
     title: "We remove what's slowing you down",
     description:
-      "Together, we fix the real problems—not add process. You ship faster, teams feel lighter.",
+      "I work embedded with your team (typically 2-3 days per week) to implement fixes: clarifying ownership, reducing coordination overhead, rebuilding trust through delivery. You ship faster, teams feel lighter. Engagement length varies by scope—usually 4-12 weeks.",
   },
 ];
 
