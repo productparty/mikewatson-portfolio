@@ -2,6 +2,7 @@ import { StickyHeader } from "@/components/consulting/sticky-header";
 import { HeroSection } from "@/components/consulting/hero-section";
 import { ServicePillars } from "@/components/consulting/service-pillars";
 import { HowIThink } from "@/components/consulting/how-i-think";
+import { BackgroundContext } from "@/components/consulting/background-context";
 import { CaseStudies } from "@/components/consulting/case-studies";
 import { HowWeWork } from "@/components/consulting/how-we-work";
 import { FinalCTA } from "@/components/consulting/final-cta";
@@ -27,6 +28,7 @@ export default function Consulting() {
           <HeroSection content={HERO_CONTENT} />
           <ServicePillars services={SERVICE_PILLARS} />
           <HowIThink articles={THOUGHT_LEADERSHIP} />
+          <BackgroundContext />
           <CaseStudies studies={CASE_STUDIES} />
           <HowWeWork steps={WORK_TOGETHER_STEPS} />
           <FinalCTA />
