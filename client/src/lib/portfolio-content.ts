@@ -144,7 +144,7 @@ export const WORK_TOGETHER_STEPS: WorkTogetherStep[] = [
 ];
 
 export const PORTFOLIO_SEO: PortfolioSEO = {
-  title: "Michael Watson | Product & Delivery Expert for Hire",
+  title: "Mike Watson | Product & Delivery Expert for Hire",
   description:
     "I help product and engineering leaders identify what's slowing teams down and remove it—without adding process, ceremony, or permanent headcount.",
   canonical: "https://mikewatsonusportfolio.vercel.app/",

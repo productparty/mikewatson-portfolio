@@ -1,5 +1,5 @@
 export const BRAND = {
-  name: "Michael Watson",
+  name: "Mike Watson",
   tagline: "Product & Delivery Expert",
   colors: {
     primary: { hsl: "160 32% 50%", hex: "#5ba78e" },

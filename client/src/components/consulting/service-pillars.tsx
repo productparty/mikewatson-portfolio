@@ -7,7 +7,7 @@ interface ServicePillarsProps {
 
 export function ServicePillars({ services }: ServicePillarsProps) {
   return (
-    <section id="services" className="py-16 lg:py-28 bg-card/50">
+    <section id="services" className="py-11 lg:py-20 bg-card/50">
       <div className="content-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12 tracking-tight leading-tight">
           Services

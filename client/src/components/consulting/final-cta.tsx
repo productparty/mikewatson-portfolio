@@ -3,7 +3,7 @@ import { HERO_CONTENT } from "@/lib/portfolio-content";
 
 export function FinalCTA() {
   return (
-    <section className="py-16 lg:py-28 bg-card/50">
+    <section className="py-11 lg:py-20 bg-card/50">
       <div className="content-container">
         <div className="max-w-2xl mx-auto text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight leading-tight">

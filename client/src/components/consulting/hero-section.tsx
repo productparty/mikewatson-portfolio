@@ -15,7 +15,7 @@ export function HeroSection({ content }: HeroSectionProps) {
   };
 
   return (
-    <section className="py-16 lg:py-28">
+    <section className="py-11 lg:py-20">
       <div className="content-container">
         <div className="max-w-[65ch] mx-auto text-center space-y-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight leading-tight">

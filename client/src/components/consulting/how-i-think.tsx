@@ -7,7 +7,7 @@ interface HowIThinkProps {
 
 export function HowIThink({ articles }: HowIThinkProps) {
   return (
-    <section id="how-i-think" className="py-16 lg:py-28">
+    <section id="how-i-think" className="py-11 lg:py-20">
       <div className="content-container">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground text-center mb-12 tracking-tight leading-tight">
           How I Think

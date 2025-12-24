@@ -24,7 +24,7 @@ export function StickyHeader() {
     >
       <nav className="content-container flex h-16 items-center justify-between">
         <Link href="/" className="text-xl font-bold text-foreground">
-          Michael Watson
+          Mike Watson
         </Link>
 
         {/* Desktop Navigation */}
@@ -41,12 +41,25 @@ export function StickyHeader() {
           >
             Services
           </a>
-          <a
-            href="#case-studies"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
-          >
-            Case Studies
-          </a>
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            <a
+              href="https://mikewatson.us/Michael_Watson_Resume_December%202025.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Resume (PDF)
+            </a>
+            <span className="text-muted-foreground/50">|</span>
+            <a
+              href="https://mikewatson.us/Michael_Watson_Resume_December%202025.docx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              Resume (Word)
+            </a>
+          </div>
           <Button asChild size="sm" className="ml-2">
             <a href={HERO_CONTENT.primaryCta.href}>
               {HERO_CONTENT.primaryCta.label}
@@ -89,13 +102,27 @@ export function StickyHeader() {
             >
               Services
             </a>
-            <a
-              href="#case-studies"
-              className="block text-sm text-foreground hover:text-primary hover:underline underline-offset-4"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Case Studies
-            </a>
+            <div className="pt-2 border-t border-border space-y-2">
+              <p className="text-xs text-muted-foreground uppercase tracking-wide">Resume</p>
+              <a
+                href="https://mikewatson.us/Michael_Watson_Resume_December%202025.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-xs text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Download PDF
+              </a>
+              <a
+                href="https://mikewatson.us/Michael_Watson_Resume_December%202025.docx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-xs text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Download Word
+              </a>
+            </div>
             <Button asChild className="w-full mt-4">
               <a href={HERO_CONTENT.primaryCta.href}>
                 {HERO_CONTENT.primaryCta.label}
