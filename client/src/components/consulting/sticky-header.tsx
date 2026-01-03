@@ -43,7 +43,7 @@ export function StickyHeader() {
           </a>
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
             <a
-              href="https://mikewatson.us/Michael_Watson_Resume_January_2026.PDF"
+              href="https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -105,7 +105,7 @@ export function StickyHeader() {
             <div className="pt-2 border-t border-border space-y-2">
               <p className="text-xs text-muted-foreground uppercase tracking-wide">Resume</p>
               <a
-                href="https://mikewatson.us/Michael_Watson_Resume_January_2026.PDF"
+                href="https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block text-xs text-muted-foreground hover:text-foreground transition-colors"

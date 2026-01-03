@@ -92,7 +92,7 @@ export function BackgroundContext() {
               <div className="space-y-2 text-sm">
                 <div>
                   <a
-                    href="https://mikewatson.us/Michael_Watson_Resume_January_2026.PDF"
+                    href="https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground underline underline-offset-2 transition-colors"
