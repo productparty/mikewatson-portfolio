@@ -42,19 +42,42 @@ A modern, professional portfolio website showcasing 14+ years of product managem
 - Email, LinkedIn, and Resume PDF buttons
 - Clear call-to-action for opportunities
 
-## Tech Stack
+## Tech Stack (This Portfolio)
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **UI Components**: Radix UI, Shadcn UI
-- **Icons**: Material Symbols Outlined
-- **Fonts**: Manrope (display), Noto Sans (body)
-- **Backend**: Node.js, Express
-- **Database**: Neon Database (PostgreSQL)
-- **AI Integration**: OpenAI GPT for chat widget
-- **Deployment**: Vercel
-- **Build Tool**: Vite
+This portfolio website is built with:
 
-## Projects Showcased
+**Frontend:**
+- React 18 with TypeScript
+- Tailwind CSS for styling
+- Vite as build tool
+- Wouter for routing
+- React Query (@tanstack/react-query) for data fetching
+
+**UI Components:**
+- Radix UI primitives (dialog, dropdown, tabs, etc.)
+- Shadcn UI component library
+- Material Symbols Outlined (via Google Fonts) for icons
+- Lucide React for additional icons
+
+**Typography:**
+- Manrope (display font)
+- Noto Sans (body font)
+
+**Backend:**
+- Node.js with Express
+- TypeScript
+
+**Database:**
+- Neon Database (PostgreSQL)
+- Drizzle ORM for database queries
+
+**AI Integration:**
+- OpenAI API for chat widget functionality
+
+**Deployment:**
+- Vercel
+
+## Other Projects
 
 ### Find My Club
 A modern and responsive UI for a golf club/course search engine.
