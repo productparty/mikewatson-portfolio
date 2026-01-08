@@ -250,5 +250,5 @@ export const CONTACT_INFO = {
   resumePdf: "https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf",
   ctaHeadline: "Ready to solve complex problems together?",
   ctaSubheadline:
-    "I'm currently open to Senior PM roles in Fintech, SaaS, or E-commerce. Let's discuss how I can help your team scale.",
+    "I'm currently open to Senior Product Manager roles and strategic consulting engagements across any industry. Let's discuss how I can help your organization ship better products.",
 };
