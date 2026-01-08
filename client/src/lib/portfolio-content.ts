@@ -24,8 +24,8 @@ export const HERO_CONTENT: HeroContent = {
     href: "#case-studies",
   },
   floatingMetric: {
-    label: "Career Impact",
-    value: "$2.5M+",
+    label: "Business Impact",
+    value: "$15M+",
   },
 };
 
