@@ -54,7 +54,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Low enrollment in underperforming states; outdated Oracle CRM hurting 450-person sales team productivity.",
     action:
-      'Led "Test Drive" pilot with A/B testing methodology; modernized Oracle CRM; transformed 3 teams from waterfall to Agile with Jira implementation.',
+      'Led "Test Drive" pilot with A/B testing methodology; modernized Oracle CRM; transformed multiple waterfall teams to Agile with Jira implementation.',
     outcome:
       "33% enrollment increase, nationwide rollout to 450+ dealerships; 10% satisfaction improvement",
   },
@@ -178,7 +178,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Agile Delivery",
     quote: '"Shipping value, not just code."',
     inPractice:
-      "At Credit Acceptance, I transformed 3 waterfall teams to Agile by migrating backlogs, implementing Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
+      "At Credit Acceptance, I transformed multiple waterfall teams to Agile by migrating backlogs, implementing Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
   },
   {
     id: "data-informed",
@@ -238,7 +238,7 @@ export const THOUGHT_LEADERSHIP: ThoughtLeadershipLink[] = [
 ];
 
 export const PORTFOLIO_SEO: PortfolioSEO = {
-  title: "Mike Watson | Senior Product Manager",
+  title: "Senior Product Manager",
   description:
     "Senior Product Manager building products that solve real problems. 14+ years in fintech and enterprise software. Data-driven strategy, user-centric design.",
   canonical: "https://mikewatson.us/consulting",
