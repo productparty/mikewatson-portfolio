@@ -95,7 +95,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Unknown Hispanic market lead demand; limited compliance insights from 1% manual call review coverage.",
     action:
-      "Built demand measurement capabilities into LOS; scaled speech analytics from 1% to 10,000+ daily call hours; developed Salesforce migration strategy for 400 team members.",
+      "Built demand measurement capabilities into LOS; scaled speech analytics from 1% to 10,000+ daily call hours; developed Salesforce migration strategy requiring C-suite leadership decision that would impact 5,000 team members at first launch.",
     outcome:
       "300% more Hispanic market leads with dedicated 50-person team; formed 10-member QA team",
   },
@@ -194,7 +194,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Stakeholder Alignment",
     quote: '"No surprises, clear trade-offs."',
     inPractice:
-      "The Rocket Mortgage Salesforce migration required buy-in from 400 team members across 20+ legacy apps. Weekly syncs and transparent roadmaps kept stakeholders aligned through a 6-month transition.",
+      "The Rocket Mortgage Salesforce migration required a C-suite leadership decision that would impact 5,000 team members at first launch across 20+ legacy apps. Weekly syncs and transparent roadmaps kept stakeholders aligned through a 6-month transition.",
   },
 ];
 
