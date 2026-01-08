@@ -5,10 +5,14 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["Manrope", "sans-serif"],
+        body: ["Noto Sans", "sans-serif"],
+      },
       container: {
         center: true,
         padding: "1rem",
-        screens: { "2xl": "1040px" },
+        screens: { "2xl": "1280px" },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -16,6 +20,15 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        // Portfolio design system colors
+        "pm-primary": "#0e7490",
+        "pm-primary-dark": "#155e75",
+        "pm-accent": "#0ea5e9",
+        "pm-background": "#fdfbf7",
+        "pm-surface": "#ffffff",
+        "pm-text": "#0f172a",
+        "pm-muted": "#475569",
+        "pm-border": "#e2e8f0",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

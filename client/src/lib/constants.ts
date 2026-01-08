@@ -2,7 +2,7 @@ export const PERSONAL_INFO = {
   name: "Mike Watson",
   title: "Senior Product Owner / Product Manager",
   bio: "Senior Product Owner with 14+ years experience across financial services and tech, spanning startups and Fortune 500 companies. Expert in upgrading systems, enhancing B2B/B2C experiences, and driving agile transformations to accelerate software delivery.",
-  avatar: "https://media.licdn.com/dms/image/v2/D5603AQHeV9VTV4xRqQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1729626205006?e=1746057600&v=beta&t=K7ODVRUgP4CjnFJVQ1xyVeUan3AA4uQIefDmVncHspQ",
+  avatar: "/headshot.jpg",
   social: {
     github: "https://github.com/productparty/",
     linkedin: "https://www.linkedin.com/in/michaeljameswatson/",
@@ -77,7 +77,7 @@ export const PERSONAL_INFO = {
       title: "Product Owner",
       company: "Rocket Mortgage",
       period: "June 2013 - November 2020",
-      description: "Led Spanish market expansion, implemented speech analytics, and managed Salesforce integration."
+      description: "Led Hispanic market expansion, implemented speech analytics, and managed Salesforce integration."
     },
     {
       title: "Consulting Analyst",

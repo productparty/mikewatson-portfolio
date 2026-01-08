@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { HERO_CONTENT } from "@/lib/portfolio-content";
 
@@ -16,122 +15,133 @@ export function StickyHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleNavClick = (href: string) => {
+    setIsMobileMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <header
-      className={`sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-shadow ${
+    <nav
+      className={`sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-pm-background/90 dark:bg-slate-900/90 backdrop-blur-md transition-shadow ${
         isScrolled ? "shadow-sm" : ""
       }`}
     >
-      <nav className="content-container flex h-16 items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-foreground">
-          Mike Watson
-        </Link>
+      <div className="px-4 sm:px-10 py-3 max-w-[1280px] mx-auto flex items-center justify-between">
+        {/* Logo / Branding */}
+        <div className="flex items-center gap-4">
+          <div className="flex items-center justify-center size-8 rounded-lg bg-pm-primary text-white">
+            <span className="material-symbols-outlined text-lg">dataset</span>
+          </div>
+          <Link
+            href="/"
+            className="text-lg font-bold leading-tight tracking-tight text-slate-900 dark:text-white font-display"
+          >
+            Mike Watson | Senior PM
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
-          <a
-            href="#how-i-think"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
-          >
-            How I Think
-          </a>
-          <a
-            href="#services"
-            className="text-sm text-foreground hover:text-primary hover:underline underline-offset-4 transition-colors whitespace-nowrap"
-          >
-            Services
-          </a>
-          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+        <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
+          <div className="flex items-center gap-6">
             <a
-              href="https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              href="#experience"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#experience");
+              }}
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary transition-colors font-body"
             >
-              Resume (PDF)
+              Experience
             </a>
-            <span className="text-muted-foreground/50">|</span>
             <a
-              href="https://mikewatson.us/Michael_Watson_Resume_January_2026.docx"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
+              href="#case-studies"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#case-studies");
+              }}
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary transition-colors font-body"
             >
-              Resume (Word)
+              Case Studies
+            </a>
+            <a
+              href="#methodology"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#methodology");
+              }}
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary transition-colors font-body"
+            >
+              Methodology
             </a>
           </div>
-          <Button asChild size="sm" className="ml-2">
-            <a href={HERO_CONTENT.primaryCta.href}>
-              {HERO_CONTENT.primaryCta.label}
-            </a>
-          </Button>
+          <button
+            onClick={() => handleNavClick("#contact")}
+            className="flex cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-pm-primary hover:bg-pm-primary-dark transition-colors text-white text-sm font-bold shadow-sm shadow-pm-primary/20 font-display"
+          >
+            Let's Talk
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </Button>
-        </div>
-      </nav>
+        <button
+          className="md:hidden p-2 text-slate-900 dark:text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {isMobileMenuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t bg-background">
-          <div className="content-container py-4 space-y-3">
+        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-pm-background dark:bg-slate-900">
+          <div className="px-4 py-4 space-y-3">
             <a
-              href="#how-i-think"
-              className="block text-sm text-foreground hover:text-primary hover:underline underline-offset-4"
-              onClick={() => setIsMobileMenuOpen(false)}
+              href="#experience"
+              className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary py-2 font-body"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#experience");
+              }}
             >
-              How I Think
+              Experience
             </a>
             <a
-              href="#services"
-              className="block text-sm text-foreground hover:text-primary hover:underline underline-offset-4"
-              onClick={() => setIsMobileMenuOpen(false)}
+              href="#case-studies"
+              className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary py-2 font-body"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#case-studies");
+              }}
             >
-              Services
+              Case Studies
             </a>
-            <div className="pt-2 border-t border-border space-y-2">
-              <p className="text-xs text-muted-foreground uppercase tracking-wide">Resume</p>
-              <a
-                href="https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-xs text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Download PDF
-              </a>
-              <a
-                href="https://mikewatson.us/Michael_Watson_Resume_January_2026.docx"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-xs text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Download Word
-              </a>
-            </div>
-            <Button asChild className="w-full mt-4">
-              <a href={HERO_CONTENT.primaryCta.href}>
-                {HERO_CONTENT.primaryCta.label}
-              </a>
-            </Button>
+            <a
+              href="#methodology"
+              className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary py-2 font-body"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#methodology");
+              }}
+            >
+              Methodology
+            </a>
+            <button
+              onClick={() => handleNavClick("#contact")}
+              className="w-full flex items-center justify-center rounded-lg h-12 px-5 bg-pm-primary hover:bg-pm-primary-dark transition-colors text-white text-sm font-bold mt-4 font-display"
+            >
+              Let's Talk
+            </button>
           </div>
         </div>
       )}
-    </header>
+    </nav>
   );
 }
-

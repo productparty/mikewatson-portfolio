@@ -1,17 +1,16 @@
 import { StickyHeader } from "@/components/consulting/sticky-header";
 import { HeroSection } from "@/components/consulting/hero-section";
-import { ServicePillars } from "@/components/consulting/service-pillars";
-import { HowIThink } from "@/components/consulting/how-i-think";
-import { WhyWorkWithMe } from "@/components/consulting/why-work-with-me";
-import { HowWeWork } from "@/components/consulting/how-we-work";
+import { ExperienceTimeline } from "@/components/consulting/experience-timeline";
+import { SpotlightCaseStudies } from "@/components/consulting/spotlight-case-studies";
+import { MethodologyGrid } from "@/components/consulting/methodology-grid";
 import { FinalCTA } from "@/components/consulting/final-cta";
 import { SeoHead } from "@/components/seo-head";
 import { StructuredData } from "@/components/structured-data";
 import {
   HERO_CONTENT,
-  SERVICE_PILLARS,
-  THOUGHT_LEADERSHIP,
-  WORK_TOGETHER_STEPS,
+  EXPERIENCE_TIMELINE,
+  SPOTLIGHT_CASE_STUDIES,
+  METHODOLOGY_CARDS,
   PORTFOLIO_SEO,
 } from "@/lib/portfolio-content";
 
@@ -20,18 +19,23 @@ export default function Consulting() {
     <>
       <SeoHead seo={PORTFOLIO_SEO} />
       <StructuredData />
-      <div className="min-h-screen bg-background">
+      <div className="min-h-screen bg-pm-background dark:bg-slate-900 font-display">
         <StickyHeader />
         <main>
           <HeroSection content={HERO_CONTENT} />
-          <ServicePillars services={SERVICE_PILLARS} />
-          <HowIThink articles={THOUGHT_LEADERSHIP} />
-          <WhyWorkWithMe />
-          <HowWeWork steps={WORK_TOGETHER_STEPS} />
+          <ExperienceTimeline roles={EXPERIENCE_TIMELINE} />
+          <SpotlightCaseStudies caseStudies={SPOTLIGHT_CASE_STUDIES} />
+          <MethodologyGrid cards={METHODOLOGY_CARDS} />
           <FinalCTA />
         </main>
+        {/* Footer */}
+        <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-pm-muted dark:text-slate-500 font-body">
+          <p>
+            © {new Date().getFullYear()} Mike Watson. Designed with{" "}
+            <span className="text-pm-primary">♥</span> for Product Management.
+          </p>
+        </footer>
       </div>
     </>
   );
 }
-

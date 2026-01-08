@@ -1,9 +1,43 @@
 export interface HeroContent {
   headline: string;
-  body: string;
-  scaleLine?: string;
+  subheadline: string;
+  badges: { icon: string; text: string; variant: "primary" | "secondary" }[];
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
+  floatingMetric: { label: string; value: string };
+}
+
+export interface ExperienceRole {
+  id: string;
+  title: string;
+  company: string;
+  period: string;
+  industry: string;
+  icon: string;
+  problem: string;
+  action: string;
+  outcome: string;
+  highlightedMetric?: string;
+  isCurrent?: boolean;
+}
+
+export interface SpotlightCaseStudy {
+  id: string;
+  tags: string[];
+  title: string;
+  description: string;
+  keyImpact: { label: string; value: string; context?: string };
+  imageUrl: string;
+  imageAlt: string;
+  linkUrl?: string;
+}
+
+export interface MethodologyCard {
+  id: string;
+  icon: string;
+  title: string;
+  quote: string;
+  inPractice: string;
 }
 
 export interface ServicePillar {
@@ -40,4 +74,3 @@ export interface PortfolioSEO {
   canonical: string;
   ogImage?: string;
 }
-
