@@ -238,7 +238,7 @@ export const THOUGHT_LEADERSHIP: ThoughtLeadershipLink[] = [
 ];
 
 export const PORTFOLIO_SEO: PortfolioSEO = {
-  title: "Senior Product Manager",
+  title: "Mike Watson - Senior Product Manager",
   description:
     "Senior Product Manager building products that solve real problems. 14+ years in fintech and enterprise software. Data-driven strategy, user-centric design.",
   canonical: "https://mikewatson.us/consulting",
