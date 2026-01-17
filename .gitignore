@@ -10,3 +10,5 @@ vite.config.ts.*
 .env
 .env.local
 .env.*.local
+nul
+brand-machine/outreach-output.log
