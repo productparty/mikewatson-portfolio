@@ -5,12 +5,13 @@ import type {
   MethodologyCard,
   PortfolioSEO,
   ThoughtLeadershipLink,
+  TechnicalProject,
 } from "@/types/portfolio";
 
 export const HERO_CONTENT: HeroContent = {
-  headline: "Building products that solve real problems.",
+  headline: "Building products and systems that ship.",
   subheadline:
-    "Senior Product Manager specialized in data-driven strategy and user-centric design. I help companies turn complex ambiguity into clear, revenue-generating roadmaps.",
+    "Senior Product Manager who builds and ships. I create working products using React and AI development tools (Cursor, Claude), design automation systems that eliminate manual work, and turn stalled initiatives into launched products. 10+ years in fintech and enterprise software.",
   badges: [
     { icon: "verified", text: "14+ Years Experience", variant: "primary" },
     { icon: "trending_up", text: "Fintech & Enterprise", variant: "secondary" },
@@ -40,8 +41,9 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Strategic initiatives stalled across multiple teams with no structured delivery framework in place.",
     action:
-      "Implementing structured delivery frameworks across 6 teams, realigning stalled initiatives and establishing cross-functional coordination.",
-    outcome: "Delivery framework adoption across 6 teams",
+      "Built end-to-end product intake system where none existed—creating epic/feature/story framework, automated reporting dashboard, and stakeholder alignment process. Took over company's #1 strategic priority (customer data modernization affecting 18M customers) after it stalled, coordinating 7 cross-functional teams to pilot deployment.",
+    outcome:
+      "Currently managing 5 of top 10 company initiatives; eliminated manual status reporting; piloted customer data modernization project",
     isCurrent: true,
   },
   {
@@ -163,14 +165,38 @@ export const SPOTLIGHT_CASE_STUDIES: SpotlightCaseStudy[] = [
   },
 ];
 
+export const TECHNICAL_PROJECTS: TechnicalProject[] = [
+  {
+    id: "leafed",
+    icon: "phone_iphone",
+    title: "Leafed - Mobile App",
+    description:
+      "Built and shipped privacy-first book tracking app to Google Play Store and Apple App Store using React, Cursor, and Claude. Managed full product lifecycle from concept through development, testing, and store deployment.",
+    stack: ["React", "Cursor", "Claude", "RevenueCat", "Custom API"],
+    links: [
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=app.leafed" },
+      { label: "Apple App Store", url: "https://apps.apple.com/app/leafed" },
+    ],
+  },
+  {
+    id: "prompt-evaluation",
+    icon: "psychology",
+    title: "Prompt Evaluation Framework",
+    description:
+      "Building a Python-based system to test and monitor AI prompt performance over time, demonstrating understanding of LLM governance and drift detection.",
+    stack: ["Python", "Claude API", "Notion"],
+    isComingSoon: true,
+  },
+];
+
 export const METHODOLOGY_CARDS: MethodologyCard[] = [
   {
-    id: "discovery-first",
-    icon: "search",
-    title: "Discovery First",
-    quote: '"I don\'t guess, I validate."',
+    id: "build-to-learn",
+    icon: "construction",
+    title: "Build to Learn",
+    quote: '"I build systems to validate assumptions, not just ask questions."',
     inPractice:
-      "Before launching the Hispanic Market Growth Initiative, I built measurement into the LOS to quantify actual demand rather than relying on assumptions. The data revealed 300% higher volume than expected.",
+      "Rather than surveying potential demand for the Hispanic Market Growth Initiative, I instrumented the LOS with tracking to quantify actual behavior. The system revealed 300% higher volume than estimates—leading to a 50-person bilingual team launch within 6 months.",
   },
   {
     id: "agile-delivery",
@@ -181,20 +207,20 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
       "At Credit Acceptance, I transformed multiple waterfall teams to Agile by migrating backlogs, implementing Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
   },
   {
-    id: "data-informed",
-    icon: "analytics",
-    title: "Data Informed",
-    quote: '"Data tells me what, qualitative tells me why."',
+    id: "automation-first",
+    icon: "automation",
+    title: "Automation First",
+    quote: '"If I\'m doing it manually twice, I automate it."',
     inPractice:
-      "At Newrez, I introduced advanced analytics to identify portal pain points. When BBB complaints spiked, the data showed exactly where users struggled, enabling targeted fixes that reduced complaints by 33%.",
+      "At Newrez, I built analytics pipelines to automatically flag portal pain points rather than waiting for complaints. When BBB issues spiked, the system pinpointed exact friction—enabling fixes that reduced complaints 33%. For my personal projects, I've automated data pipelines from API to custom database to mobile app deployment.",
   },
   {
-    id: "stakeholder-alignment",
-    icon: "groups",
-    title: "Stakeholder Alignment",
-    quote: '"No surprises, clear trade-offs."',
+    id: "systems-over-slides",
+    icon: "dashboard",
+    title: "Systems Over Slides",
+    quote: '"I build dashboards that answer questions before they\'re asked."',
     inPractice:
-      "The Rocket Mortgage Salesforce migration required a C-suite leadership decision that would impact 5,000 team members at first launch across 20+ legacy apps. Weekly syncs and transparent roadmaps kept stakeholders aligned through a 6-month transition.",
+      "At Pet Supplies Plus, I created an automated reporting system tracking 5 of the company's top 10 initiatives in real-time—eliminating manual status updates and giving executives self-service visibility into delivery health across 6 teams. At Rocket, this approach kept stakeholders aligned through a 6-month Salesforce migration affecting 5,000 team members.",
   },
 ];
 
@@ -244,11 +270,17 @@ export const PORTFOLIO_SEO: PortfolioSEO = {
   canonical: "https://mikewatson.us/consulting",
 };
 
+export const TOOLS_BUILD_WITH = {
+  aiDevelopment: ["Cursor", "Claude", "ChatGPT"],
+  productAndData: ["React", "Python", "APIs", "JIRA", "Notion", "Figma"],
+  platforms: ["Salesforce", "Oracle", "Intercom", "Google Analytics"],
+};
+
 export const CONTACT_INFO = {
   email: "mwatson1983@gmail.com",
   linkedin: "https://www.linkedin.com/in/michaeljameswatson/",
   resumePdf: "https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf",
   ctaHeadline: "Ready to solve complex problems together?",
   ctaSubheadline:
-    "I'm currently open to Senior Product Manager roles and strategic consulting engagements across any industry. Let's discuss how I can help your organization ship better products.",
+    "I'm a Senior Product Manager who doesn't just write requirements—I build and ship working products. I've deployed a mobile app to both app stores using AI-assisted development (Cursor + Claude), created automation systems that eliminate manual work, and rescued stalled multi-million dollar initiatives across fintech and enterprise software. Currently seeking Senior Product Manager or Product Owner roles where I can leverage both strategic product thinking and hands-on technical building capability.",
 };

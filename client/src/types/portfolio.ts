@@ -32,6 +32,16 @@ export interface SpotlightCaseStudy {
   linkUrl?: string;
 }
 
+export interface TechnicalProject {
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  stack: string[];
+  links?: { label: string; url: string }[];
+  isComingSoon?: boolean;
+}
+
 export interface MethodologyCard {
   id: string;
   icon: string;
