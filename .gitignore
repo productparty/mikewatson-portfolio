@@ -12,3 +12,7 @@ vite.config.ts.*
 .env.*.local
 nul
 brand-machine/outreach-output.log
+brand-machine/
+migrations/
+.env.example
+BRAND_MACHINE_ARCHITECTURE.md
