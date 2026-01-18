@@ -14,9 +14,10 @@ export interface ExperienceRole {
   period: string;
   industry: string;
   icon: string;
-  problem: string;
-  action: string;
-  outcome: string;
+  problem?: string;
+  action?: string;
+  outcome?: string;
+  bullets?: string[];
   highlightedMetric?: string;
   isCurrent?: boolean;
 }

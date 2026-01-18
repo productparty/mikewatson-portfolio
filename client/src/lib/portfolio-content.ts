@@ -41,7 +41,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Strategic initiatives stalled across multiple teams with no structured delivery framework in place.",
     action:
-      "Built end-to-end product intake system where none existed—creating epic/feature/story framework, automated reporting dashboard, and stakeholder alignment process. Took over company's #1 strategic priority (customer data modernization affecting 18M customers) after it stalled, coordinating 7 cross-functional teams to pilot deployment.",
+      "Established end-to-end product intake system where none existed—creating epic/feature/story framework, automated reporting dashboard, and stakeholder alignment process. Took over company's #1 strategic priority (customer data modernization affecting 18M customers) after it stalled, coordinating 7 cross-functional teams to pilot deployment.",
     outcome:
       "Currently managing 5 of top 10 company initiatives; eliminated manual status reporting; piloted customer data modernization project",
     isCurrent: true,
@@ -56,7 +56,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Low enrollment in underperforming states; outdated Oracle CRM hurting 450-person sales team productivity.",
     action:
-      'Led "Test Drive" pilot with A/B testing methodology; modernized Oracle CRM; transformed multiple waterfall teams to Agile with Jira implementation.',
+      'Led "Test Drive" pilot with A/B testing methodology; modernized Oracle CRM; transformed multiple waterfall teams to Agile by rolling out Jira.',
     outcome:
       "33% enrollment increase, nationwide rollout to 450+ dealerships; 10% satisfaction improvement",
   },
@@ -70,7 +70,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Overwhelming customer inquiries draining support resources; minimal e-notary adoption at just 10 uses/month.",
     action:
-      "Launched Intercom chat and AI chatbot platforms; refined e-notary UI/UX addressing technical barriers; unified 3 vendor backlogs into single Jira system.",
+      "Deployed Intercom chat and AI chatbot platforms; refined e-notary UI/UX addressing technical barriers; unified 3 vendor backlogs into single Jira system.",
     outcome:
       "Reduced 2,500+ calls/month; 3,000%+ e-notary adoption growth in 3 months",
   },
@@ -94,12 +94,11 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     period: "Jun 2013 - Nov 2020",
     industry: "Fintech",
     icon: "rocket_launch",
-    problem:
-      "Unknown Hispanic market lead demand; limited compliance insights from 1% manual call review coverage.",
-    action:
-      "Built demand measurement capabilities into LOS; scaled speech analytics from 1% to 10,000+ daily call hours; developed Salesforce migration strategy requiring C-suite leadership decision that would impact 5,000 team members at first launch.",
-    outcome:
-      "300% more Hispanic market leads with dedicated 50-person team; formed 10-member QA team",
+    bullets: [
+      "Built demand measurement into LOS, uncovering 300% more Hispanic market leads than expected—leading to 50-person bilingual sales team within 6 months",
+      "Scaled speech analytics from 1% manual review to analyzing 10,000 daily call hours, enabling compliance insights and 10-member quality team formation",
+      "Led Salesforce migration strategy affecting 5,000 team members across 20+ legacy applications, delivering first MVP within 1 month",
+    ],
   },
   {
     id: "accenture",
@@ -108,12 +107,11 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     period: "Jan 2011 - Jun 2013",
     industry: "Enterprise",
     icon: "corporate_fare",
-    problem:
-      "Global scheduling complexity for 250,000+ employee Fortune 500 company; manual Excel workflows consuming hundreds of hours.",
-    action:
-      "Designed and launched global scheduling platform with 15-person India call center; automated SAP project workflows and reporting dashboards in SharePoint.",
-    outcome:
-      "Saved 1,000+ hours on SAP project; enabled C-suite video conferencing globally",
+    bullets: [
+      "Designed and launched global scheduling platform for Fortune 500 client with 250,000+ employees, establishing 15-person India call center with complete training framework",
+      "Automated Excel-based workflows for 15-workstream SAP implementation, saving 1,000+ hours through file consolidation and process standardization",
+      "Created project reporting dashboards in SharePoint enabling real-time C-suite visibility across 300-person SAP project",
+    ],
   },
 ];
 
@@ -153,7 +151,7 @@ export const SPOTLIGHT_CASE_STUDIES: SpotlightCaseStudy[] = [
     tags: ["Stakeholder Mgmt", "Scale"],
     title: "Hispanic Market Growth Initiative",
     description:
-      "Uncovered hidden demand by building measurement capabilities into the LOS. Championed business case that revealed 300% higher volume than expected, leading to dedicated 50-person Sales team within 6 months.",
+      "Uncovered hidden demand by creating measurement capabilities into the LOS. Championed business case that revealed 300% higher volume than expected, leading to dedicated 50-person Sales team within 6 months.",
     keyImpact: {
       label: "Key Impact",
       value: "300% Lead Increase",
@@ -181,11 +179,11 @@ export const TECHNICAL_PROJECTS: TechnicalProject[] = [
   {
     id: "prompt-evaluation",
     icon: "psychology",
-    title: "Prompt Evaluation Framework",
+    title: "AI Development Quality Framework",
     description:
-      "Building a Python-based system to test and monitor AI prompt performance over time, demonstrating understanding of LLM governance and drift detection.",
-    stack: ["Python", "Claude API", "Notion"],
-    isComingSoon: true,
+      "Custom promptfoo implementation for systematic evaluation of AI-assisted development prompts. Ensures consistent, high-quality code generation before shipping features.",
+    stack: ["promptfoo", "Claude API", "YAML", "Python", "Cursor"],
+    links: [{ label: "View Case Study", url: "/prompt-framework" }],
   },
 ];
 
@@ -196,7 +194,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Build to Learn",
     quote: '"I build systems to validate assumptions, not just ask questions."',
     inPractice:
-      "Rather than surveying potential demand for the Hispanic Market Growth Initiative, I instrumented the LOS with tracking to quantify actual behavior. The system revealed 300% higher volume than estimates—leading to a 50-person bilingual team launch within 6 months.",
+      "For Leafed, instead of surveying users about desired features, I instrumented the app with analytics to track actual behavior. The data revealed 85% abandoned onboarding—prompting me to redesign first-run experience before adding any new features.",
   },
   {
     id: "agile-delivery",
@@ -204,7 +202,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Agile Delivery",
     quote: '"Shipping value, not just code."',
     inPractice:
-      "At Credit Acceptance, I transformed multiple waterfall teams to Agile by migrating backlogs, implementing Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
+      "At Credit Acceptance, I transformed multiple waterfall teams to Agile by migrating backlogs, rolling out Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
   },
   {
     id: "automation-first",
@@ -212,7 +210,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Automation First",
     quote: '"If I\'m doing it manually twice, I automate it."',
     inPractice:
-      "At Newrez, I built analytics pipelines to automatically flag portal pain points rather than waiting for complaints. When BBB issues spiked, the system pinpointed exact friction—enabling fixes that reduced complaints 33%. For my personal projects, I've automated data pipelines from API to custom database to mobile app deployment.",
+      "At Newrez, I created analytics pipelines to automatically flag portal pain points rather than waiting for complaints. When BBB issues spiked, the system pinpointed exact friction—enabling fixes that reduced complaints 33%. For my personal projects, I've automated data pipelines from API to custom database to mobile app deployment.",
   },
   {
     id: "systems-over-slides",

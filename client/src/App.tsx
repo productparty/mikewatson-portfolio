@@ -6,6 +6,7 @@ import Consulting from "@/pages/consulting";
 import About from "@/pages/about";
 import Chat from "@/pages/chat";
 import Analytics from "@/pages/analytics";
+import PromptFramework from "@/pages/prompt-framework";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -15,6 +16,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/chat" component={Chat} />
       <Route path="/analytics" component={Analytics} />
+      <Route path="/prompt-framework" component={PromptFramework} />
       <Route component={NotFound} />
     </Switch>
   );

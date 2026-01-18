@@ -59,43 +59,54 @@ export function ExperienceTimeline({ roles }: ExperienceTimelineProps) {
                   </span>
                 </div>
 
-                {/* Problem/Action/Outcome */}
-                <div className="space-y-3 font-body">
-                  <div className="flex gap-3 text-sm">
-                    <span className="font-bold min-w-[70px] text-pm-muted">
-                      Problem:
-                    </span>
-                    <span className="text-slate-600 dark:text-slate-300">
-                      {role.problem}
-                    </span>
+                {/* Bullets or Problem/Action/Outcome */}
+                {role.bullets ? (
+                  <ul className="space-y-2 font-body">
+                    {role.bullets.map((bullet, idx) => (
+                      <li key={idx} className="text-sm text-slate-600 dark:text-slate-300 flex gap-2">
+                        <span className="text-pm-primary mt-1">•</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="space-y-3 font-body">
+                    <div className="flex gap-3 text-sm">
+                      <span className="font-bold min-w-[70px] text-pm-muted">
+                        Problem:
+                      </span>
+                      <span className="text-slate-600 dark:text-slate-300">
+                        {role.problem}
+                      </span>
+                    </div>
+                    <div className="flex gap-3 text-sm">
+                      <span className="font-bold min-w-[70px] text-pm-muted">
+                        Action:
+                      </span>
+                      <span className="text-slate-600 dark:text-slate-300">
+                        {role.action}
+                      </span>
+                    </div>
+                    <div className="flex gap-3 text-sm pt-2 border-t border-slate-200 dark:border-slate-800">
+                      <span className="font-bold min-w-[70px] text-pm-primary">
+                        Outcome:
+                      </span>
+                      <span className="font-bold text-slate-900 dark:text-white">
+                        {role.highlightedMetric ? (
+                          <>
+                            {role.outcome.split(role.highlightedMetric)[0]}
+                            <span className="text-pm-primary">
+                              {role.highlightedMetric}
+                            </span>
+                            {role.outcome.split(role.highlightedMetric)[1]}
+                          </>
+                        ) : (
+                          role.outcome
+                        )}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex gap-3 text-sm">
-                    <span className="font-bold min-w-[70px] text-pm-muted">
-                      Action:
-                    </span>
-                    <span className="text-slate-600 dark:text-slate-300">
-                      {role.action}
-                    </span>
-                  </div>
-                  <div className="flex gap-3 text-sm pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <span className="font-bold min-w-[70px] text-pm-primary">
-                      Outcome:
-                    </span>
-                    <span className="font-bold text-slate-900 dark:text-white">
-                      {role.highlightedMetric ? (
-                        <>
-                          {role.outcome.split(role.highlightedMetric)[0]}
-                          <span className="text-pm-primary">
-                            {role.highlightedMetric}
-                          </span>
-                          {role.outcome.split(role.highlightedMetric)[1]}
-                        </>
-                      ) : (
-                        role.outcome
-                      )}
-                    </span>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
           ))}
