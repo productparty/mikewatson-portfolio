@@ -36,7 +36,7 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
             Tools I Build With
           </h2>
           <p className="text-pm-muted dark:text-slate-400 font-body">
-            The technologies and platforms I use to build and ship products.
+            Technologies and platforms I use to build and ship products.
           </p>
         </div>
 

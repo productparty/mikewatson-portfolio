@@ -88,12 +88,12 @@ export default function PromptFramework() {
             </div>
           </header>
 
-          {/* The Challenge */}
+          {/* Challenge */}
           <section className="py-16 bg-white dark:bg-slate-800 border-y border-slate-100 dark:border-slate-700">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
               <div className="max-w-3xl">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
-                  The Problem with AI-Assisted Development
+                  Problem with AI-Assisted Development
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-body">
                   AI development tools like Cursor and Claude are powerful—but
@@ -158,7 +158,7 @@ export default function PromptFramework() {
             </div>
           </section>
 
-          {/* The Solution */}
+          {/* Solution */}
           <section className="py-16">
             <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
               <div className="max-w-3xl">
@@ -603,7 +603,7 @@ export default function PromptFramework() {
             <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
               <div className="max-w-3xl">
                 <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
-                  The Governance Layer
+                  Governance Layer
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed font-body">
                   This isn't just about my workflow—it demonstrates

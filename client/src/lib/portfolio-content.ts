@@ -280,5 +280,5 @@ export const CONTACT_INFO = {
   resumePdf: "https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf",
   ctaHeadline: "Ready to solve complex problems together?",
   ctaSubheadline:
-    "I'm a Senior Product Manager who doesn't just write requirements—I build and ship working products. I've deployed a mobile app to both app stores using AI-assisted development (Cursor + Claude), created automation systems that eliminate manual work, and rescued stalled multi-million dollar initiatives across fintech and enterprise software. Currently seeking Senior Product Manager or Product Owner roles where I can leverage both strategic product thinking and hands-on technical building capability.",
+    "Senior Product Manager who builds and ships. Deployed mobile apps, created automation systems, and rescued stalled initiatives across fintech and enterprise software.",
 };
