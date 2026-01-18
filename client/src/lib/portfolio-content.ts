@@ -192,17 +192,17 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     id: "build-to-learn",
     icon: "construction",
     title: "Build to Learn",
-    quote: '"I build systems to validate assumptions, not just ask questions."',
+    quote: '"I build things to find out what\'s true, not just to ship features."',
     inPractice:
-      "For Leafed, instead of surveying users about desired features, I instrumented the app with analytics to track actual behavior. The data revealed 85% abandoned onboarding—prompting me to redesign first-run experience before adding any new features.",
+      "When I'm uncertain about what users actually need, I don't schedule another round of interviews—I build something lightweight that measures what they do. Surveys tell you what people think they want. Instrumented systems show you what they really need. It's faster, it's clearer, and it keeps you honest about whether you're solving the right problem.",
   },
   {
     id: "agile-delivery",
     icon: "rocket_launch",
     title: "Agile Delivery",
-    quote: '"Shipping value, not just code."',
+    quote: '"Ship the smallest thing that teaches you the most."',
     inPractice:
-      "At Credit Acceptance, I transformed multiple waterfall teams to Agile by migrating backlogs, rolling out Jira, and refining sprint workflows. Delivery timelines improved within the first quarter.",
+      "Big initiatives don't fail because the plan was wrong—they fail because we waited too long to test it. I've found the best approach is breaking things into the smallest shippable increment that proves the concept. Get it in front of users, watch what happens, adjust. A working MVP in production beats a perfect PRD gathering dust.",
   },
   {
     id: "automation-first",
@@ -210,15 +210,15 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Automation First",
     quote: '"If I\'m doing it manually twice, I automate it."',
     inPractice:
-      "At Newrez, I created analytics pipelines to automatically flag portal pain points rather than waiting for complaints. When BBB issues spiked, the system pinpointed exact friction—enabling fixes that reduced complaints 33%. For my personal projects, I've automated data pipelines from API to custom database to mobile app deployment.",
+      "The second time I find myself doing repetitive work, I build the thing that does it for me. Status updates become dashboards. Analysis becomes pipelines. One-off requests become self-service tools. It's not about being lazy—it's about scaling yourself so you can focus on the problems that actually need a human.",
   },
   {
     id: "systems-over-slides",
     icon: "dashboard",
     title: "Systems Over Slides",
-    quote: '"I build dashboards that answer questions before they\'re asked."',
+    quote: '"I\'d rather build a dashboard than sit in a status meeting."',
     inPractice:
-      "At Pet Supplies Plus, I created an automated reporting system tracking 5 of the company's top 10 initiatives in real-time—eliminating manual status updates and giving executives self-service visibility into delivery health across 6 teams. At Rocket, this approach kept stakeholders aligned through a 6-month Salesforce migration affecting 5,000 team members.",
+      "I'd rather spend an hour building a dashboard than an hour explaining what's happening. When stakeholders have real-time visibility into the work, they stop asking for updates and start making decisions. The goal isn't to look busy—it's to make the work transparent enough that everyone can move faster.",
   },
 ];
 
