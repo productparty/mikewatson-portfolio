@@ -152,36 +152,39 @@ export function AIHeroSection() {
 
   return (
     <section className="relative min-h-[calc(100vh-64px)] flex flex-col">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-6">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8">
         <div className="w-full max-w-3xl mx-auto">
-          {/* Compact Header - Only show when no messages */}
+          {/* Intro Section - Only show when no messages */}
           {!hasConversation && (
-            <div className="flex items-center gap-4 mb-6">
-              {/* Photo - smaller, circular */}
-              <div className="flex-shrink-0">
+            <div className="text-center mb-8">
+              {/* Photo */}
+              <div className="flex justify-center mb-4">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-tr from-pm-primary/30 to-sky-500/30 rounded-full blur-xl scale-110" />
                   <img
                     src={PERSONAL_INFO.avatar}
                     alt="Mike Watson"
-                    className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-3 border-white dark:border-slate-700 shadow-lg"
+                    className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-lg"
                   />
                 </div>
               </div>
 
-              {/* Text */}
-              <div className="flex-1 min-w-0">
-                <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-display leading-tight">
-                  Mike Watson
-                </h1>
-                <p className="text-sm sm:text-base text-pm-primary dark:text-blue-400 font-semibold mb-1">
-                  Senior Product Manager
-                </p>
-                <p className="text-sm text-pm-muted dark:text-slate-400 leading-snug hidden sm:block">
-                  I trained an AI on 150+ newsletter posts, 10 years of PM work,
-                  and the opinions I save for the second coffee.
-                </p>
-              </div>
+              {/* Name & Title */}
+              <h1 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-display mb-1">
+                Mike Watson
+              </h1>
+              <p className="text-base sm:text-lg text-pm-primary dark:text-blue-400 font-semibold mb-4">
+                Senior Product Manager
+              </p>
+
+              {/* Value Proposition */}
+              <p className="text-base sm:text-lg text-pm-muted dark:text-slate-400 leading-relaxed max-w-xl mx-auto mb-2">
+                I trained an AI on 150+ newsletter posts, 10 years of PM work,
+                and the opinions I save for the second coffee.
+              </p>
+              <p className="text-lg sm:text-xl font-semibold text-slate-700 dark:text-slate-200">
+                Skip the resume. Interview me instead.
+              </p>
             </div>
           )}
 
@@ -247,16 +250,16 @@ export function AIHeroSection() {
 
             {/* Starter Questions */}
             {!hasConversation && (
-              <div className="px-4 py-4">
-                <p className="text-xs text-pm-muted dark:text-slate-400 text-center mb-3 uppercase tracking-wide font-medium">
-                  Try asking
+              <div className="px-4 sm:px-6 py-5">
+                <p className="text-sm text-pm-muted dark:text-slate-400 text-center mb-4">
+                  Ask about my experience, approach, or what I'm looking for next:
                 </p>
                 <div className="flex flex-wrap gap-2 justify-center">
                   {STARTER_QUESTIONS.map((question, index) => (
                     <button
                       key={index}
                       onClick={() => handleStarterClick(question)}
-                      className="px-3 py-1.5 text-sm bg-slate-50 dark:bg-slate-700 hover:bg-pm-primary/10 dark:hover:bg-slate-600 text-pm-body dark:text-slate-300 rounded-full transition-colors border border-slate-200 dark:border-slate-600 hover:border-pm-primary/30"
+                      className="px-4 py-2 text-sm bg-slate-50 dark:bg-slate-700 hover:bg-pm-primary/10 dark:hover:bg-slate-600 text-pm-body dark:text-slate-300 rounded-full transition-colors border border-slate-200 dark:border-slate-600 hover:border-pm-primary/30"
                     >
                       {question}
                     </button>
@@ -302,12 +305,6 @@ export function AIHeroSection() {
             </div>
           </div>
 
-          {/* Mobile-only tagline */}
-          {!hasConversation && (
-            <p className="text-sm text-pm-muted dark:text-slate-400 text-center mt-4 sm:hidden px-4">
-              I trained an AI on 150+ newsletter posts and 10 years of PM work. Ask it anything.
-            </p>
-          )}
         </div>
       </div>
 
