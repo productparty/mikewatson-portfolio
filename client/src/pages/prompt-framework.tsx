@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { StickyHeader } from "@/components/consulting/sticky-header";
 import { FinalCTA } from "@/components/consulting/final-cta";
 import { SeoHead } from "@/components/seo-head";
@@ -53,6 +54,10 @@ const TEST_CATEGORIES = [
 ];
 
 export default function PromptFramework() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <SeoHead seo={PROMPT_FRAMEWORK_SEO} />

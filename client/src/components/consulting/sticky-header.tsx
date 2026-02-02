@@ -63,6 +63,16 @@ export function StickyHeader() {
               Experience
             </a>
             <a
+              href="#technical-projects"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#technical-projects");
+              }}
+              className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary transition-colors font-body"
+            >
+              Projects
+            </a>
+            <a
               href="#case-studies"
               onClick={(e) => {
                 e.preventDefault();
@@ -128,6 +138,16 @@ export function StickyHeader() {
               }}
             >
               Experience
+            </a>
+            <a
+              href="#technical-projects"
+              className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary py-2 font-body"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("#technical-projects");
+              }}
+            >
+              Projects
             </a>
             <a
               href="#case-studies"
