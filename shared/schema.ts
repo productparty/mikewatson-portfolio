@@ -85,6 +85,25 @@ export const evaluationResults = pgTable("evaluation_results", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
+// Chat leads - captures visitor contact info from AI chat
+export const chatLeads = pgTable("chat_leads", {
+  id: serial("id").primaryKey(),
+  sessionId: text("session_id").notNull().unique(),
+  name: text("name").notNull(),
+  email: text("email").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  emailSent: boolean("email_sent").default(false),
+});
+
+// Chat transcripts - stores full conversation history
+export const chatTranscripts = pgTable("chat_transcripts", {
+  id: serial("id").primaryKey(),
+  sessionId: text("session_id").notNull().unique(),
+  leadId: integer("lead_id").references(() => chatLeads.id),
+  messages: jsonb("messages").notNull(), // Array of { role: 'user' | 'assistant', content: string }
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
 export const insertProjectSchema = createInsertSchema(projects).omit({ id: true });
 export const insertChatMessageSchema = createInsertSchema(chatMessages).omit({ id: true });
 export const insertNewsletterSchema = createInsertSchema(newsletter).omit({ id: true });
@@ -94,6 +113,8 @@ export const insertVisitorSessionSchema = createInsertSchema(visitorSessions).om
 export const insertInteractionEventSchema = createInsertSchema(interactionEvents).omit({ id: true });
 export const insertPromptEvaluationSchema = createInsertSchema(promptEvaluations).omit({ id: true, createdAt: true });
 export const insertEvaluationResultSchema = createInsertSchema(evaluationResults).omit({ id: true, createdAt: true });
+export const insertChatLeadSchema = createInsertSchema(chatLeads).omit({ id: true, createdAt: true, emailSent: true });
+export const insertChatTranscriptSchema = createInsertSchema(chatTranscripts).omit({ id: true, updatedAt: true });
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
@@ -113,3 +134,7 @@ export type PromptEvaluation = typeof promptEvaluations.$inferSelect;
 export type InsertPromptEvaluation = z.infer<typeof insertPromptEvaluationSchema>;
 export type EvaluationResult = typeof evaluationResults.$inferSelect;
 export type InsertEvaluationResult = z.infer<typeof insertEvaluationResultSchema>;
+export type ChatLead = typeof chatLeads.$inferSelect;
+export type InsertChatLead = z.infer<typeof insertChatLeadSchema>;
+export type ChatTranscript = typeof chatTranscripts.$inferSelect;
+export type InsertChatTranscript = z.infer<typeof insertChatTranscriptSchema>;

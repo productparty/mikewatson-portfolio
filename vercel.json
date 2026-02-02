@@ -1,16 +1,17 @@
 {
   "version": 2,
-  "buildCommand": "npm run build:vercel",
-  "outputDirectory": "dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
   "functions": {
-    "api/**/*.js": {
+    "api/**/*.ts": {
       "memory": 1024,
-      "maxDuration": 10
+      "maxDuration": 30,
+      "includeFiles": "corpus/**/*"
     }
   },
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/(.*\\.(js|css|png|jpg|jpeg|svg|ico|json))", "dest": "/public/$1" },
-    { "src": "/(.*)", "dest": "/public/index.html" }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
-} 
+}
