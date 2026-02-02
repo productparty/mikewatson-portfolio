@@ -1,0 +1,5 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription
+93783273,2022-12-31T11:03:46.094Z,yudijagani@gmail.com,newsletter,everyone,true
+93783273,2022-12-31T11:03:46.310Z,angeliamirkhani@gmail.com,newsletter,everyone,true
+93783273,2022-12-31T11:03:46.919Z,mwatson1983@gmail.com,newsletter,everyone,false
+93783273,2022-12-31T11:03:47.494Z,msaewert@creditacceptance.com,newsletter,everyone,true

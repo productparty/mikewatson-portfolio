@@ -1,0 +1,36 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription,country,city,region,device_type,client_os,client_type,user_agent
+97957637,2023-02-06T11:06:54.531Z,evan@waetzman.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T11:15:14.708Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T11:15:34.601Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T11:21:37.305Z,jfmiller85@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T11:38:35.632Z,jfmiller85@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T11:51:34.076Z,matt.carnaghi@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T12:14:49.378Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-06T13:20:28.796Z,alan.delavega@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T13:24:12.174Z,amycmitchell14@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T13:41:26.117Z,malumbea@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T14:07:20.987Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-06T14:07:21.183Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-06T14:20:17.516Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T14:24:07.806Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T14:31:53.476Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T15:41:37.096Z,sangeethasudhakar95@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-06T16:18:14.795Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T17:04:56.299Z,angeliamirkhani@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T18:27:31.656Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+97957637,2023-02-06T19:25:05.309Z,m.montewski@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T19:32:48.686Z,amycmitchell14@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T19:34:47.823Z,amycmitchell14@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-06T23:55:09.682Z,yudijagani@gmail.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+97957637,2023-02-07T14:02:05.648Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T14:02:05.696Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T14:05:33.791Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T14:05:33.842Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T14:06:16.466Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T14:06:16.540Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957637,2023-02-07T16:39:10.467Z,sf2337@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-12T02:05:30.996Z,sf2337@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-19T00:43:12.680Z,wanyuguan20@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957637,2023-02-19T19:36:30.123Z,malumbea@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-02-21T19:17:15.839Z,malumbea@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957637,2023-03-05T17:19:34.906Z,malumbea@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0

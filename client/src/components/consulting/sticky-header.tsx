@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Menu, X } from "lucide-react";
-import { HERO_CONTENT } from "@/lib/portfolio-content";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 export function StickyHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -46,6 +45,13 @@ export function StickyHeader() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-1 justify-end gap-8 items-center">
           <div className="flex items-center gap-6">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="flex items-center gap-1.5 text-sm font-medium text-pm-primary hover:text-pm-primary-dark transition-colors font-body"
+            >
+              <MessageCircle size={16} />
+              Ask AI
+            </button>
             <a
               href="#experience"
               onClick={(e) => {
@@ -103,6 +109,16 @@ export function StickyHeader() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-pm-background dark:bg-slate-900">
           <div className="px-4 py-4 space-y-3">
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="flex items-center gap-2 text-sm font-medium text-pm-primary py-2 font-body"
+            >
+              <MessageCircle size={16} />
+              Ask AI
+            </button>
             <a
               href="#experience"
               className="block text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-pm-primary py-2 font-body"

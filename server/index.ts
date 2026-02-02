@@ -1,8 +1,36 @@
+import "dotenv/config";
 import express, { type Request, Response, NextFunction } from "express";
+import cors from "cors";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
+
+// CORS configuration - restrict to allowed origins
+const allowedOrigins = [
+  "https://mikewatson.us",
+  "https://www.mikewatson.us",
+  "http://localhost:5000",
+  "http://localhost:3000",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl)
+      // In production, you may want to be stricter
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -53,7 +81,9 @@ export { app };
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
+  // Use process.env.NODE_ENV directly since dotenv loads it from .env
+  const isDev = process.env.NODE_ENV !== "production";
+  if (isDev) {
     await setupVite(app, server);
   } else {
     serveStatic(app);
@@ -64,12 +94,11 @@ export { app };
     // ALWAYS serve the app on port 5000
     // this serves both the API and the client
     const port = 5000;
-    server.listen({
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    }, () => {
+    // Use standard listen() - reusePort is Linux-only and not supported on Windows
+    server.listen(port, "0.0.0.0", () => {
       log(`serving on port ${port}`);
+    }).on('error', (err) => {
+      throw err;
     });
   }
 })();

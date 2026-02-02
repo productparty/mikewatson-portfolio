@@ -1,4 +1,4 @@
-import { db } from "./db";
+import { db, hasDatabase } from "./db";
 import { eq, and, desc, gte, lte } from "drizzle-orm";
 import {
   projects,
@@ -8,6 +8,9 @@ import {
   pageViews,
   visitorSessions,
   interactionEvents,
+  // Note: promptEvaluations and evaluationResults are now in-memory only
+  type PromptEvaluation,
+  type EvaluationResult,
   type Project,
   type InsertProject,
   type ChatMessage,
@@ -22,6 +25,8 @@ import {
   type InsertVisitorSession,
   type InteractionEvent,
   type InsertInteractionEvent,
+  type InsertPromptEvaluation,
+  type InsertEvaluationResult,
 } from "@shared/schema";
 
 export interface IStorage {
@@ -56,33 +61,58 @@ export interface IStorage {
     averageSessionDuration: number;
     popularPages: { path: string; views: number }[];
   }>;
+
+  // Prompt Evaluations
+  createPromptEvaluation(evaluation: InsertPromptEvaluation): Promise<PromptEvaluation>;
+  createEvaluationResult(result: InsertEvaluationResult): Promise<EvaluationResult>;
+  getEvaluationHistory(limit?: number): Promise<(PromptEvaluation & { results: EvaluationResult[] })[]>;
+  getEvaluationById(id: number): Promise<PromptEvaluation & { results: EvaluationResult[] } | null>;
 }
 
 export class DatabaseStorage implements IStorage {
+  // Database-dependent methods - only work if DATABASE_URL is set
   async getProjects(): Promise<Project[]> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     return db.select().from(projects);
   }
 
   async addProject(project: InsertProject): Promise<Project> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     const [inserted] = await db.insert(projects).values(project).returning();
     return inserted;
   }
 
   async getChatMessages(): Promise<ChatMessage[]> {
+    if (!hasDatabase()) {
+      return []; // Return empty array if no database
+    }
     return db.select().from(chatMessages).orderBy(chatMessages.timestamp);
   }
 
   async addChatMessage(message: InsertChatMessage): Promise<ChatMessage> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     const [inserted] = await db.insert(chatMessages).values(message).returning();
     return inserted;
   }
 
   async addNewsletterSubscription(sub: InsertNewsletter): Promise<Newsletter> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     const [inserted] = await db.insert(newsletter).values(sub).returning();
     return inserted;
   }
 
   async isEmailSubscribed(email: string): Promise<boolean> {
+    if (!hasDatabase()) {
+      return false;
+    }
     const [existing] = await db
       .select()
       .from(newsletter)
@@ -91,6 +121,9 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getGithubUpdates(): Promise<GithubUpdate[]> {
+    if (!hasDatabase()) {
+      return [];
+    }
     return db
       .select()
       .from(githubUpdates)
@@ -98,22 +131,35 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateGithubData(updates: InsertGithubUpdate[]): Promise<GithubUpdate[]> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     // Delete existing records and insert new ones
     await db.delete(githubUpdates);
     return db.insert(githubUpdates).values(updates).returning();
   }
 
   async recordPageView(view: InsertPageView): Promise<PageView> {
+    if (!hasDatabase()) {
+      // Return a mock object if no database
+      return { ...view, id: Date.now(), timestamp: view.timestamp || new Date() } as PageView;
+    }
     const [inserted] = await db.insert(pageViews).values(view).returning();
     return inserted;
   }
 
   async startVisitorSession(session: InsertVisitorSession): Promise<VisitorSession> {
+    if (!hasDatabase()) {
+      return { ...session, id: Date.now(), startTime: session.startTime || new Date() } as VisitorSession;
+    }
     const [inserted] = await db.insert(visitorSessions).values(session).returning();
     return inserted;
   }
 
   async updateVisitorSession(sessionId: string, endTime: Date): Promise<VisitorSession> {
+    if (!hasDatabase()) {
+      throw new Error("Database not configured. DATABASE_URL is required for this feature.");
+    }
     const [updated] = await db
       .update(visitorSessions)
       .set({ endTime })
@@ -123,11 +169,17 @@ export class DatabaseStorage implements IStorage {
   }
 
   async recordInteractionEvent(event: InsertInteractionEvent): Promise<InteractionEvent> {
+    if (!hasDatabase()) {
+      return { ...event, id: Date.now(), timestamp: event.timestamp || new Date() } as InteractionEvent;
+    }
     const [inserted] = await db.insert(interactionEvents).values(event).returning();
     return inserted;
   }
 
   async getPageViews(startDate: Date, endDate: Date): Promise<PageView[]> {
+    if (!hasDatabase()) {
+      return [];
+    }
     return db
       .select()
       .from(pageViews)
@@ -141,6 +193,9 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getVisitorSessions(startDate: Date, endDate: Date): Promise<VisitorSession[]> {
+    if (!hasDatabase()) {
+      return [];
+    }
     return db
       .select()
       .from(visitorSessions)
@@ -154,6 +209,9 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getInteractionEvents(startDate: Date, endDate: Date): Promise<InteractionEvent[]> {
+    if (!hasDatabase()) {
+      return [];
+    }
     return db
       .select()
       .from(interactionEvents)
@@ -171,6 +229,13 @@ export class DatabaseStorage implements IStorage {
     averageSessionDuration: number;
     popularPages: { path: string; views: number }[];
   }> {
+    if (!hasDatabase()) {
+      return {
+        totalVisitors: 0,
+        averageSessionDuration: 0,
+        popularPages: [],
+      };
+    }
     // Get sessions within date range
     const sessions = await this.getVisitorSessions(startDate, endDate);
     const views = await this.getPageViews(startDate, endDate);
@@ -201,6 +266,68 @@ export class DatabaseStorage implements IStorage {
       averageSessionDuration: avgDuration,
       popularPages,
     };
+  }
+
+  // In-memory storage for prompt evaluations (no database needed)
+  private evaluationStore: (PromptEvaluation & { results: EvaluationResult[] })[] = [];
+  private nextEvaluationId = 1;
+  private nextResultId = 1;
+
+  async createPromptEvaluation(
+    evaluation: InsertPromptEvaluation
+  ): Promise<PromptEvaluation> {
+    const newEvaluation: PromptEvaluation = {
+      id: this.nextEvaluationId++,
+      promptText: evaluation.promptText,
+      provider: evaluation.provider as "claude" | "openai",
+      model: evaluation.model,
+      testScenario: evaluation.testScenario,
+      variationName: evaluation.variationName || null,
+      createdAt: new Date(),
+    };
+    
+    // Add to store with empty results array
+    this.evaluationStore.push({ ...newEvaluation, results: [] });
+    
+    return newEvaluation;
+  }
+
+  async createEvaluationResult(
+    result: InsertEvaluationResult
+  ): Promise<EvaluationResult> {
+    const newResult: EvaluationResult = {
+      id: this.nextResultId++,
+      evaluationId: result.evaluationId,
+      planOutput: result.planOutput,
+      qualityScores: result.qualityScores as any,
+      assertionsPassed: result.assertionsPassed as any,
+      feedback: result.feedback || null,
+      createdAt: new Date(),
+    };
+
+    // Find the evaluation and add the result
+    const evaluation = this.evaluationStore.find(
+      (e) => e.id === result.evaluationId
+    );
+    if (evaluation) {
+      evaluation.results.push(newResult);
+    }
+
+    return newResult;
+  }
+
+  async getEvaluationHistory(
+    limit: number = 50
+  ): Promise<(PromptEvaluation & { results: EvaluationResult[] })[]> {
+    return this.evaluationStore
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime())
+      .slice(0, limit);
+  }
+
+  async getEvaluationById(
+    id: number
+  ): Promise<(PromptEvaluation & { results: EvaluationResult[] }) | null> {
+    return this.evaluationStore.find((e) => e.id === id) || null;
   }
 }
 

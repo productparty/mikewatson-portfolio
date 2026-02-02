@@ -10,9 +10,9 @@ vite.config.ts.*
 .env
 .env.local
 .env.*.local
+promptfoo/.env
 nul
 brand-machine/outreach-output.log
 brand-machine/
 migrations/
-.env.example
 BRAND_MACHINE_ARCHITECTURE.md

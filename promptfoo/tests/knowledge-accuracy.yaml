@@ -1,0 +1,147 @@
+# Knowledge Accuracy Tests
+# Validates: Correct metrics, right companies, accurate project details
+
+- description: "E-notary story - correct company and metric"
+  vars:
+    query: "Tell me about the e-notary project"
+  assert:
+    - type: contains-any
+      value: ["3,000%", "3000%", "three thousand percent"]
+    - type: contains
+      value: "Auto"
+    - type: llm-rubric
+      value: >
+        Response should describe this as a UX/technical barrier problem, not a marketing
+        or awareness problem. The insight was that the product worked fine but the path
+        to using it was broken.
+
+- description: "Leafed - accurate description"
+  vars:
+    query: "What is Leafed?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Response must describe Leafed as a privacy-first book tracking app. Must mention
+        it's available on both iOS and Android app stores. Must mention Mike built it
+        using AI development tools (Cursor, Claude) despite not being a developer by training.
+        Should NOT describe it as open source (it's not).
+
+- description: "Product Party - accurate stats"
+  vars:
+    query: "Tell me about your newsletter"
+  assert:
+    - type: contains-any
+      value: ["2,000", "2000", "two thousand"]
+    - type: contains
+      value: "Product Party"
+    - type: llm-rubric
+      value: >
+        Should describe Product Party as a weekly newsletter about product management.
+        Should mention it's on Substack. Should reference that it covers product strategy,
+        career development, and AI in product management.
+
+- description: "Pet Supplies Plus - correct role context"
+  vars:
+    query: "What do you do at Pet Supplies Plus?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should describe the role as Product Operations Manager or similar.
+        Should mention running strategic initiatives.
+        Should reference bringing discipline or structure (JIRA, dashboards, etc.).
+
+- description: "Rocket Mortgage - correct tenure and key projects"
+  vars:
+    query: "What did you do at Rocket Mortgage?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should reference approximately 7 years of tenure (2013-2020).
+        Should mention at least one of: Spanish-preferred leads discovery,
+        speech analytics scaling, or Salesforce migration.
+        Should convey this was a formative period in Mike's career.
+
+- description: "Credit Acceptance - Dealer Test Drive details"
+  vars:
+    query: "Tell me about the Dealer Test Drive program"
+  assert:
+    - type: contains-any
+      value: ["33%", "thirty-three percent"]
+    - type: contains
+      value: "Credit Acceptance"
+    - type: llm-rubric
+      value: >
+        Should describe this as a pilot program with AB testing methodology.
+        Should mention it resulted in nationwide rollout across 450+ dealerships.
+
+- description: "Doesn't confuse companies"
+  vars:
+    query: "Did you launch the Intercom chatbot at Rocket Mortgage?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Response should correctly attribute the Intercom/AI chatbot launch to Auto Improve,
+        NOT Rocket Mortgage. Should politely correct the assumption if the question
+        implies the wrong company.
+
+- description: "Education is accurate"
+  vars:
+    query: "Where did you go to school?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should mention Master of Science in Information Resource Management from
+        Central Michigan University (2010) and Bachelor of Business Administration
+        from University of Phoenix (2008). If exact details not available, should
+        acknowledge and not fabricate.
+
+- description: "AI Chat Anchor - accurate description"
+  vars:
+    query: "What is AI Chat Anchor?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should describe it as a browser extension for bookmarking specific responses
+        in AI chat conversations. Should mention it's open source on GitHub.
+
+- description: "Total career impact - reasonable framing"
+  vars:
+    query: "What's the biggest impact you've had in your career?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should reference concrete achievements with real numbers (efficiency gains,
+        adoption metrics, team scaling). Should not inflate or fabricate numbers beyond
+        what's in the corpus. Should mention multiple roles to show breadth of impact.
+
+- description: "Claude skills - accurate description"
+  vars:
+    query: "What Claude skills have you built?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should reference the Product Party content creation skill at minimum.
+        Should describe it as a system that captures voice/style rules, anti-AI-detection
+        techniques, and editorial frameworks. Should frame this as practical AI governance work.
+
+- description: "Accenture - correct framing as early career"
+  vars:
+    query: "What was your first job?"
+  assert:
+    - type: llm-rubric
+      value: >
+        Should identify Accenture as early career (Analyst role, 2011-2013).
+        Should frame it as foundational experience in enterprise consulting.
+        Should mention Fortune 500 client work and SAP implementations.
+
+- description: "Newrez - BBB complaints metric"
+  vars:
+    query: "Tell me about your time at Newrez"
+  assert:
+    - type: contains-any
+      value: ["33%", "thirty-three"]
+    - type: llm-rubric
+      value: >
+        Should mention reducing Better Business Bureau complaints.
+        Should reference managing across 21 mortgage brands.
+        Should reference the 800,000-user platform.

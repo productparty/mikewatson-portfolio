@@ -1,0 +1,6 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription,country,city,region,device_type,client_os,client_type,user_agent
+91468920,2022-12-18T19:38:12.051Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+91468920,2022-12-18T20:26:05.349Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+91468920,2022-12-19T17:16:13.274Z,msaewert@creditacceptance.com,newsletter,everyone,true,US,,,,,,"Microsoft Office/16.0 (Microsoft Outlook 16.0.14326; Pro), Mozilla/4.0 (compatible; ms-office; MSOffice rmj)"
+91468920,2022-12-19T17:16:26.548Z,msaewert@creditacceptance.com,newsletter,everyone,true,US,,,,,,"Microsoft Office/16.0 (Microsoft Outlook 16.0.14326; Pro), Mozilla/4.0 (compatible; ms-office; MSOffice rmj)"
+91468920,2022-12-24T19:46:56.356Z,msaewert@creditacceptance.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)

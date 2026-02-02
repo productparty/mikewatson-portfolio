@@ -1,0 +1,7 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription,country,city,region,device_type,client_os,client_type,user_agent
+82736439,2022-11-05T15:43:42.674Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+82736439,2022-11-05T15:43:42.906Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+82736439,2022-11-05T15:43:43.171Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+82736439,2022-11-05T15:43:43.970Z,mwatson1983@gmail.com,newsletter,everyone,false,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+82736439,2022-11-05T16:19:53.405Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+82736439,2022-11-05T17:12:35.158Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0

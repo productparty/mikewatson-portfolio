@@ -1,0 +1,3 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription
+92539847,2022-12-24T12:03:15.671Z,mwatson1983@gmail.com,newsletter,everyone,false
+92539847,2022-12-24T12:03:24.066Z,msaewert@creditacceptance.com,newsletter,everyone,true

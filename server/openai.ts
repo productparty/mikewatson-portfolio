@@ -2,7 +2,17 @@ import OpenAI from "openai";
 import { PERSONAL_INFO, TECH_STACK } from "../client/src/lib/constants";
 
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+let _openai: OpenAI | null = null;
+
+function getOpenAI(): OpenAI {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY is not configured");
+  }
+  if (!_openai) {
+    _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  }
+  return _openai;
+}
 
 const SYSTEM_PROMPT = `You are an AI assistant for ${PERSONAL_INFO.name}'s portfolio website. You should:
 - Be professional, friendly, and enthusiastic
@@ -56,7 +66,7 @@ export async function generateChatResponse(message: string, sessionId: string): 
       ];
     }
 
-    const response = await openai.chat.completions.create({
+    const response = await getOpenAI().chat.completions.create({
       model: "gpt-4o",
       messages: context.messages,
       temperature: 0.7,

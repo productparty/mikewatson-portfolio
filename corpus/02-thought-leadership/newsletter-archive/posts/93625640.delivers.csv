@@ -1,0 +1,6 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription
+93625640,2022-12-30T11:02:03.544Z,mwatson1983@gmail.com,newsletter,everyone,false
+93625640,2022-12-30T11:02:05.596Z,yudijagani@gmail.com,newsletter,everyone,true
+93625640,2022-12-30T11:02:06.826Z,vonnie280@yahoo.com,newsletter,everyone,true
+93625640,2022-12-30T11:02:07.602Z,angeliamirkhani@gmail.com,newsletter,everyone,true
+93625640,2022-12-30T11:02:08.119Z,msaewert@creditacceptance.com,newsletter,everyone,true

@@ -1,0 +1,4 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription,country,city,region,device_type,client_os,client_type,user_agent
+90746357,2022-12-15T00:36:37.094Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+90746357,2022-12-15T04:11:33.748Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+90746357,2022-12-18T19:20:55.363Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0

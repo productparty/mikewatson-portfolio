@@ -1,0 +1,24 @@
+post_id,timestamp,email,post_type,post_audience,active_subscription,country,city,region,device_type,client_os,client_type,user_agent
+97957736,2023-01-30T11:37:01.782Z,jfmiller85@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957736,2023-01-30T11:55:46.180Z,sf2337@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957736,2023-01-30T12:04:06.697Z,jfmiller85@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957736,2023-01-30T12:09:25.701Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0
+97957736,2023-01-30T12:10:06.339Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+97957736,2023-01-30T12:10:06.514Z,mwatson@creditacceptance.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
+97957736,2023-01-30T12:14:49.169Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T12:23:52.984Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T12:33:42.528Z,amycmitchell14@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T12:42:40.180Z,sangeethasudhakar95@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957736,2023-01-30T13:31:41.718Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T13:32:26.097Z,kebrosnihan@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T14:19:44.227Z,angeliamirkhani@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T14:19:44.600Z,angeliamirkhani@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T14:20:37.548Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35 Safari/537.36"
+97957736,2023-01-30T14:20:38.437Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35 Safari/537.36"
+97957736,2023-01-30T14:20:42.136Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35 Safari/537.36"
+97957736,2023-01-30T14:21:05.540Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957736,2023-01-30T14:22:58.721Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957736,2023-01-30T14:22:58.774Z,amirkhani@feldmanauto.com,newsletter,everyone,true,US,,,,,,Mozilla/4.0 (compatible; ms-office; MSOffice 16)
+97957736,2023-01-30T20:06:14.303Z,wanyuguan20@gmail.com,newsletter,everyone,true,US,,,,,,Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)
+97957736,2023-01-30T22:01:00.257Z,sf2337@gmail.com,newsletter,everyone,true,,,,,,,Mozilla/5.0
+97957736,2023-02-20T01:32:46.372Z,mwatson1983@gmail.com,newsletter,everyone,false,,,,,,,Mozilla/5.0

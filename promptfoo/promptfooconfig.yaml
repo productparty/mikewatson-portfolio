@@ -1,0 +1,19 @@
+description: "Mike Watson Portfolio AI Assistant - Quality Evaluation"
+
+prompts:
+  - file://prompts/system-prompt.txt
+
+providers:
+  # Using Haiku for testing (cheaper) - switch to Sonnet for final validation
+  # Note: API key must be set in promptfoo/.env file or passed via environment
+  - id: anthropic:messages:claude-3-5-haiku-latest
+    config:
+      temperature: 0.7
+      max_tokens: 1024
+
+tests:
+  - file://tests/voice-consistency.yaml
+  - file://tests/guardrails.yaml
+  - file://tests/knowledge-accuracy.yaml
+  - file://tests/edge-cases.yaml
+  - file://tests/differentiation.yaml

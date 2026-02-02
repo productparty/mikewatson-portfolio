@@ -1,4 +1,4 @@
-import { pgTable, text, serial, timestamp, boolean, integer } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, timestamp, boolean, integer, jsonb } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -65,6 +65,26 @@ export const interactionEvents = pgTable("interaction_events", {
   timestamp: timestamp("timestamp").notNull().defaultNow(),
 });
 
+export const promptEvaluations = pgTable("prompt_evaluations", {
+  id: serial("id").primaryKey(),
+  promptText: text("prompt_text").notNull(),
+  provider: text("provider").notNull(), // 'claude' | 'openai'
+  model: text("model").notNull(),
+  testScenario: text("test_scenario").notNull(),
+  variationName: text("variation_name"), // 'A', 'B', 'C', etc.
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const evaluationResults = pgTable("evaluation_results", {
+  id: serial("id").primaryKey(),
+  evaluationId: integer("evaluation_id").notNull().references(() => promptEvaluations.id, { onDelete: "cascade" }),
+  planOutput: text("plan_output").notNull(),
+  qualityScores: jsonb("quality_scores").notNull(), // { structure: number, completeness: number, clarity: number }
+  assertionsPassed: jsonb("assertions_passed"), // { hasOverview: boolean, hasPlan: boolean, hasTodos: boolean, validMarkdown: boolean }
+  feedback: text("feedback"), // Detailed feedback text
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 export const insertProjectSchema = createInsertSchema(projects).omit({ id: true });
 export const insertChatMessageSchema = createInsertSchema(chatMessages).omit({ id: true });
 export const insertNewsletterSchema = createInsertSchema(newsletter).omit({ id: true });
@@ -72,6 +92,8 @@ export const insertGithubUpdateSchema = createInsertSchema(githubUpdates).omit({
 export const insertPageViewSchema = createInsertSchema(pageViews).omit({ id: true });
 export const insertVisitorSessionSchema = createInsertSchema(visitorSessions).omit({ id: true });
 export const insertInteractionEventSchema = createInsertSchema(interactionEvents).omit({ id: true });
+export const insertPromptEvaluationSchema = createInsertSchema(promptEvaluations).omit({ id: true, createdAt: true });
+export const insertEvaluationResultSchema = createInsertSchema(evaluationResults).omit({ id: true, createdAt: true });
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
@@ -87,3 +109,7 @@ export type VisitorSession = typeof visitorSessions.$inferSelect;
 export type InsertVisitorSession = z.infer<typeof insertVisitorSessionSchema>;
 export type InteractionEvent = typeof interactionEvents.$inferSelect;
 export type InsertInteractionEvent = z.infer<typeof insertInteractionEventSchema>;
+export type PromptEvaluation = typeof promptEvaluations.$inferSelect;
+export type InsertPromptEvaluation = z.infer<typeof insertPromptEvaluationSchema>;
+export type EvaluationResult = typeof evaluationResults.$inferSelect;
+export type InsertEvaluationResult = z.infer<typeof insertEvaluationResultSchema>;

@@ -1,4 +1,5 @@
 import type { TechnicalProject } from "@/types/portfolio";
+import { Link } from "wouter";
 
 interface TechnicalProjectsProps {
   projects: TechnicalProject[];
@@ -70,20 +71,37 @@ export function TechnicalProjects({ projects }: TechnicalProjectsProps) {
               {/* Links */}
               {project.links && project.links.length > 0 && (
                 <div className="flex flex-wrap gap-3 pt-4 border-t border-slate-200 dark:border-slate-700">
-                  {project.links.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-pm-primary font-bold hover:underline text-sm font-body"
-                    >
-                      {link.label}
-                      <span className="material-symbols-outlined text-sm">
-                        open_in_new
-                      </span>
-                    </a>
-                  ))}
+                  {project.links.map((link, index) => {
+                    const isInternal = link.url.startsWith("/");
+                    if (isInternal) {
+                      return (
+                        <Link
+                          key={index}
+                          href={link.url}
+                          className="inline-flex items-center gap-2 text-pm-primary font-bold hover:underline text-sm font-body"
+                        >
+                          {link.label}
+                          <span className="material-symbols-outlined text-sm">
+                            arrow_forward
+                          </span>
+                        </Link>
+                      );
+                    }
+                    return (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-pm-primary font-bold hover:underline text-sm font-body"
+                      >
+                        {link.label}
+                        <span className="material-symbols-outlined text-sm">
+                          open_in_new
+                        </span>
+                      </a>
+                    );
+                  })}
                 </div>
               )}
             </div>

@@ -1,5 +1,5 @@
 import { StickyHeader } from "@/components/consulting/sticky-header";
-import { HeroSection } from "@/components/consulting/hero-section";
+import { AIHeroSection } from "@/components/consulting/ai-hero-section";
 import { ToolsSection } from "@/components/consulting/tools-section";
 import { ExperienceTimeline } from "@/components/consulting/experience-timeline";
 import { TechnicalProjects } from "@/components/consulting/technical-projects";
@@ -9,7 +9,6 @@ import { FinalCTA } from "@/components/consulting/final-cta";
 import { SeoHead } from "@/components/seo-head";
 import { StructuredData } from "@/components/structured-data";
 import {
-  HERO_CONTENT,
   TOOLS_BUILD_WITH,
   EXPERIENCE_TIMELINE,
   TECHNICAL_PROJECTS,
@@ -26,13 +25,18 @@ export default function Consulting() {
       <div className="min-h-screen bg-pm-background dark:bg-slate-900 font-display">
         <StickyHeader />
         <main>
-          <HeroSection content={HERO_CONTENT} />
-          <ToolsSection tools={TOOLS_BUILD_WITH} />
-          <ExperienceTimeline roles={EXPERIENCE_TIMELINE} />
-          <TechnicalProjects projects={TECHNICAL_PROJECTS} />
-          <SpotlightCaseStudies caseStudies={SPOTLIGHT_CASE_STUDIES} />
-          <MethodologyGrid cards={METHODOLOGY_CARDS} />
-          <FinalCTA />
+          {/* AI Chat Hero - Primary experience above the fold */}
+          <AIHeroSection />
+
+          {/* Portfolio Content - Below the fold */}
+          <div id="portfolio-content" className="scroll-mt-16">
+            <ToolsSection tools={TOOLS_BUILD_WITH} />
+            <ExperienceTimeline roles={EXPERIENCE_TIMELINE} />
+            <TechnicalProjects projects={TECHNICAL_PROJECTS} />
+            <SpotlightCaseStudies caseStudies={SPOTLIGHT_CASE_STUDIES} />
+            <MethodologyGrid cards={METHODOLOGY_CARDS} />
+            <FinalCTA />
+          </div>
         </main>
         {/* Footer */}
         <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-pm-muted dark:text-slate-500 font-body">
