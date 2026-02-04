@@ -63,12 +63,26 @@ export function AIHeroSection() {
     }
   }, [messages.length, leadSubmitted, leadDismissed, showLeadForm]);
 
-  // Send transcript when user leaves the page (always log conversations)
+  // Send transcript after each complete exchange (more reliable than just beforeunload)
+  useEffect(() => {
+    // Only send if there's at least one complete exchange (user + assistant with content)
+    if (messages.length >= 2 && !isStreaming) {
+      const lastMessage = messages[messages.length - 1];
+      // Only send when the last message is from assistant and has content (exchange complete)
+      if (lastMessage.role === "assistant" && lastMessage.content) {
+        fetch("/api/chat-transcript", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ sessionId, messages }),
+        }).catch((err) => console.error("Failed to save transcript:", err));
+      }
+    }
+  }, [messages, sessionId, isStreaming]);
+
+  // Also send on page close as backup
   useEffect(() => {
     const handleBeforeUnload = () => {
       if (messages.length > 0) {
-        // Use sendBeacon for reliable delivery on page close
-        // All conversations are logged; email is only sent if lead was captured
         navigator.sendBeacon(
           "/api/chat-transcript",
           JSON.stringify({ sessionId, messages })
