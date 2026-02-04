@@ -88,6 +88,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           UPDATE chat_leads SET email_sent = true WHERE id = ${lead.id}
         `;
       }
+    } else if (!lead && process.env.RESEND_API_KEY && messages.length >= 2) {
+      // No lead captured (user skipped form) - still send anonymous transcript
+      // Only send if there's a real conversation (at least one exchange)
+      await sendAnonymousTranscript(sessionId, messages);
     }
 
     res.json({ success: true });
@@ -190,6 +194,47 @@ async function sendFollowUpTranscript(
 
     if (!response.ok) {
       console.error("Failed to send follow-up transcript:", await response.text());
+    }
+  } catch (error) {
+    console.error("Email send error:", error);
+  }
+}
+
+async function sendAnonymousTranscript(
+  sessionId: string,
+  messages: Array<{ role: string; content: string }>
+) {
+  const transcript = messages
+    .map((m) => `**${m.role === "user" ? "Visitor" : "Mike's AI"}:**\n${m.content}`)
+    .join("\n\n---\n\n");
+
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: process.env.RESEND_FROM_EMAIL || "Portfolio AI <onboarding@resend.dev>",
+        to: process.env.NOTIFICATION_EMAIL || "mwatson1983@gmail.com",
+        subject: `Anonymous Chat Transcript (${messages.length} messages)`,
+        html: `
+          <h2>Anonymous Chat Transcript</h2>
+          <p style="color: #666;">This visitor chatted but didn't provide contact info.</p>
+          <p><strong>Session ID:</strong> ${sessionId}</p>
+          <p><strong>Messages:</strong> ${messages.length}</p>
+
+          <h3>Conversation</h3>
+          <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; white-space: pre-wrap; font-family: system-ui;">
+            ${transcript}
+          </div>
+        `,
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("Failed to send anonymous transcript:", await response.text());
     }
   } catch (error) {
     console.error("Email send error:", error);
