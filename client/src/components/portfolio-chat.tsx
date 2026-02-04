@@ -35,29 +35,29 @@ export function PortfolioChat() {
     }
   }, [messages]);
 
-  // Send transcript after each complete exchange and on page close
+  // Save transcript to DB after each exchange (no email), send email only on page close
   useEffect(() => {
-    // Only send if there's at least one complete exchange (user + assistant with content)
+    // Only save if there's at least one complete exchange (user + assistant with content)
     if (messages.length >= 2 && !isStreaming) {
       const lastMessage = messages[messages.length - 1];
-      // Only send when the last message is from assistant and has content (exchange complete)
+      // Only save when the last message is from assistant and has content (exchange complete)
       if (lastMessage.role === "assistant" && lastMessage.content) {
         fetch("/api/chat-transcript", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sessionId, messages }),
+          body: JSON.stringify({ sessionId, messages, saveOnly: true }),
         }).catch((err) => console.error("Failed to save transcript:", err));
       }
     }
   }, [messages, sessionId, isStreaming]);
 
-  // Also send on page close as backup
+  // Send final transcript with email on page close
   useEffect(() => {
     const handleBeforeUnload = () => {
       if (messages.length > 0) {
         navigator.sendBeacon(
           "/api/chat-transcript",
-          JSON.stringify({ sessionId, messages })
+          JSON.stringify({ sessionId, messages, final: true })
         );
       }
     };
