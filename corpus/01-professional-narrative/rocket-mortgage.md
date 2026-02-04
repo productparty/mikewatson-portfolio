@@ -56,7 +56,14 @@ Sometimes people get caught up in trying to hit the home run. But you can still 
 - Becoming less technical, more business-fluent, was the right trade-off
 - Iteration and singles over home runs
 
-## Still to Cover
-- Why did you leave after 7 years?
-- What was it like being at Rocket during that growth era?
-- Any projects that didn't make the resume?
+## Why I Left After 7 Years
+
+I was given an opportunity to be the first product person ever at NewRez with a massive scope and impact potential. After seven years at Rocket, I had grown a lot but the next big growth opportunity was outside the company. NewRez offered a chance to shape product from the ground up rather than working within an established structure.
+
+## The Rocket Growth Era
+
+Rocket very much leaned into innovation with tech. We were often encouraged to learn about the latest and greatest technologies and find ways to incorporate them. It was an environment that rewarded curiosity and experimentation - you could pitch ideas, run pilots, and if something worked, it would scale fast. The speech analytics journey from 50 bankers to 3,000 was a direct result of that culture.
+
+## Projects That Didn't Make the Resume
+
+The Salesforce migration story didn't get full appreciation on the resume, but it was a significant project. The client services team was navigating 20+ applications at any given time. When a customer called, a rep might have to touch 5 to 10 different systems in a single conversation. I led the discovery for client services and operations - mapping the pain points of "20 apps in one call" into a future state design for the consulting companies building the solution. It was foundational work that shaped how 400 team members would eventually work.
