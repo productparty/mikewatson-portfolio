@@ -36,11 +36,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
   }
 
-  const { sessionId, messages } = body || {};
+  const { sessionId, messages, saveOnly, final: isFinal } = body || {};
 
   if (!sessionId || !messages) {
     return res.status(400).json({ error: "Missing required fields" });
   }
+
+  // saveOnly: just save to DB, no email (used during conversation)
+  // final: save to DB and send email (used on page close)
+  const shouldSendEmail = !saveOnly || isFinal;
 
   if (!process.env.DATABASE_URL) {
     console.error("DATABASE_URL not configured");
@@ -74,24 +78,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         updated_at = NOW()
     `;
 
-    // Send email if lead exists and RESEND_API_KEY is configured
-    if (lead && process.env.RESEND_API_KEY) {
-      // If email was already sent (from chat-lead), only send follow-up if there are new messages
-      if (lead.email_sent) {
-        if (messages.length > previousMessageCount) {
-          await sendFollowUpTranscript(lead.name, lead.email, sessionId, messages);
+    // Only send email on final request (page close), not on every exchange
+    if (shouldSendEmail && process.env.RESEND_API_KEY) {
+      if (lead) {
+        // If email was already sent (from chat-lead), only send follow-up if there are new messages
+        if (lead.email_sent) {
+          if (messages.length > previousMessageCount) {
+            await sendFollowUpTranscript(lead.name, lead.email, sessionId, messages);
+          }
+        } else {
+          // Initial email not yet sent (fallback for edge cases)
+          await sendFinalTranscript(lead.name, lead.email, sessionId, messages);
+          await sql`
+            UPDATE chat_leads SET email_sent = true WHERE id = ${lead.id}
+          `;
         }
-      } else {
-        // Initial email not yet sent (fallback for edge cases)
-        await sendFinalTranscript(lead.name, lead.email, sessionId, messages);
-        await sql`
-          UPDATE chat_leads SET email_sent = true WHERE id = ${lead.id}
-        `;
+      } else if (messages.length >= 2) {
+        // No lead captured (user skipped form) - still send anonymous transcript
+        // Only send if there's a real conversation (at least one exchange)
+        await sendAnonymousTranscript(sessionId, messages);
       }
-    } else if (!lead && process.env.RESEND_API_KEY && messages.length >= 2) {
-      // No lead captured (user skipped form) - still send anonymous transcript
-      // Only send if there's a real conversation (at least one exchange)
-      await sendAnonymousTranscript(sessionId, messages);
     }
 
     res.json({ success: true });
