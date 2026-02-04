@@ -35,6 +35,22 @@ export function PortfolioChat() {
     }
   }, [messages]);
 
+  // Send transcript when user leaves the page (for anonymous conversation logging)
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      if (messages.length > 0) {
+        // Use sendBeacon for reliable delivery on page close
+        navigator.sendBeacon(
+          "/api/chat-transcript",
+          JSON.stringify({ sessionId, messages })
+        );
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [messages, sessionId]);
+
   // Auto-resize textarea
   useEffect(() => {
     if (textareaRef.current) {
