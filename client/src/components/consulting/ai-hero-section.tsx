@@ -63,11 +63,12 @@ export function AIHeroSection() {
     }
   }, [messages.length, leadSubmitted, leadDismissed, showLeadForm]);
 
-  // Send transcript when user leaves the page (if lead was submitted)
+  // Send transcript when user leaves the page (always log conversations)
   useEffect(() => {
     const handleBeforeUnload = () => {
-      if (leadSubmitted && messages.length > 0) {
+      if (messages.length > 0) {
         // Use sendBeacon for reliable delivery on page close
+        // All conversations are logged; email is only sent if lead was captured
         navigator.sendBeacon(
           "/api/chat-transcript",
           JSON.stringify({ sessionId, messages })
@@ -77,7 +78,7 @@ export function AIHeroSection() {
 
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
-  }, [leadSubmitted, messages, sessionId]);
+  }, [messages, sessionId]);
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -408,9 +409,18 @@ export function AIHeroSection() {
                   {leadError && (
                     <p className="text-xs text-red-600 dark:text-red-400">{leadError}</p>
                   )}
-                  <p className="text-xs text-pm-muted dark:text-slate-400">
-                    Leave your info and Mike will get a copy of this conversation.
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-pm-muted dark:text-slate-400">
+                      Leave your info and Mike will get a copy of this conversation.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={dismissLeadForm}
+                      className="text-xs text-pm-muted dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline"
+                    >
+                      Skip
+                    </button>
+                  </div>
                 </form>
               </div>
             )}
