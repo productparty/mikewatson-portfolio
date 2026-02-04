@@ -408,9 +408,18 @@ export function AIHeroSection() {
                   {leadError && (
                     <p className="text-xs text-red-600 dark:text-red-400">{leadError}</p>
                   )}
-                  <p className="text-xs text-pm-muted dark:text-slate-400">
-                    Leave your info and Mike will get a copy of this conversation.
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-pm-muted dark:text-slate-400">
+                      Leave your info and Mike will get a copy of this conversation.
+                    </p>
+                    <button
+                      type="button"
+                      onClick={dismissLeadForm}
+                      className="text-xs text-pm-muted dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline"
+                    >
+                      Skip
+                    </button>
+                  </div>
                 </form>
               </div>
             )}
