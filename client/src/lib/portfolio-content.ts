@@ -269,9 +269,9 @@ export const PORTFOLIO_SEO: PortfolioSEO = {
 };
 
 export const TOOLS_BUILD_WITH = {
-  aiDevelopment: ["Cursor", "Claude", "ChatGPT"],
-  productAndData: ["React", "Python", "APIs", "JIRA", "Notion", "Figma"],
-  platforms: ["Salesforce", "Oracle", "Intercom", "Google Analytics"],
+  aiDevelopment: ["Cursor", "Claude", "Claude Code", "ChatGPT", "Gemini", "Google AI Studio", "Google Antigravity", "Google Stitch", "Perplexity", "promptfoo", "MCP"],
+  productAndData: ["React", "React Native", "TypeScript", "Python", "FastAPI", "Node.js", "Expo", "APIs", "JIRA", "Notion", "Figma"],
+  platforms: ["Salesforce", "Oracle", "Intercom", "Google Analytics", "Supabase", "Neon", "App Store", "Google Play", "Chrome Web Store", "GitHub", "Vercel", "Railway", "RevenueCat", "Substack"],
 };
 
 export const CONTACT_INFO = {
