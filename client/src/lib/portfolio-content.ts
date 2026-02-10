@@ -172,8 +172,8 @@ export const TECHNICAL_PROJECTS: TechnicalProject[] = [
       "Built and shipped privacy-first book tracking app to Google Play Store and Apple App Store using React, Cursor, and Claude. Managed full product lifecycle from concept through development, testing, and store deployment.",
     stack: ["React", "Cursor", "Claude", "RevenueCat", "Custom API"],
     links: [
-      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=app.leafed" },
-      { label: "Apple App Store", url: "https://apps.apple.com/app/leafed" },
+      { label: "Google Play", url: "https://play.google.com/store/apps/details?id=com.leafedapp.leafed&hl=en" },
+      { label: "Apple App Store", url: "https://apps.apple.com/ng/app/leafed-app/id6754466418" },
     ],
   },
   {
