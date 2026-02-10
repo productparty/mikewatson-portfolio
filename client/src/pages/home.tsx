@@ -94,12 +94,12 @@ export default function Home() {
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="mt-2">
-                  <a href="https://apps.apple.com/app/leafed" target="_blank" rel="noopener noreferrer">
+                  <a href="https://apps.apple.com/ng/app/leafed-app/id6754466418" target="_blank" rel="noopener noreferrer">
                     App Store
                   </a>
                 </Button>
                 <Button asChild variant="outline" className="mt-2">
-                  <a href="https://play.google.com/store/apps/details?id=app.leafed" target="_blank" rel="noopener noreferrer">
+                  <a href="https://play.google.com/store/apps/details?id=com.leafedapp.leafed&hl=en" target="_blank" rel="noopener noreferrer">
                     Google Play
                   </a>
                 </Button>
