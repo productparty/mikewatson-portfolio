@@ -92,7 +92,7 @@ export async function* streamPortfolioChat(
 
   try {
     const stream = getAnthropic().messages.stream({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-3-5-haiku-20241022",
       max_tokens: 1024,
       temperature: 0.7,
       system: systemBlocks,
