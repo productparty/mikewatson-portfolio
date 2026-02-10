@@ -15,7 +15,7 @@ const chatSessions = new Map<
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
 const MAX_MESSAGES_PER_WINDOW = 20;
-const MAX_CONTEXT_MESSAGES = 10;
+const MAX_CONTEXT_MESSAGES = 6;
 const MAX_MESSAGE_LENGTH = 2000;
 
 function getOrCreateSession(sessionId: string) {
@@ -94,11 +94,17 @@ function mapToSection(map: Map<string, string>, sectionTitle: string): string {
   return section;
 }
 
-let cachedSystemPrompt: string | null = null;
+interface SystemPromptBlock {
+  type: "text";
+  text: string;
+  cache_control?: { type: "ephemeral" };
+}
 
-function generateSystemPrompt(): string {
-  if (cachedSystemPrompt) {
-    return cachedSystemPrompt;
+let cachedSystemPromptBlocks: SystemPromptBlock[] | null = null;
+
+function generateSystemPromptBlocks(): SystemPromptBlock[] {
+  if (cachedSystemPromptBlocks) {
+    return cachedSystemPromptBlocks;
   }
 
   const corpusRoot = path.join(process.cwd(), "corpus");
@@ -130,7 +136,8 @@ function generateSystemPrompt(): string {
     ),
   };
 
-  cachedSystemPrompt = `You are an AI assistant that represents Mike Watson on his portfolio website. You've been built by Mike as a demonstration of his ability to integrate AI into products.
+  // Block 1: Identity + full corpus (large, stable, benefits most from caching)
+  const corpusBlock = `You are an AI assistant that represents Mike Watson on his portfolio website. You've been built by Mike as a demonstration of his ability to integrate AI into products.
 
 IMPORTANT TECHNICAL DETAILS ABOUT YOURSELF:
 - You are powered by Anthropic's Claude API (specifically the Claude Haiku model)
@@ -162,9 +169,10 @@ ${mapToSection(corpus.thoughtLeadership, "Newsletter & Thought Leadership")}
 
 Study these examples to understand how Mike sounds:
 
-${corpus.sampleExchanges}
+${corpus.sampleExchanges}`;
 
-## HOW TO HANDLE QUESTIONS
+  // Block 2: Behavioral instructions (smaller, consolidated without voice guide duplication)
+  const instructionsBlock = `## HOW TO HANDLE QUESTIONS
 
 1. If asked about Mike's experience at a specific company, reference the detailed narrative from that role
 2. If asked for product management advice, answer in Mike's voice using his frameworks and real examples
@@ -172,19 +180,6 @@ ${corpus.sampleExchanges}
 4. If asked about Product Party, reference newsletter themes and recommend specific topics
 5. If asked something outside your knowledge, be honest: "I don't have Mike's specific take on that, but based on his general approach..." or suggest they reach out directly
 6. If asked something in the topics-to-avoid list, redirect gracefully
-
-## CRITICAL RULES
-
-- You are an AI. Never pretend to be Mike in real-time. Be transparent.
-- Have opinions. Don't hedge everything. Mike has actual takes.
-- Lead with stories and examples, not abstract advice.
-- Keep responses conversational, not corporate.
-- If a question maps to a specific newsletter topic, mention it naturally.
-- Be warm but direct. No fluff.
-- Vary your sentence lengths. Some short. Some longer ones that take their time. Maybe a fragment.
-- Never use em-dashes (—).
-- Never use emojis.
-- Never say "Here's the thing", "Let's dive in", "The truth is", or other banned phrases from the voice guide.
 
 ## CONTACT INFORMATION
 
@@ -195,7 +190,20 @@ If users want to connect with the real Mike:
 - Email: Available on his resume at the portfolio site
 `;
 
-  return cachedSystemPrompt;
+  cachedSystemPromptBlocks = [
+    {
+      type: "text",
+      text: corpusBlock,
+      cache_control: { type: "ephemeral" },
+    },
+    {
+      type: "text",
+      text: instructionsBlock,
+      cache_control: { type: "ephemeral" },
+    },
+  ];
+
+  return cachedSystemPromptBlocks;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -275,19 +283,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       apiKey: process.env.ANTHROPIC_API_KEY,
     });
 
-    const systemPrompt = generateSystemPrompt();
+    const systemBlocks = generateSystemPromptBlocks();
 
     const stream = anthropic.messages.stream({
       model: "claude-3-5-haiku-20241022",
       max_tokens: 1024,
       temperature: 0.7,
-      system: [
-        {
-          type: "text",
-          text: systemPrompt,
-          cache_control: { type: "ephemeral" },
-        },
-      ],
+      system: systemBlocks,
       messages: session.messages.map((msg) => ({
         role: msg.role,
         content: msg.content,
@@ -307,6 +309,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         );
       }
     }
+
+    // Log token usage for cost monitoring
+    const finalMessage = await stream.finalMessage();
+    const usage = finalMessage.usage as unknown as Record<string, unknown>;
+    console.log(
+      `[token-usage] session=${sessionId} input=${usage.input_tokens} output=${usage.output_tokens}` +
+      ` cache_read=${usage.cache_read_input_tokens ?? "n/a"}` +
+      ` cache_creation=${usage.cache_creation_input_tokens ?? "n/a"}`
+    );
 
     session.messages.push({ role: "assistant", content: fullResponse });
 

@@ -1,5 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
-import { generateSystemPrompt } from "./corpus-loader";
+import { generateSystemPromptBlocks } from "./corpus-loader";
 
 let _anthropic: Anthropic | null = null;
 
@@ -33,7 +33,7 @@ interface ChatSession {
 const chatSessions = new Map<string, ChatSession>();
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000; // 1 hour
 const MAX_MESSAGES_PER_WINDOW = 20;
-const MAX_CONTEXT_MESSAGES = 10;
+const MAX_CONTEXT_MESSAGES = 6;
 
 // Clean up old sessions periodically
 setInterval(() => {
@@ -88,20 +88,14 @@ export async function* streamPortfolioChat(
     session.messages = session.messages.slice(-MAX_CONTEXT_MESSAGES);
   }
 
-  const systemPrompt = generateSystemPrompt();
+  const systemBlocks = generateSystemPromptBlocks();
 
   try {
     const stream = getAnthropic().messages.stream({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-3-5-haiku-20241022",
       max_tokens: 1024,
       temperature: 0.7,
-      system: [
-        {
-          type: "text",
-          text: systemPrompt,
-          cache_control: { type: "ephemeral" },
-        },
-      ],
+      system: systemBlocks,
       messages: session.messages.map((msg) => ({
         role: msg.role,
         content: msg.content,
@@ -119,6 +113,15 @@ export async function* streamPortfolioChat(
         yield event.delta.text;
       }
     }
+
+    // Log token usage for cost monitoring
+    const finalMessage = await stream.finalMessage();
+    const usage = finalMessage.usage as unknown as Record<string, unknown>;
+    console.log(
+      `[token-usage] session=${sessionId} input=${usage.input_tokens} output=${usage.output_tokens}` +
+      ` cache_read=${usage.cache_read_input_tokens ?? "n/a"}` +
+      ` cache_creation=${usage.cache_creation_input_tokens ?? "n/a"}`
+    );
 
     // Store assistant response in session
     session.messages.push({ role: "assistant", content: fullResponse });
