@@ -34,7 +34,7 @@ export function HeroSection({ content }: HeroSectionProps) {
                 key={index}
                 className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${
                   badge.variant === "primary"
-                    ? "bg-pm-primary/10 text-pm-primary border-pm-primary/20"
+                    ? "bg-primary/10 text-primary border-primary/20"
                     : "bg-sky-50 text-sky-700 border-sky-100 dark:bg-sky-900/30 dark:text-sky-300 dark:border-sky-800"
                 }`}
               >
@@ -52,7 +52,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-pm-muted dark:text-slate-400 max-w-xl leading-relaxed font-body">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed font-body">
             {content.subheadline}
           </p>
 
@@ -60,7 +60,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <button
               onClick={handlePrimaryClick}
-              className="flex h-12 items-center justify-center rounded-lg px-8 bg-pm-primary hover:bg-pm-primary-dark text-white text-base font-bold shadow-lg shadow-pm-primary/30 transition-transform hover:scale-[1.02] font-display"
+              className="flex h-12 items-center justify-center rounded-lg px-8 bg-primary hover:bg-primary/85 text-white text-base font-bold shadow-lg shadow-primary/30 transition-transform hover:scale-[1.02] font-display"
             >
               {content.primaryCta.label}
             </button>
@@ -77,7 +77,7 @@ export function HeroSection({ content }: HeroSectionProps) {
         {/* Right: Headshot with floating metric */}
         <div className="relative w-full aspect-square max-w-md mx-auto lg:ml-auto">
           {/* Background glow */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-pm-primary/20 to-sky-500/20 rounded-full blur-2xl" />
+          <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-sky-500/20 rounded-full blur-2xl" />
 
           {/* Photo container */}
           <div className="relative w-full h-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-4 border-white dark:border-slate-800 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 ease-out">
@@ -94,11 +94,11 @@ export function HeroSection({ content }: HeroSectionProps) {
             style={{ animationDuration: "3s" }}
           >
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-pm-primary/10 text-pm-primary rounded-lg">
+              <div className="p-2 bg-primary/10 text-primary rounded-lg">
                 <span className="material-symbols-outlined">payments</span>
               </div>
               <div>
-                <p className="text-xs text-pm-muted uppercase font-bold font-body">
+                <p className="text-xs text-muted-foreground uppercase font-bold font-body">
                   {content.floatingMetric.label}
                 </p>
                 <p className="text-lg font-black text-slate-900 dark:text-white font-display">

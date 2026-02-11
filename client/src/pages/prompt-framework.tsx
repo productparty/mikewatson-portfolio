@@ -61,7 +61,7 @@ export default function PromptFramework() {
   return (
     <>
       <SeoHead seo={PROMPT_FRAMEWORK_SEO} />
-      <div className="min-h-screen bg-pm-background dark:bg-slate-900 font-display">
+      <div className="min-h-screen bg-background font-display">
         <StickyHeader />
 
         <main>
@@ -69,7 +69,7 @@ export default function PromptFramework() {
           <div className="max-w-[1280px] mx-auto px-4 sm:px-10 pt-6">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-pm-muted dark:text-slate-400 hover:text-pm-primary transition-colors font-body"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors font-body"
             >
               <span className="material-symbols-outlined text-lg">
                 arrow_back
@@ -84,7 +84,7 @@ export default function PromptFramework() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white mb-6">
                 AI Quality Assurance Framework
               </h1>
-              <p className="text-xl text-pm-muted dark:text-slate-400 mb-10 font-body">
+              <p className="text-xl text-muted-foreground mb-10 font-body">
                 How I validated my portfolio AI assistant before shipping it to
                 real users
               </p>
@@ -97,7 +97,7 @@ export default function PromptFramework() {
                     className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="size-10 rounded-lg bg-pm-primary/10 text-pm-primary flex items-center justify-center">
+                      <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
                         <span className="material-symbols-outlined">
                           {metric.icon}
                         </span>
@@ -106,7 +106,7 @@ export default function PromptFramework() {
                     <p className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
                       {metric.value}
                     </p>
-                    <p className="text-sm text-pm-muted dark:text-slate-400 font-body">
+                    <p className="text-sm text-muted-foreground font-body">
                       {metric.label}
                     </p>
                   </div>
@@ -211,7 +211,7 @@ export default function PromptFramework() {
                       className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700"
                     >
                       <div className="flex items-center gap-3 mb-3">
-                        <span className="flex-shrink-0 size-8 rounded-full bg-pm-primary text-white text-sm font-bold flex items-center justify-center">
+                        <span className="flex-shrink-0 size-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center">
                           {category.count}
                         </span>
                         <h3 className="text-xl font-bold text-slate-900 dark:text-white">
@@ -235,14 +235,14 @@ export default function PromptFramework() {
                 <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">
                   The Iteration Journey: 75% to 89%
                 </h2>
-                <p className="text-lg text-pm-muted dark:text-slate-400 mb-10 font-body">
+                <p className="text-lg text-muted-foreground mb-10 font-body">
                   Validation revealed gaps. Refinement fixed them.
                 </p>
 
                 <div className="space-y-8">
                   {/* Step 1 */}
                   <div className="flex gap-6">
-                    <div className="flex-shrink-0 size-12 rounded-xl bg-pm-primary text-white text-xl font-bold flex items-center justify-center">
+                    <div className="flex-shrink-0 size-12 rounded-xl bg-primary text-white text-xl font-bold flex items-center justify-center">
                       1
                     </div>
                     <div className="flex-1">
@@ -259,7 +259,7 @@ export default function PromptFramework() {
 
                   {/* Step 2 */}
                   <div className="flex gap-6">
-                    <div className="flex-shrink-0 size-12 rounded-xl bg-pm-primary text-white text-xl font-bold flex items-center justify-center">
+                    <div className="flex-shrink-0 size-12 rounded-xl bg-primary text-white text-xl font-bold flex items-center justify-center">
                       2
                     </div>
                     <div className="flex-1">
@@ -273,7 +273,7 @@ export default function PromptFramework() {
                           href="https://github.com/promptfoo/promptfoo"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-pm-primary hover:underline"
+                          className="text-primary hover:underline"
                         >
                           promptfoo
                         </a>{" "}
@@ -316,7 +316,7 @@ export default function PromptFramework() {
 
                   {/* Step 4 */}
                   <div className="flex gap-6">
-                    <div className="flex-shrink-0 size-12 rounded-xl bg-pm-primary text-white text-xl font-bold flex items-center justify-center">
+                    <div className="flex-shrink-0 size-12 rounded-xl bg-primary text-white text-xl font-bold flex items-center justify-center">
                       4
                     </div>
                     <div className="flex-1">
@@ -422,8 +422,8 @@ export default function PromptFramework() {
                     </div>
                   </div>
 
-                  <div className="mt-6 p-4 rounded-lg bg-pm-primary/10 text-center">
-                    <p className="text-lg font-bold text-pm-primary">
+                  <div className="mt-6 p-4 rounded-lg bg-primary/10 text-center">
+                    <p className="text-lg font-bold text-primary">
                       Without systematic testing, this error would have gone
                       live.
                     </p>
@@ -444,7 +444,7 @@ export default function PromptFramework() {
                   My first instinct: build a custom evaluation system from
                   scratch. Then I asked—what would a good PM do?
                 </p>
-                <p className="text-xl font-bold text-pm-primary mb-6">
+                <p className="text-xl font-bold text-primary mb-6">
                   Research first.
                 </p>
                 <p className="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed font-body">
@@ -453,7 +453,7 @@ export default function PromptFramework() {
                     href="https://github.com/promptfoo/promptfoo"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pm-primary hover:underline font-bold"
+                    className="text-primary hover:underline font-bold"
                   >
                     promptfoo
                   </a>
@@ -486,7 +486,7 @@ export default function PromptFramework() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <span className="material-symbols-outlined text-pm-primary">
+                    <span className="material-symbols-outlined text-primary">
                       fact_check
                     </span>
                     <span className="text-slate-700 dark:text-slate-300 font-body">
@@ -494,7 +494,7 @@ export default function PromptFramework() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <span className="material-symbols-outlined text-pm-primary">
+                    <span className="material-symbols-outlined text-primary">
                       verified_user
                     </span>
                     <span className="text-slate-700 dark:text-slate-300 font-body">
@@ -502,7 +502,7 @@ export default function PromptFramework() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <span className="material-symbols-outlined text-pm-primary">
+                    <span className="material-symbols-outlined text-primary">
                       verified
                     </span>
                     <span className="text-slate-700 dark:text-slate-300 font-body">
@@ -510,7 +510,7 @@ export default function PromptFramework() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3 p-4 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                    <span className="material-symbols-outlined text-pm-primary">
+                    <span className="material-symbols-outlined text-primary">
                       record_voice_over
                     </span>
                     <span className="text-slate-700 dark:text-slate-300 font-body">
@@ -538,10 +538,10 @@ export default function PromptFramework() {
         </main>
 
         {/* Footer */}
-        <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-pm-muted dark:text-slate-500 font-body">
+        <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-muted-foreground font-body">
           <p>
             © {new Date().getFullYear()} Mike Watson. Designed with{" "}
-            <span className="text-pm-primary">♥</span> for Product Management.
+            <span className="text-primary">♥</span> for Product Management.
           </p>
         </footer>
       </div>

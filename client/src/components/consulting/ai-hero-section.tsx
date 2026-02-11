@@ -55,7 +55,6 @@ export function AIHeroSection() {
   // Show lead form after first complete exchange (2 messages: user + assistant response)
   useEffect(() => {
     if (messages.length >= 2 && !leadSubmitted && !leadDismissed && !showLeadForm) {
-      // Delay showing form so it doesn't interrupt the conversation
       const timer = setTimeout(() => {
         setShowLeadForm(true);
       }, 1500);
@@ -63,12 +62,10 @@ export function AIHeroSection() {
     }
   }, [messages.length, leadSubmitted, leadDismissed, showLeadForm]);
 
-  // Save transcript to DB after each exchange (no email), send email only on page close
+  // Save transcript to DB after each exchange
   useEffect(() => {
-    // Only save if there's at least one complete exchange (user + assistant with content)
     if (messages.length >= 2 && !isStreaming) {
       const lastMessage = messages[messages.length - 1];
-      // Only save when the last message is from assistant and has content (exchange complete)
       if (lastMessage.role === "assistant" && lastMessage.content) {
         fetch("/api/chat-transcript", {
           method: "POST",
@@ -222,7 +219,7 @@ export function AIHeroSection() {
           sessionId,
           name: leadInfo.name.trim(),
           email: leadInfo.email.trim(),
-          messages, // Send current messages to store transcript
+          messages,
         }),
       });
 
@@ -263,38 +260,38 @@ export function AIHeroSection() {
               {/* Photo */}
               <div className="flex justify-center mb-3 sm:mb-4">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-pm-primary/30 to-sky-500/30 rounded-full blur-xl scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/20 rounded-full blur-xl scale-110" />
                   <img
                     src={PERSONAL_INFO.avatar}
                     alt="Mike Watson"
-                    className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-white dark:border-slate-700 shadow-lg"
+                    className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-card shadow-lg"
                   />
                 </div>
               </div>
 
               {/* Name & Title */}
-              <h1 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white font-display mb-1">
+              <h1 className="text-2xl sm:text-4xl font-black text-foreground font-display mb-1">
                 Mike Watson
               </h1>
-              <p className="text-base sm:text-lg text-pm-primary dark:text-blue-400 font-semibold mb-3 sm:mb-4">
+              <p className="text-base sm:text-lg text-primary font-semibold mb-3 sm:mb-4">
                 Senior Product Manager
               </p>
 
               {/* Value Proposition */}
-              <p className="text-sm sm:text-lg text-pm-muted dark:text-slate-400 leading-relaxed max-w-xl mx-auto mb-2 px-2">
+              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto mb-2 px-2">
                 I trained an AI on 150+ newsletter posts, 10 years of PM work,
                 and the opinions I save for the second coffee.
               </p>
-              <p className="text-base sm:text-xl font-semibold text-slate-700 dark:text-slate-200">
+              <p className="text-base sm:text-xl font-semibold text-foreground/80">
                 Skip the resume. Interview me instead.
               </p>
             </div>
           )}
 
-          {/* Chat Container */}
+          {/* Chat Container — signature element: elevated card with shadow-only depth */}
           <div
             ref={chatContainerRef}
-            className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+            className="bg-card rounded-2xl shadow-lg overflow-hidden"
           >
             {/* Messages Area */}
             {hasConversation && (
@@ -306,10 +303,10 @@ export function AIHeroSection() {
                       className={message.role === "user" ? "ml-4 sm:ml-8 md:ml-12" : "mr-4 sm:mr-8 md:mr-12"}
                     >
                       <div
-                        className={`text-xs font-medium mb-1 ${
+                        className={`text-xs font-medium tracking-wide mb-1 ${
                           message.role === "user"
-                            ? "text-right text-pm-muted dark:text-slate-400"
-                            : "text-pm-primary dark:text-blue-400"
+                            ? "text-right text-muted-foreground"
+                            : "text-primary"
                         }`}
                       >
                         {message.role === "user" ? "You" : "Mike's AI"}
@@ -317,8 +314,8 @@ export function AIHeroSection() {
                       <div
                         className={`prose prose-sm dark:prose-invert max-w-none text-sm sm:text-base ${
                           message.role === "user"
-                            ? "text-right text-pm-body dark:text-slate-300"
-                            : "text-pm-body dark:text-slate-300"
+                            ? "text-right text-foreground/80"
+                            : "text-foreground/80"
                         }`}
                       >
                         {message.role === "assistant" ? (
@@ -332,7 +329,7 @@ export function AIHeroSection() {
                                   href={href}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-pm-primary dark:text-blue-400 hover:underline"
+                                  className="text-primary hover:underline"
                                 >
                                   {children}
                                 </a>
@@ -354,7 +351,7 @@ export function AIHeroSection() {
             {/* Starter Questions */}
             {!hasConversation && (
               <div className="px-3 sm:px-6 py-4 sm:py-5">
-                <p className="text-xs sm:text-sm text-pm-muted dark:text-slate-400 text-center mb-3 sm:mb-4">
+                <p className="text-xs sm:text-sm text-muted-foreground text-center mb-3 sm:mb-4 tracking-wide">
                   Ask about my experience, approach, or what I'm looking for next:
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:justify-center">
@@ -362,7 +359,7 @@ export function AIHeroSection() {
                     <button
                       key={index}
                       onClick={() => handleStarterClick(question)}
-                      className="px-4 py-2.5 sm:py-2 text-sm text-left sm:text-center bg-slate-50 dark:bg-slate-700 hover:bg-pm-primary/10 dark:hover:bg-slate-600 text-pm-body dark:text-slate-300 rounded-xl sm:rounded-full transition-colors border border-slate-200 dark:border-slate-600 hover:border-pm-primary/30 active:scale-[0.98]"
+                      className="px-4 py-3 sm:py-2 text-sm text-left sm:text-center bg-muted hover:bg-primary/10 text-foreground/80 rounded-xl sm:rounded-full transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px]"
                     >
                       {question}
                     </button>
@@ -373,22 +370,22 @@ export function AIHeroSection() {
 
             {/* Error Message */}
             {error && (
-              <div className="px-4 py-2 text-center text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border-t border-red-100 dark:border-red-800">
+              <div className="px-4 py-2 text-center text-sm text-destructive bg-destructive/5 border-t border-destructive/10">
                 {error}
               </div>
             )}
 
             {/* Lead Capture Form */}
             {showLeadForm && !leadSubmitted && (
-              <div className="px-3 sm:px-4 py-3 bg-pm-primary/5 dark:bg-blue-900/20 border-t border-pm-primary/20 dark:border-blue-800">
+              <div className="px-3 sm:px-4 py-3 bg-primary/5 border-t border-primary/10">
                 <div className="flex items-start justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200">
-                    <Mail size={16} className="text-pm-primary" />
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <Mail size={16} className="text-primary" />
                     <span>Want Mike to follow up?</span>
                   </div>
                   <button
                     onClick={dismissLeadForm}
-                    className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 p-1"
+                    className="text-muted-foreground hover:text-foreground p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
                     aria-label="Dismiss"
                   >
                     <X size={16} />
@@ -401,7 +398,7 @@ export function AIHeroSection() {
                       placeholder="Your name"
                       value={leadInfo.name}
                       onChange={(e) => setLeadInfo({ ...leadInfo, name: e.target.value })}
-                      className="flex-1 h-9 text-sm bg-white dark:bg-slate-800"
+                      className="flex-1 h-11 sm:h-9 text-sm"
                       disabled={isSubmittingLead}
                     />
                     <Input
@@ -409,28 +406,28 @@ export function AIHeroSection() {
                       placeholder="Your email"
                       value={leadInfo.email}
                       onChange={(e) => setLeadInfo({ ...leadInfo, email: e.target.value })}
-                      className="flex-1 h-9 text-sm bg-white dark:bg-slate-800"
+                      className="flex-1 h-11 sm:h-9 text-sm"
                       disabled={isSubmittingLead}
                     />
                     <Button
                       type="submit"
                       disabled={isSubmittingLead}
-                      className="h-9 px-4 bg-pm-primary hover:bg-pm-primary/90 text-sm whitespace-nowrap"
+                      className="h-11 sm:h-9 px-4 text-sm whitespace-nowrap"
                     >
                       {isSubmittingLead ? "..." : "Send"}
                     </Button>
                   </div>
                   {leadError && (
-                    <p className="text-xs text-red-600 dark:text-red-400">{leadError}</p>
+                    <p className="text-xs text-destructive">{leadError}</p>
                   )}
                   <div className="flex items-center justify-between">
-                    <p className="text-xs text-pm-muted dark:text-slate-400">
+                    <p className="text-xs text-muted-foreground">
                       Leave your info and Mike will get a copy of this conversation.
                     </p>
                     <button
                       type="button"
                       onClick={dismissLeadForm}
-                      className="text-xs text-pm-muted dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 underline"
+                      className="text-xs text-muted-foreground hover:text-foreground underline"
                     >
                       Skip
                     </button>
@@ -441,7 +438,7 @@ export function AIHeroSection() {
 
             {/* Lead Submitted Confirmation */}
             {leadSubmitted && (
-              <div className="px-3 sm:px-4 py-2 bg-green-50 dark:bg-green-900/20 border-t border-green-200 dark:border-green-800 text-center">
+              <div className="px-3 sm:px-4 py-2 bg-green-50 dark:bg-green-900/20 border-t border-green-200/50 dark:border-green-800/50 text-center">
                 <p className="text-sm text-green-700 dark:text-green-400">
                   Thanks! Mike will receive this conversation.
                 </p>
@@ -449,7 +446,7 @@ export function AIHeroSection() {
             )}
 
             {/* Input Area */}
-            <div className="p-3 sm:p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-700">
+            <div className="p-3 sm:p-4 bg-muted/50 border-t border-border">
               <form onSubmit={handleSubmit} className="flex gap-2 items-end">
                 <Textarea
                   ref={textareaRef}
@@ -458,20 +455,20 @@ export function AIHeroSection() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask me anything..."
                   disabled={isStreaming}
-                  className="flex-1 min-h-[44px] max-h-[100px] resize-none bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-pm-primary dark:focus:border-blue-400 text-base sm:text-sm rounded-xl"
+                  className="flex-1 min-h-[44px] max-h-[100px] resize-none text-base sm:text-sm rounded-xl"
                   rows={1}
                 />
                 <Button
                   type="submit"
                   disabled={isStreaming || !input.trim()}
-                  className="h-11 w-11 sm:h-10 sm:w-10 p-0 bg-pm-primary hover:bg-pm-primary/90 rounded-xl flex-shrink-0"
+                  className="h-11 w-11 sm:h-10 sm:w-10 p-0 rounded-xl flex-shrink-0"
                 >
                   <Send size={18} className="sm:w-4 sm:h-4" />
                 </Button>
               </form>
 
               {remainingMessages !== null && (
-                <p className="text-xs text-pm-muted dark:text-slate-500 text-center mt-2">
+                <p className="text-xs text-muted-foreground text-center mt-2">
                   {remainingMessages} messages remaining
                 </p>
               )}
@@ -481,14 +478,14 @@ export function AIHeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — subtle ease, no bounce */}
       <div className="pb-6 flex flex-col items-center">
         <button
           onClick={scrollToContent}
-          className="flex flex-col items-center gap-1 text-pm-muted dark:text-slate-400 hover:text-pm-primary dark:hover:text-blue-400 transition-colors"
+          className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
         >
-          <span className="text-xs">More about Mike</span>
-          <ChevronDown className="w-4 h-4 animate-bounce" />
+          <span className="text-xs tracking-wide">More about Mike</span>
+          <ChevronDown className="w-4 h-4 animate-scroll-hint" />
         </button>
       </div>
     </section>

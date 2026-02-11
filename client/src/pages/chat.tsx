@@ -15,12 +15,12 @@ export default function Chat() {
           canonical: "https://mikewatson.us/chat",
         }}
       />
-      <div className="min-h-screen bg-pm-background dark:bg-slate-900 flex flex-col">
+      <div className="min-h-screen bg-background flex flex-col">
         {/* Header */}
         <header className="border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 sticky top-0 z-10">
           <div className="container mx-auto px-4 py-3 flex items-center justify-between">
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/" className="flex items-center gap-2 text-pm-muted hover:text-pm-body">
+              <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
                 <ArrowLeft size={16} />
                 Back to Portfolio
               </Link>
@@ -30,7 +30,7 @@ export default function Chat() {
                 href="https://www.linkedin.com/in/michaeljameswatson/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-pm-muted hover:text-pm-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 LinkedIn
               </a>
@@ -38,7 +38,7 @@ export default function Chat() {
                 href="https://www.productparty.us/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-pm-muted hover:text-pm-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 Newsletter
               </a>
