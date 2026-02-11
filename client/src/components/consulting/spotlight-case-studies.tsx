@@ -8,10 +8,10 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
   return (
     <section id="case-studies" className="py-20 px-4 sm:px-10 max-w-[1280px] mx-auto">
       <div className="mb-16 text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white font-display">
+        <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
           Spotlight Case Studies
         </h2>
-        <p className="text-pm-muted dark:text-slate-400 font-body">
+        <p className="text-muted-foreground font-body">
           Deep dives into complex challenges. From ambiguity to shipped value.
         </p>
       </div>
@@ -25,9 +25,9 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
               key={study.id}
               className="group grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
             >
-              {/* Image */}
+              {/* Image — shadow-only depth */}
               <div
-                className={`relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 bg-slate-100 dark:bg-white/5 aspect-video ${
+                className={`relative overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 bg-muted aspect-video ${
                   isEven ? "order-2 lg:order-1" : "order-2"
                 }`}
               >
@@ -36,7 +36,7 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                   style={{ backgroundImage: `url('${study.imageUrl}')` }}
                   aria-label={study.imageAlt}
                 />
-                <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors" />
+                <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors" />
               </div>
 
               {/* Content */}
@@ -45,15 +45,15 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                   isEven ? "order-1 lg:order-2" : "order-1"
                 }`}
               >
-                {/* Tags */}
+                {/* Tags — tertiary typography: small, tracked, uppercase */}
                 <div className="flex flex-wrap gap-2">
                   {study.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
                       className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
                         tagIndex === 0
-                          ? "bg-pm-primary/10 text-pm-primary"
-                          : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
+                          ? "bg-primary/10 text-primary"
+                          : "bg-muted text-muted-foreground"
                       }`}
                     >
                       {tag}
@@ -62,24 +62,24 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                 </div>
 
                 {/* Title */}
-                <h3 className="text-3xl font-bold text-slate-900 dark:text-white leading-tight font-display">
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight font-display">
                   {study.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed font-body">
+                {/* Description — secondary typography */}
+                <p className="text-foreground/70 leading-relaxed font-body">
                   {study.description}
                 </p>
 
-                {/* Key Impact */}
-                <div className="mt-4 p-4 bg-pm-primary/5 dark:bg-white/5 border-l-4 border-pm-primary rounded-r-lg">
-                  <p className="text-sm font-bold text-pm-muted uppercase mb-1 font-body">
+                {/* Key Impact — signature: callout echoing chat response style */}
+                <div className="mt-4 p-4 bg-primary/5 border-l-2 border-primary rounded-r-lg">
+                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1 font-body">
                     {study.keyImpact.label}
                   </p>
-                  <p className="text-2xl font-black text-slate-900 dark:text-white font-display">
+                  <p className="text-2xl font-black text-foreground font-display">
                     {study.keyImpact.value}{" "}
                     {study.keyImpact.context && (
-                      <span className="text-base font-normal text-slate-500 dark:text-slate-400">
+                      <span className="text-base font-normal text-muted-foreground">
                         {study.keyImpact.context}
                       </span>
                     )}
@@ -90,7 +90,7 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                 {study.linkUrl && (
                   <a
                     href={study.linkUrl}
-                    className="inline-flex items-center text-pm-primary font-bold hover:underline mt-2 font-body"
+                    className="inline-flex items-center text-primary font-bold hover:underline mt-2 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
                   >
                     Read Case Study{" "}
                     <span className="material-symbols-outlined text-sm ml-1">

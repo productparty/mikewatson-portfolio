@@ -177,23 +177,23 @@ export function PortfolioChat() {
           <div className="space-y-8">
             {/* Introduction */}
             <div className="text-center space-y-4">
-              <h2 className="text-2xl font-semibold text-pm-heading dark:text-white">
+              <h2 className="text-2xl font-semibold text-foreground">
                 Ask Me Anything
               </h2>
-              <p className="text-pm-body dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+              <p className="text-foreground max-w-xl mx-auto leading-relaxed">
                 I trained an AI on 2+ years of my writing, my project work, and my
                 professional experience. This isn't a generic chatbot. It's the
                 closest thing to having a conversation with me without scheduling a
                 call.
               </p>
-              <p className="text-sm text-pm-muted dark:text-slate-400">
+              <p className="text-sm text-muted-foreground">
                 It's not actually me, but it's trained on my voice and experience.
               </p>
             </div>
 
             {/* Starter Questions */}
             <div className="space-y-3">
-              <p className="text-sm text-pm-muted dark:text-slate-400 text-center">
+              <p className="text-sm text-muted-foreground text-center">
                 Try asking about:
               </p>
               <div className="flex flex-wrap gap-2 justify-center">
@@ -201,7 +201,7 @@ export function PortfolioChat() {
                   <button
                     key={index}
                     onClick={() => handleStarterClick(question)}
-                    className="px-4 py-2 text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-pm-body dark:text-slate-300 rounded-lg transition-colors text-left"
+                    className="px-4 py-2 text-sm bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-foreground rounded-lg transition-colors text-left"
                   >
                     {question}
                   </button>
@@ -223,8 +223,8 @@ export function PortfolioChat() {
                 <div
                   className={`text-sm font-medium mb-1 ${
                     message.role === "user"
-                      ? "text-right text-pm-muted dark:text-slate-400"
-                      : "text-pm-primary dark:text-blue-400"
+                      ? "text-right text-muted-foreground"
+                      : "text-primary"
                   }`}
                 >
                   {message.role === "user" ? "You" : "Mike's AI"}
@@ -232,8 +232,8 @@ export function PortfolioChat() {
                 <div
                   className={`prose prose-sm dark:prose-invert max-w-none ${
                     message.role === "user"
-                      ? "text-right text-pm-body dark:text-slate-300"
-                      : "text-pm-body dark:text-slate-300"
+                      ? "text-right text-foreground"
+                      : "text-foreground"
                   }`}
                 >
                   {message.role === "assistant" ? (
@@ -247,7 +247,7 @@ export function PortfolioChat() {
                             href={href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-pm-primary dark:text-blue-400 hover:underline"
+                            className="text-primary hover:underline"
                           >
                             {children}
                           </a>
@@ -283,13 +283,13 @@ export function PortfolioChat() {
             onKeyDown={handleKeyDown}
             placeholder="Type your question..."
             disabled={isStreaming}
-            className="flex-1 min-h-[44px] max-h-[120px] resize-none bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-pm-primary dark:focus:border-blue-400"
+            className="flex-1 min-h-[44px] max-h-[120px] resize-none bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-primary"
             rows={1}
           />
           <Button
             type="submit"
             disabled={isStreaming || !input.trim()}
-            className="h-11 w-11 p-0 bg-pm-primary hover:bg-pm-primary/90"
+            className="h-11 w-11 p-0 bg-primary hover:bg-primary/90"
           >
             <Send size={18} />
           </Button>
@@ -298,13 +298,13 @@ export function PortfolioChat() {
         {/* Footer */}
         <div className="mt-3 text-center space-y-1">
           {remainingMessages !== null && (
-            <p className="text-xs text-pm-muted dark:text-slate-500">
+            <p className="text-xs text-muted-foreground">
               {remainingMessages} messages remaining this session
             </p>
           )}
-          <p className="text-xs text-pm-muted dark:text-slate-500">
+          <p className="text-xs text-muted-foreground">
             Built by Mike Watson using Claude API + a custom knowledge corpus.{" "}
-            <span className="text-pm-primary dark:text-blue-400">
+            <span className="text-primary">
               Another example of a PM who ships.
             </span>
           </p>

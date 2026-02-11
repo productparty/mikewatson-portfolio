@@ -22,7 +22,7 @@ export default function Consulting() {
     <>
       <SeoHead seo={PORTFOLIO_SEO} />
       <StructuredData />
-      <div className="min-h-screen bg-pm-background dark:bg-slate-900 font-display">
+      <div className="min-h-screen bg-background font-display">
         <StickyHeader />
         <main>
           {/* AI Chat Hero - Primary experience above the fold */}
@@ -39,10 +39,10 @@ export default function Consulting() {
           </div>
         </main>
         {/* Footer */}
-        <footer className="py-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-pm-muted dark:text-slate-500 font-body">
+        <footer className="py-8 border-t border-border text-center text-sm text-muted-foreground font-body">
           <p>
             © {new Date().getFullYear()} Mike Watson. Designed with{" "}
-            <span className="text-pm-primary">♥</span> for Product Management.
+            <span className="text-primary">♥</span> for Product Management.
           </p>
         </footer>
       </div>

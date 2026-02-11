@@ -26,16 +26,13 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
   ];
 
   return (
-    <section
-      id="tools"
-      className="py-20 bg-pm-background dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800"
-    >
+    <section id="tools" className="py-20 bg-background">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white font-display">
+          <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
             Tools I Build With
           </h2>
-          <p className="text-pm-muted dark:text-slate-400 font-body">
+          <p className="text-muted-foreground font-body">
             Technologies and platforms I use to build and ship products.
           </p>
         </div>
@@ -44,16 +41,16 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
           {categories.map((category, categoryIndex) => (
             <div
               key={categoryIndex}
-              className="p-6 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm"
+              className="p-6 rounded-xl bg-card shadow-sm"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="size-10 rounded-lg bg-pm-primary/10 text-pm-primary flex items-center justify-center">
+                <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
                   <span className="material-symbols-outlined text-xl">
                     {category.icon}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white font-display">
+                <h3 className="text-lg font-bold text-foreground font-display">
                   {category.title}
                 </h3>
               </div>
@@ -63,7 +60,7 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
                 {category.tools.map((tool, toolIndex) => (
                   <span
                     key={toolIndex}
-                    className="px-3 py-1.5 text-sm font-medium rounded-lg bg-pm-background dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+                    className="px-3 py-1.5 text-sm font-medium rounded-lg bg-muted text-foreground/70"
                   >
                     {tool}
                   </span>

@@ -20,15 +20,6 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        // Portfolio design system colors
-        "pm-primary": "#0e7490",
-        "pm-primary-dark": "#155e75",
-        "pm-accent": "#0ea5e9",
-        "pm-background": "#fdfbf7",
-        "pm-surface": "#ffffff",
-        "pm-text": "#0f172a",
-        "pm-muted": "#475569",
-        "pm-border": "#e2e8f0",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -82,25 +73,22 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "scroll-hint": {
+          "0%, 100%": { transform: "translateY(0)", opacity: "1" },
+          "50%": { transform: "translateY(4px)", opacity: "0.6" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "scroll-hint": "scroll-hint 2.5s ease-in-out infinite",
       },
     },
   },
