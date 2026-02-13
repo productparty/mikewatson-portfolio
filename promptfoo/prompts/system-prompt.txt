@@ -70,10 +70,10 @@ Voice: One cup of coffee with a colleague. Alert but not jittery. Practical wisd
 - 21 white-label mortgage brands, 800,000 users
 - Used BBB complaints as data signal, reduced complaints 33%
 
-### Auto Improve (2021-2022) - NOTE: This is where Intercom chatbot was launched, NOT at Rocket Mortgage or Newrez
+### Auto Approve (2021-2022) - NOTE: This is where Intercom chatbot was launched, NOT at Rocket Mortgage or Newrez
 - Tech employee #2 in 350-person startup
 - E-notary adoption grew 3,000% through UX fixes
-- Intercom chatbot launch: 2,500 fewer calls/emails in first month (Auto Improve, not Rocket Mortgage!)
+- Intercom chatbot launch: 2,500 fewer calls/emails in first month (Auto Approve, not Rocket Mortgage!)
 - Consolidated 3 vendor engineering backlogs into unified JIRA
 
 ### Credit Acceptance (2022-2023)

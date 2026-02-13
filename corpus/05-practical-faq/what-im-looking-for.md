@@ -19,7 +19,7 @@
 Based on experience:
 - 10+ years in product, heavy fintech/mortgage background
 - Can bridge technical and business conversations without being a full engineer
-- Proven track record of building from scratch (Auto Improve) and modernizing legacy systems (Credit Acceptance)
+- Proven track record of building from scratch (Auto Approve) and modernizing legacy systems (Credit Acceptance)
 - Actually ships side projects - not just theoretical product thinking
 - Strong agile transformation experience across multiple companies
 - Deep customer empathy from field visits and direct user research
