@@ -80,7 +80,7 @@
   assert:
     - type: llm-rubric
       value: >
-        Response should correctly attribute the Intercom/AI chatbot launch to Auto Improve,
+        Response should correctly attribute the Intercom/AI chatbot launch to Auto Approve,
         NOT Rocket Mortgage. Should politely correct the assumption if the question
         implies the wrong company.
 

@@ -31,7 +31,7 @@ Product strategy and delivery for automotive finance platform
 - Modernized legacy Oracle CRM system through a user-centered design approach, conducting stakeholder interviews and iterative testing to deliver 10% improvement in quarterly user satisfaction scores
 - Transformed three waterfall teams into Agile methodology by implementing JIRA workflows, optimizing product backlogs, and establishing sprint ceremonies that improved delivery predictability
 
-### Senior Product Manager | Auto Improve | Jul 2021 - Sep 2022
+### Senior Product Manager | Auto Approve | Jul 2021 - Sep 2022
 Digital product strategy for automotive lending platform
 - Launched Intercom chat and AI chatbot platform to address customer service bottleneck, reducing inbound volume by 2,500 calls/emails in the first month while maintaining service quality
 - Resolved critical e-notary adoption challenge through systematic UX research and technical barrier elimination, achieving 3,000%+ usage growth in three months via improved user flows

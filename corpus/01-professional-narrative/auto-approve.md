@@ -1,4 +1,4 @@
-# Auto Improve - Senior Product Manager
+# Auto Approve - Senior Product Manager
 
 **Duration:** Jul 2021 - Sep 2022 (14 months)
 

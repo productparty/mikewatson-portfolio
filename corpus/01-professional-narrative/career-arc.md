@@ -12,8 +12,8 @@ Most of my career moves have been growth-driven. I saw bigger opportunities and 
 
 - **Accenture → Rocket Mortgage**: Bigger opportunity, more ownership
 - **Rocket → Newrez**: Continued growth, new challenges in mortgage tech
-- **Newrez → Auto Improve**: Took a shot at the startup world
-- **Auto Improve → Credit Acceptance**: Realized I was craving the structure and scale of corporate again
+- **Newrez → Auto Approve**: Took a shot at the startup world
+- **Auto Approve → Credit Acceptance**: Realized I was craving the structure and scale of corporate again
 - **Credit Acceptance → Pet Supplies Plus**: Currently working with PSP as a client
 
 ## Discovering "Product Manager"

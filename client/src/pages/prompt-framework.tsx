@@ -304,7 +304,7 @@ export default function PromptFramework() {
                           <li>Missing education dates</li>
                           <li>
                             Intercom chatbot attributed to wrong company (said
-                            Rocket Mortgage, was actually Auto Improve)
+                            Rocket Mortgage, was actually Auto Approve)
                           </li>
                           <li>Overly long responses to simple greetings</li>
                           <li>Missing Accenture SAP implementation context</li>
@@ -333,7 +333,7 @@ export default function PromptFramework() {
                             University of Phoenix 2008)
                           </li>
                           <li>
-                            Clarified Intercom chatbot was at Auto Improve
+                            Clarified Intercom chatbot was at Auto Approve
                             specifically
                           </li>
                           <li>Added Accenture SAP implementation details</li>
@@ -409,7 +409,7 @@ export default function PromptFramework() {
                       </p>
                       <p className="text-sm text-slate-600 dark:text-slate-300 mb-2 font-body">
                         <strong>System prompt update:</strong> Added explicit
-                        note: "Intercom chatbot was at Auto Improve, NOT Rocket
+                        note: "Intercom chatbot was at Auto Approve, NOT Rocket
                         Mortgage"
                       </p>
                       <p className="text-sm text-slate-600 dark:text-slate-300 mb-2 font-body">

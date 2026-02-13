@@ -14,13 +14,13 @@ export function BackgroundContext() {
     },
     {
       project: "AI Chatbot Platform",
-      context: "Auto Improve",
+      context: "Auto Approve",
       role: "Sr. Product Manager",
       outcome: "Reduced 2,500 monthly customer contacts",
     },
     {
       project: "E-Notary Adoption",
-      context: "Auto Improve",
+      context: "Auto Approve",
       role: "Sr. Product Manager",
       outcome: "3,000%+ usage growth in three months",
     },
