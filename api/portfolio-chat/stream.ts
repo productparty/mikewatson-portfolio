@@ -286,7 +286,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const systemBlocks = generateSystemPromptBlocks();
 
     const stream = anthropic.messages.stream({
-      model: "claude-3-5-haiku-20241022",
+      model: "claude-haiku-4-5-20250414",
       max_tokens: 1024,
       temperature: 0.7,
       system: systemBlocks,
