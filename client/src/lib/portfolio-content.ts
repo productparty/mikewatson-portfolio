@@ -194,7 +194,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Build to Learn",
     quote: '"I build things to find out what\'s true, not just to ship features."',
     inPractice:
-      "When I'm uncertain about what users actually need, I don't schedule another round of interviews—I build something lightweight that measures what they do. Surveys tell you what people think they want. Instrumented systems show you what they really need. It's faster, it's clearer, and it keeps you honest about whether you're solving the right problem.",
+      "Instead of scheduling endless user interviews, I build lightweight prototypes to measure actual behavior. Instrumented systems reveal true user needs faster and more accurately than surveys.",
   },
   {
     id: "agile-delivery",
@@ -202,7 +202,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Agile Delivery",
     quote: '"Ship the smallest thing that teaches you the most."',
     inPractice:
-      "Big initiatives don't fail because the plan was wrong—they fail because we waited too long to test it. I've found the best approach is breaking things into the smallest shippable increment that proves the concept. Get it in front of users, watch what happens, adjust. A working MVP in production beats a perfect PRD gathering dust.",
+      "I break complex initiatives into the smallest shippable increments to prove concepts early. Getting a working MVP in production beats a perfect PRD gathering dust.",
   },
   {
     id: "automation-first",
@@ -210,7 +210,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Automation First",
     quote: '"If I\'m doing it manually twice, I automate it."',
     inPractice:
-      "The second time I find myself doing repetitive work, I build the thing that does it for me. Status updates become dashboards. Analysis becomes pipelines. One-off requests become self-service tools. It's not about being lazy—it's about scaling yourself so you can focus on the problems that actually need a human.",
+      "I aggressively automate repetitive work—turning status updates into dashboards and manual analysis into self-service pipelines. This scales my impact so I can focus on harder problems.",
   },
   {
     id: "systems-over-slides",
@@ -218,7 +218,7 @@ export const METHODOLOGY_CARDS: MethodologyCard[] = [
     title: "Systems Over Slides",
     quote: '"I\'d rather build a dashboard than sit in a status meeting."',
     inPractice:
-      "I'd rather spend an hour building a dashboard than an hour explaining what's happening. When stakeholders have real-time visibility into the work, they stop asking for updates and start making decisions. The goal isn't to look busy—it's to make the work transparent enough that everyone can move faster.",
+      "Real-time visibility empowers stakeholders to make decisions without asking for updates. I build transparent systems that accelerate velocity rather than curating slide decks.",
   },
 ];
 
