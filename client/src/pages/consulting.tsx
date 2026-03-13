@@ -4,6 +4,7 @@ import { ToolsSection } from "@/components/consulting/tools-section";
 import { ExperienceTimeline } from "@/components/consulting/experience-timeline";
 import { TechnicalProjects } from "@/components/consulting/technical-projects";
 import { SpotlightCaseStudies } from "@/components/consulting/spotlight-case-studies";
+import { BuiltAndShipped } from "@/components/consulting/built-and-shipped";
 import { MethodologyGrid } from "@/components/consulting/methodology-grid";
 import { FinalCTA } from "@/components/consulting/final-cta";
 import { SeoHead } from "@/components/seo-head";
@@ -34,6 +35,7 @@ export default function Consulting() {
             <ExperienceTimeline roles={EXPERIENCE_TIMELINE} />
             <TechnicalProjects projects={TECHNICAL_PROJECTS} />
             <SpotlightCaseStudies caseStudies={SPOTLIGHT_CASE_STUDIES} />
+            <BuiltAndShipped />
             <MethodologyGrid cards={METHODOLOGY_CARDS} />
             <FinalCTA />
           </div>
