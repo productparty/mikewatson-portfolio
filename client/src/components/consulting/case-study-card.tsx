@@ -8,7 +8,7 @@ export function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
   return (
     <div className="p-8 rounded-xl bg-card shadow-sm hover:shadow-md transition-all duration-300 group">
       <div className="flex items-start justify-between gap-4 mb-4">
-        <h3 className="text-xl md:text-2xl font-bold text-foreground font-display leading-tight flex-1">
+        <h3 className="text-xl md:text-2xl font-bold text-foreground font-headline leading-tight flex-1">
           {caseStudy.title}
         </h3>
         {caseStudy.featured && (

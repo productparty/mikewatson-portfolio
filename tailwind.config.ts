@@ -6,8 +6,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Manrope", "sans-serif"],
-        body: ["Noto Sans", "sans-serif"],
+        headline: ["Manrope", "sans-serif"],
+        body: ["Inter", "sans-serif"],
+        label: ["Plus Jakarta Sans", "sans-serif"],
       },
       container: {
         center: true,
@@ -53,6 +54,19 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        "surface-container-low": "hsl(var(--surface-container-low))",
+        "surface-container": "hsl(var(--surface-container))",
+        "surface-container-high": "hsl(var(--surface-container-high))",
+        "surface-container-highest": "hsl(var(--surface-container-highest))",
+        outline: {
+          DEFAULT: "hsl(var(--outline))",
+          variant: "hsl(var(--outline-variant))",
+        },
+        "primary-container": "hsl(var(--primary-container))",
+        "primary-fixed": "hsl(var(--primary-fixed))",
+        "primary-fixed-dim": "hsl(var(--primary-fixed-dim))",
+        "secondary-container": "hsl(var(--secondary-container))",
+        "on-surface-variant": "hsl(var(--on-surface-variant))",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

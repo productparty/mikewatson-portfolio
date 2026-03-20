@@ -105,7 +105,7 @@ export function BuiltAndShipped() {
     <section id="built-and-shipped" className="py-20 bg-card">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
             Built &amp; Shipped
           </h2>
           <p className="text-muted-foreground font-body">
@@ -122,7 +122,7 @@ export function BuiltAndShipped() {
               className="min-w-[300px] md:min-w-0 snap-start flex flex-col p-8 rounded-xl bg-background shadow-sm hover:shadow-md transition-all duration-300 group"
             >
               {/* App name */}
-              <h3 className="text-xl font-bold text-foreground font-display mb-2">
+              <h3 className="text-xl font-bold text-foreground font-headline mb-2">
                 {app.name}
               </h3>
 

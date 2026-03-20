@@ -61,7 +61,7 @@ export default function PromptFramework() {
   return (
     <>
       <SeoHead seo={PROMPT_FRAMEWORK_SEO} />
-      <div className="min-h-screen bg-background font-display">
+      <div className="min-h-screen bg-background font-headline">
         <StickyHeader />
 
         <main>

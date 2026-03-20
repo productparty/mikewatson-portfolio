@@ -29,7 +29,7 @@ export function ProjectGrid() {
             className="w-full h-48 object-cover"
           />
           <div className="p-6">
-            <h3 className="text-xl font-bold text-foreground font-display mb-2">
+            <h3 className="text-xl font-bold text-foreground font-headline mb-2">
               <a
                 href={project.link}
                 target="_blank"

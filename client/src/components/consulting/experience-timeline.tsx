@@ -12,7 +12,7 @@ export function ExperienceTimeline({ roles }: ExperienceTimelineProps) {
     >
       <div className="max-w-[960px] mx-auto px-4 sm:px-10">
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
             Places I've Worked
           </h2>
           <p className="text-muted-foreground font-body">
@@ -37,7 +37,7 @@ export function ExperienceTimeline({ roles }: ExperienceTimelineProps) {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-foreground font-display">
+                    <h3 className="text-xl font-bold text-foreground font-headline">
                       {role.title}
                     </h3>
                     <p className="text-sm font-medium text-muted-foreground font-body">

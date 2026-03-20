@@ -29,7 +29,7 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
     <section id="tools" className="py-20 bg-background">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
         <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
             Tools I Build With
           </h2>
           <p className="text-muted-foreground font-body">
@@ -50,7 +50,7 @@ export function ToolsSection({ tools }: ToolsSectionProps) {
                     {category.icon}
                   </span>
                 </div>
-                <h3 className="text-lg font-bold text-foreground font-display">
+                <h3 className="text-lg font-bold text-foreground font-headline">
                   {category.title}
                 </h3>
               </div>

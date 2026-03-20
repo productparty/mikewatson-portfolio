@@ -8,7 +8,7 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
   return (
     <section id="case-studies" className="py-20 px-4 sm:px-10 max-w-[1280px] mx-auto">
       <div className="mb-16 text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+        <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
           Spotlight Case Studies
         </h2>
         <p className="text-muted-foreground font-body">
@@ -62,7 +62,7 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight font-display">
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight font-headline">
                   {study.title}
                 </h3>
 
@@ -76,7 +76,7 @@ export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps)
                   <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1 font-body">
                     {study.keyImpact.label}
                   </p>
-                  <p className="text-2xl font-black text-foreground font-display">
+                  <p className="text-2xl font-black text-foreground font-headline">
                     {study.keyImpact.value}{" "}
                     {study.keyImpact.context && (
                       <span className="text-base font-normal text-muted-foreground">

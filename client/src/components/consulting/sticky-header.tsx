@@ -36,7 +36,7 @@ export function StickyHeader() {
           </div>
           <Link
             href="/"
-            className="text-lg font-bold leading-tight tracking-tight text-foreground font-display"
+            className="text-lg font-bold leading-tight tracking-tight text-foreground font-headline"
           >
             Mike Watson | Senior PM
           </Link>
@@ -95,7 +95,7 @@ export function StickyHeader() {
           </div>
           <button
             onClick={() => handleNavClick("#contact")}
-            className="flex cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary hover:bg-primary/85 active:bg-primary/75 transition-colors text-primary-foreground text-sm font-bold shadow-sm font-display focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex cursor-pointer items-center justify-center rounded-lg h-10 px-5 bg-primary hover:bg-primary/85 active:bg-primary/75 transition-colors text-primary-foreground text-sm font-bold shadow-sm font-headline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Let's Talk
           </button>
@@ -171,7 +171,7 @@ export function StickyHeader() {
             </a>
             <button
               onClick={() => handleNavClick("#contact")}
-              className="w-full flex items-center justify-center rounded-lg h-12 px-5 bg-primary hover:bg-primary/85 active:bg-primary/75 transition-colors text-primary-foreground text-sm font-bold mt-3 font-display"
+              className="w-full flex items-center justify-center rounded-lg h-12 px-5 bg-primary hover:bg-primary/85 active:bg-primary/75 transition-colors text-primary-foreground text-sm font-bold mt-3 font-headline"
             >
               Let's Talk
             </button>

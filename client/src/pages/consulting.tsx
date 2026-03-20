@@ -23,7 +23,7 @@ export default function Consulting() {
     <>
       <SeoHead seo={PORTFOLIO_SEO} />
       <StructuredData />
-      <div className="min-h-screen bg-background font-display">
+      <div className="min-h-screen bg-background font-headline">
         <StickyHeader />
         <main>
           {/* AI Chat Hero - Primary experience above the fold */}

@@ -50,10 +50,10 @@ export default function Home() {
         </section>
 
         <section className="space-y-8">
-          <h2 className="text-3xl font-bold text-center font-display text-foreground">Projects</h2>
+          <h2 className="text-3xl font-bold text-center font-headline text-foreground">Projects</h2>
           <div className="flex flex-col items-center gap-6">
             <div className="rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300 bg-card w-full max-w-md">
-              <h3 className="text-xl font-bold font-display text-foreground mb-2">Find My Club</h3>
+              <h3 className="text-xl font-bold font-headline text-foreground mb-2">Find My Club</h3>
               <p className="text-foreground/70 leading-relaxed font-body mb-2">A modern and responsive UI for a golf club/course search engine.</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-3 py-1 text-xs font-medium rounded-lg bg-muted text-foreground/70">React</span>
@@ -77,7 +77,7 @@ export default function Home() {
                     (e.target as HTMLImageElement).src = "https://leafed.app/favicon.ico";
                   }}
                 />
-                <h3 className="text-xl font-bold font-display text-foreground">Leafed</h3>
+                <h3 className="text-xl font-bold font-headline text-foreground">Leafed</h3>
               </div>
               <p className="text-foreground/70 mb-3 leading-relaxed font-body">
                 Book discovery without the surveillance. No ads. No tracking. No accounts. Scan barcodes, search millions of titles, build reading lists, and get recommendations—all while keeping your data on your device.

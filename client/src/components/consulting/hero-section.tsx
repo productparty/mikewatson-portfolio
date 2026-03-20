@@ -47,7 +47,7 @@ export function HeroSection({ content }: HeroSectionProps) {
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white font-display">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 dark:text-white font-headline">
             {content.headline}
           </h1>
 
@@ -60,14 +60,14 @@ export function HeroSection({ content }: HeroSectionProps) {
           <div className="flex flex-col sm:flex-row gap-4 mt-4">
             <button
               onClick={handlePrimaryClick}
-              className="flex h-12 items-center justify-center rounded-lg px-8 bg-primary hover:bg-primary/85 text-white text-base font-bold shadow-lg shadow-primary/30 transition-transform hover:scale-[1.02] font-display"
+              className="flex h-12 items-center justify-center rounded-lg px-8 bg-primary hover:bg-primary/85 text-white text-base font-bold shadow-lg shadow-primary/30 transition-transform hover:scale-[1.02] font-headline"
             >
               {content.primaryCta.label}
             </button>
             <a
               href={content.secondaryCta.href}
               onClick={handleSecondaryClick}
-              className="flex h-12 items-center justify-center rounded-lg px-8 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-900 dark:text-white text-base font-bold transition-colors font-display"
+              className="flex h-12 items-center justify-center rounded-lg px-8 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-900 dark:text-white text-base font-bold transition-colors font-headline"
             >
               {content.secondaryCta.label}
             </a>
@@ -101,7 +101,7 @@ export function HeroSection({ content }: HeroSectionProps) {
                 <p className="text-xs text-muted-foreground uppercase font-bold font-body">
                   {content.floatingMetric.label}
                 </p>
-                <p className="text-lg font-black text-slate-900 dark:text-white font-display">
+                <p className="text-lg font-black text-slate-900 dark:text-white font-headline">
                   {content.floatingMetric.value}
                 </p>
               </div>

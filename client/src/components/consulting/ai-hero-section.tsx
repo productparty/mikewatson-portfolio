@@ -328,7 +328,7 @@ export function AIHeroSection() {
               </div>
 
               {/* Identity */}
-              <h1 className="text-3xl sm:text-5xl font-black text-foreground font-display tracking-tight mb-1.5">
+              <h1 className="text-3xl sm:text-5xl font-black text-foreground font-headline tracking-tight mb-1.5">
                 Mike Watson
               </h1>
               <p className="text-sm sm:text-base text-primary font-semibold tracking-wide uppercase mb-4 sm:mb-5">

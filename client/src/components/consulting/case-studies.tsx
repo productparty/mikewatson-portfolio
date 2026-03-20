@@ -13,7 +13,7 @@ export function CaseStudies({ studies }: CaseStudiesProps) {
     <section id="case-studies" className="py-20 px-4 sm:px-10 max-w-[1280px] mx-auto">
       <div>
         <div className="mb-16 text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
             Case Studies
           </h2>
           <p className="text-muted-foreground font-body">

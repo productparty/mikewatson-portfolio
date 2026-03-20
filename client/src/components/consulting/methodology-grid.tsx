@@ -15,7 +15,7 @@ export function MethodologyGrid({ cards }: MethodologyGridProps) {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h2 className="text-3xl font-bold mb-3 text-foreground font-display">
+            <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
               How I Work
             </h2>
             <p className="text-muted-foreground font-body">
@@ -61,7 +61,7 @@ export function MethodologyGrid({ cards }: MethodologyGridProps) {
               className="p-8 rounded-xl bg-card shadow-sm hover:shadow-md transition-all duration-300 group"
             >
               {/* Title */}
-              <h3 className="text-xl font-bold mb-2 text-foreground font-display">
+              <h3 className="text-xl font-bold mb-2 text-foreground font-headline">
                 {card.title}
               </h3>
 
