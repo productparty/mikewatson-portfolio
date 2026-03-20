@@ -34,6 +34,9 @@ export function AIHeroSection() {
     null
   );
   const [error, setError] = useState<string | null>(null);
+  const [stitchRecommendations, setStitchRecommendations] = useState<string[]>([]);
+  const [isLoadingStitchRecommendations, setIsLoadingStitchRecommendations] =
+    useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
@@ -97,6 +100,34 @@ export function AIHeroSection() {
       textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 120)}px`;
     }
   }, [input]);
+
+  const loadStitchRecommendations = useCallback(async (query?: string) => {
+    setIsLoadingStitchRecommendations(true);
+
+    try {
+      const response = await fetch("/api/stitch-recommendations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch Stitch recommendations");
+      }
+
+      const data = (await response.json()) as { recommendations?: string[] };
+      setStitchRecommendations(Array.isArray(data.recommendations) ? data.recommendations : []);
+    } catch (recommendationError) {
+      console.error("Stitch recommendation error:", recommendationError);
+      setStitchRecommendations([]);
+    } finally {
+      setIsLoadingStitchRecommendations(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadStitchRecommendations("Suggest interview-style prompts for this portfolio chat.");
+  }, [loadStitchRecommendations]);
 
   const sendMessage = useCallback(
     async (messageText: string) => {
@@ -167,6 +198,8 @@ export function AIHeroSection() {
             }
           }
         }
+
+        loadStitchRecommendations(messageText.trim());
       } catch (err) {
         console.error("Chat error:", err);
         setError("Something went wrong. Please try again.");
@@ -175,7 +208,7 @@ export function AIHeroSection() {
         setIsStreaming(false);
       }
     },
-    [sessionId, isStreaming]
+    [sessionId, isStreaming, loadStitchRecommendations]
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -364,6 +397,32 @@ export function AIHeroSection() {
                       {question}
                     </button>
                   ))}
+                </div>
+                <div className="mt-4">
+                  <p className="text-xs sm:text-sm text-muted-foreground text-center mb-2 tracking-wide">
+                    Smart follow-ups:
+                  </p>
+                  {isLoadingStitchRecommendations ? (
+                    <p className="text-xs text-muted-foreground text-center">
+                      Loading suggestions...
+                    </p>
+                  ) : stitchRecommendations.length > 0 ? (
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:justify-center">
+                      {stitchRecommendations.map((recommendation, index) => (
+                        <button
+                          key={`${recommendation}-${index}`}
+                          onClick={() => handleStarterClick(recommendation)}
+                          className="px-4 py-3 sm:py-2 text-sm text-left sm:text-center bg-primary/10 hover:bg-primary/20 text-foreground rounded-xl sm:rounded-full transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px]"
+                        >
+                          {recommendation}
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-muted-foreground text-center">
+                      Ask anything above to get started.
+                    </p>
+                  )}
                 </div>
               </div>
             )}
