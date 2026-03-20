@@ -170,7 +170,9 @@ function pickRecommendationTool(tools: StitchTool[]): StitchTool | null {
     })
     .sort((a, b) => b.score - a.score)[0];
 
-  return weightedTool && weightedTool.score > 0 ? weightedTool.tool : tools[0] || null;
+  // Only use Stitch tools that look recommendation-oriented.
+  // Falling back to an arbitrary tool can return unrelated structured data.
+  return weightedTool && weightedTool.score > 0 ? weightedTool.tool : null;
 }
 
 function buildToolArguments(tool: StitchTool, query: string): Record<string, unknown> {
@@ -204,24 +206,61 @@ function extractRecommendations(rawText?: string): string[] {
     return [];
   }
 
+  const parsedArray = safeParseJson<Array<Record<string, unknown>>>(rawText);
+  if (Array.isArray(parsedArray) && parsedArray.length > 0) {
+    const fromTitles = parsedArray
+      .map((item) => {
+        const title =
+          (typeof item.title === "string" && item.title) ||
+          (typeof item.name === "string" && item.name) ||
+          "";
+        return title ? `Tell me about ${title}.` : "";
+      })
+      .filter(Boolean);
+
+    if (fromTitles.length > 0) {
+      return fromTitles;
+    }
+  }
+
   const parsedJson = safeParseJson<{ recommendations?: string[]; items?: string[] }>(rawText);
   if (parsedJson?.recommendations?.length) {
-    return parsedJson.recommendations.filter(Boolean).map((item) => item.trim());
+    return parsedJson.recommendations
+      .filter(Boolean)
+      .map((item) => sanitizeRecommendation(item))
+      .filter(Boolean);
   }
   if (parsedJson?.items?.length) {
-    return parsedJson.items.filter(Boolean).map((item) => item.trim());
+    return parsedJson.items
+      .filter(Boolean)
+      .map((item) => sanitizeRecommendation(item))
+      .filter(Boolean);
   }
 
   return rawText
     .split("\n")
-    .map((line) =>
-      line
-        .replace(/^\s*[-*•]\s*/, "")
-        .replace(/^\s*\d+[\.\)]\s*/, "")
-        .trim()
-    )
-    .filter((line) => line.length > 8)
+    .map((line) => sanitizeRecommendation(line))
+    .filter(Boolean)
     .slice(0, MAX_RECOMMENDATIONS);
+}
+
+function sanitizeRecommendation(value: string): string {
+  const cleaned = value
+    .replace(/^\s*[-*•]\s*/, "")
+    .replace(/^\s*\d+[\.\)]\s*/, "")
+    .trim();
+
+  if (
+    cleaned.length < 8 ||
+    cleaned.includes("{") ||
+    cleaned.includes("}") ||
+    cleaned.includes(":\"") ||
+    cleaned.startsWith("[")
+  ) {
+    return "";
+  }
+
+  return cleaned;
 }
 
 function safeParseJson<T>(value: string): T | null {
