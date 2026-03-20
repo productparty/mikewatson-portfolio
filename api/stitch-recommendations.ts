@@ -1,272 +1,365 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 
+// ── Types ────────────────────────────────────────────────────────────────────
+
 interface StitchTool {
   name: string;
+  description?: string;
   inputSchema?: {
     properties?: Record<string, { type?: string }>;
     required?: string[];
   };
 }
 
-interface StitchRpcResponse<T> {
+interface StitchRpcResult<T> {
   result?: T;
   error?: { message?: string };
 }
 
-const STITCH_MCP_URL = "https://stitch.googleapis.com/mcp";
-const MAX_RECOMMENDATIONS = 4;
+interface ToolsListResult {
+  tools?: StitchTool[];
+}
 
-const fallbackRecommendations = [
+interface ToolCallResult {
+  content?: Array<{ text?: string }>;
+}
+
+// ── Config ───────────────────────────────────────────────────────────────────
+
+const STITCH_MCP_URL = "https://stitch.googleapis.com/mcp";
+const STITCH_TIMEOUT_MS = 5_000;
+const MAX_RECOMMENDATIONS = 4;
+const MIN_TEXT_LENGTH = 10;
+const MAX_TEXT_LENGTH = 140;
+
+const FALLBACK_RECOMMENDATIONS = [
   "What product problems are you best at solving?",
   "Tell me about a project where AI made a measurable impact.",
   "How do you prioritize when everything feels urgent?",
   "What would your first 30 days look like in a new role?",
 ];
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const allowedOrigins = [
-    "https://mikewatson.us",
-    "https://www.mikewatson.us",
-    "https://mikewatsonusportfolio.vercel.app",
-    "http://localhost:5000",
-    "http://localhost:3000",
-  ];
+/** Starter questions from the frontend — used to dedup server-side. */
+const STARTER_QUESTIONS_LOWER = new Set([
+  "what's the story behind 3,000% e-notary growth?",
+  "how do you approach inheriting a messy backlog?",
+  "tell me about building leafed as a non-developer",
+  "what's your take on ai replacing pms?",
+  "what are you looking for in your next role?",
+]);
 
+// ── Warm-start cache for tools/list ──────────────────────────────────────────
+// Vercel keeps warm serverless instances alive for minutes. Caching the tool
+// list avoids a redundant round-trip on repeated calls within the same instance.
+
+let cachedTool: StitchTool | null = null;
+let cacheExpiry = 0;
+const CACHE_TTL_MS = 5 * 60 * 1_000; // 5 minutes
+
+// ── CORS helpers ─────────────────────────────────────────────────────────────
+
+const ALLOWED_ORIGINS = new Set([
+  "https://mikewatson.us",
+  "https://www.mikewatson.us",
+  "https://mikewatsonusportfolio.vercel.app",
+  "http://localhost:5000",
+  "http://localhost:3000",
+]);
+
+function setCorsHeaders(req: VercelRequest, res: VercelResponse) {
   const origin = req.headers.origin;
-  if (origin && allowedOrigins.includes(origin)) {
+  if (origin && ALLOWED_ORIGINS.has(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
   res.setHeader("Access-Control-Allow-Credentials", "true");
+}
 
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
+// ── Handler ──────────────────────────────────────────────────────────────────
 
-  if (req.method !== "POST") {
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+) {
+  setCorsHeaders(req, res);
+
+  if (req.method === "OPTIONS") return res.status(200).end();
+  if (req.method !== "POST")
     return res.status(405).json({ error: "Method not allowed" });
+
+  const apiKey = process.env.STITCH_API_KEY;
+  if (!apiKey) {
+    return respond(res, FALLBACK_RECOMMENDATIONS, "fallback", "No API key");
   }
 
-  const stitchApiKey = process.env.STITCH_API_KEY;
-  if (!stitchApiKey) {
-    return res.status(200).json({
-      recommendations: fallbackRecommendations,
-      source: "fallback",
-      reason: "STITCH_API_KEY missing",
-    });
-  }
-
-  const { query } = req.body || {};
+  const { query } = (req.body as { query?: string }) || {};
   const normalizedQuery =
     typeof query === "string" && query.trim().length > 0
       ? query.trim().slice(0, 500)
       : "Help portfolio visitors ask better questions about Mike's product and AI experience.";
 
   try {
-    const toolsList = await callStitchRpc<{ tools?: StitchTool[] }>(
-      "tools/list",
-      {},
-      stitchApiKey
-    );
-
-    if (toolsList.error || !toolsList.result?.tools?.length) {
-      return res.status(200).json({
-        recommendations: fallbackRecommendations,
-        source: "fallback",
-        reason: toolsList.error?.message || "No tools returned from Stitch",
-      });
+    // Step 1: Resolve tool (cached when possible)
+    const tool = await resolveRecommendationTool(apiKey);
+    if (!tool) {
+      return respond(res, FALLBACK_RECOMMENDATIONS, "fallback", "No compatible tool");
     }
 
-    const selectedTool = pickRecommendationTool(toolsList.result.tools);
-    if (!selectedTool) {
-      return res.status(200).json({
-        recommendations: fallbackRecommendations,
-        source: "fallback",
-        reason: "No recommendation-compatible Stitch tool found",
-      });
-    }
-
-    const toolArguments = buildToolArguments(selectedTool, normalizedQuery);
-    const toolCall = await callStitchRpc<{ content?: Array<{ text?: string }> }>(
+    // Step 2: Call the tool
+    const callResult = await stitchRpc<ToolCallResult>(
       "tools/call",
-      {
-        name: selectedTool.name,
-        arguments: toolArguments,
-      },
-      stitchApiKey
+      { name: tool.name, arguments: buildArguments(tool, normalizedQuery) },
+      apiKey
     );
 
-    if (toolCall.error) {
-      return res.status(200).json({
-        recommendations: fallbackRecommendations,
-        source: "fallback",
-        reason: toolCall.error.message || "Stitch tool call failed",
-      });
+    if (callResult.error) {
+      return respond(
+        res,
+        FALLBACK_RECOMMENDATIONS,
+        "fallback",
+        callResult.error.message
+      );
     }
 
-    const rawText = toolCall.result?.content?.map((item) => item.text || "").join("\n");
-    const recommendations = extractRecommendations(rawText).slice(0, MAX_RECOMMENDATIONS);
+    // Step 3: Extract, sanitize, dedup
+    const rawText = (callResult.result?.content ?? [])
+      .map((c) => c.text ?? "")
+      .join("\n");
+
+    const recommendations = extractAndSanitize(rawText);
 
     if (recommendations.length === 0) {
-      return res.status(200).json({
-        recommendations: fallbackRecommendations,
-        source: "fallback",
-        reason: "Unable to parse recommendations from Stitch output",
-      });
+      return respond(res, FALLBACK_RECOMMENDATIONS, "fallback", "Empty parse result");
     }
 
-    return res.status(200).json({
-      recommendations,
-      source: "stitch",
-    });
-  } catch (error) {
-    console.error("stitch-recommendations error:", error);
-    return res.status(200).json({
-      recommendations: fallbackRecommendations,
-      source: "fallback",
-      reason: "Unexpected error while calling Stitch",
-    });
+    return respond(res, recommendations, "stitch");
+  } catch (err) {
+    console.error("stitch-recommendations error:", err);
+    return respond(res, FALLBACK_RECOMMENDATIONS, "fallback", "Unexpected error");
   }
 }
 
-async function callStitchRpc<T>(
+// ── Response helper ──────────────────────────────────────────────────────────
+
+function respond(
+  res: VercelResponse,
+  recommendations: string[],
+  source: "stitch" | "fallback",
+  reason?: string
+) {
+  const body: Record<string, unknown> = { recommendations, source };
+  if (reason) body.reason = reason;
+  return res.status(200).json(body);
+}
+
+// ── Stitch RPC with timeout ──────────────────────────────────────────────────
+
+async function stitchRpc<T>(
   method: string,
   params: Record<string, unknown>,
   apiKey: string
-): Promise<StitchRpcResponse<T>> {
-  const response = await fetch(STITCH_MCP_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Goog-Api-Key": apiKey,
-    },
-    body: JSON.stringify({
-      jsonrpc: "2.0",
-      id: crypto.randomUUID(),
-      method,
-      params,
-    }),
-  });
+): Promise<StitchRpcResult<T>> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), STITCH_TIMEOUT_MS);
 
-  if (!response.ok) {
-    return { error: { message: `HTTP ${response.status}` } };
+  try {
+    const response = await fetch(STITCH_MCP_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Goog-Api-Key": apiKey,
+      },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        id: crypto.randomUUID(),
+        method,
+        params,
+      }),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      return { error: { message: `HTTP ${response.status}` } };
+    }
+
+    return (await response.json()) as StitchRpcResult<T>;
+  } catch (err) {
+    const message =
+      err instanceof Error && err.name === "AbortError"
+        ? `Stitch timeout (${STITCH_TIMEOUT_MS}ms)`
+        : "Stitch fetch failed";
+    return { error: { message } };
+  } finally {
+    clearTimeout(timer);
   }
-
-  const json = (await response.json()) as StitchRpcResponse<T>;
-  return json;
 }
 
-function pickRecommendationTool(tools: StitchTool[]): StitchTool | null {
-  const weightedTool = tools
-    .map((tool) => {
-      const name = tool.name.toLowerCase();
-      const score =
-        (name.includes("recommend") ? 4 : 0) +
-        (name.includes("suggest") ? 3 : 0) +
-        (name.includes("query") ? 2 : 0) +
-        (name.includes("search") ? 1 : 0);
-      return { tool, score };
-    })
-    .sort((a, b) => b.score - a.score)[0];
+// ── Tool resolution with caching ─────────────────────────────────────────────
 
-  // Only use Stitch tools that look recommendation-oriented.
-  // Falling back to an arbitrary tool can return unrelated structured data.
-  return weightedTool && weightedTool.score > 0 ? weightedTool.tool : null;
-}
-
-function buildToolArguments(tool: StitchTool, query: string): Record<string, unknown> {
-  const properties = tool.inputSchema?.properties || {};
-  const propertyNames = Object.keys(properties);
-  const stringFields = propertyNames.filter(
-    (key) => properties[key]?.type === "string" || !properties[key]?.type
-  );
-
-  const preferredFieldNames = [
-    "query",
-    "prompt",
-    "text",
-    "input",
-    "question",
-    "content",
-  ];
-
-  const preferredField =
-    preferredFieldNames.find((name) => stringFields.includes(name)) || stringFields[0];
-
-  if (preferredField) {
-    return { [preferredField]: query };
+async function resolveRecommendationTool(
+  apiKey: string
+): Promise<StitchTool | null> {
+  if (cachedTool && Date.now() < cacheExpiry) {
+    return cachedTool;
   }
 
-  return { query };
-}
+  const result = await stitchRpc<ToolsListResult>("tools/list", {}, apiKey);
+  const tools = result.result?.tools;
+  if (!tools?.length) return null;
 
-function extractRecommendations(rawText?: string): string[] {
-  if (!rawText) {
-    return [];
+  const picked = pickBestTool(tools);
+  if (picked) {
+    cachedTool = picked;
+    cacheExpiry = Date.now() + CACHE_TTL_MS;
   }
 
-  const parsedArray = safeParseJson<Array<Record<string, unknown>>>(rawText);
-  if (Array.isArray(parsedArray) && parsedArray.length > 0) {
-    const fromTitles = parsedArray
-      .map((item) => {
-        const title =
-          (typeof item.title === "string" && item.title) ||
-          (typeof item.name === "string" && item.name) ||
-          "";
-        return title ? `Tell me about ${title}.` : "";
-      })
-      .filter(Boolean);
+  return picked;
+}
 
-    if (fromTitles.length > 0) {
-      return fromTitles;
+// ── Tool selection ───────────────────────────────────────────────────────────
+// Score by keywords in both name AND description.
+
+const TOOL_KEYWORDS: Array<[string, number]> = [
+  ["recommend", 5],
+  ["suggest", 4],
+  ["prompt", 3],
+  ["query", 2],
+  ["search", 1],
+  ["generate", 1],
+];
+
+function pickBestTool(tools: StitchTool[]): StitchTool | null {
+  let best: StitchTool | null = null;
+  let bestScore = 0;
+
+  for (const tool of tools) {
+    const haystack = `${tool.name} ${tool.description ?? ""}`.toLowerCase();
+    let score = 0;
+    for (const [keyword, weight] of TOOL_KEYWORDS) {
+      if (haystack.includes(keyword)) score += weight;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = tool;
     }
   }
 
-  const parsedJson = safeParseJson<{ recommendations?: string[]; items?: string[] }>(rawText);
-  if (parsedJson?.recommendations?.length) {
-    return parsedJson.recommendations
-      .filter(Boolean)
-      .map((item) => sanitizeRecommendation(item))
-      .filter(Boolean);
-  }
-  if (parsedJson?.items?.length) {
-    return parsedJson.items
-      .filter(Boolean)
-      .map((item) => sanitizeRecommendation(item))
-      .filter(Boolean);
-  }
-
-  return rawText
-    .split("\n")
-    .map((line) => sanitizeRecommendation(line))
-    .filter(Boolean)
-    .slice(0, MAX_RECOMMENDATIONS);
+  return bestScore > 0 ? best : null;
 }
 
-function sanitizeRecommendation(value: string): string {
-  const cleaned = value
-    .replace(/^\s*[-*•]\s*/, "")
-    .replace(/^\s*\d+[\.\)]\s*/, "")
+// ── Argument building ────────────────────────────────────────────────────────
+
+const PREFERRED_FIELDS = ["query", "prompt", "text", "input", "question", "content"];
+
+function buildArguments(
+  tool: StitchTool,
+  query: string
+): Record<string, unknown> {
+  const props = tool.inputSchema?.properties ?? {};
+  const stringFields = Object.keys(props).filter(
+    (k) => props[k]?.type === "string" || !props[k]?.type
+  );
+
+  const field =
+    PREFERRED_FIELDS.find((f) => stringFields.includes(f)) ?? stringFields[0];
+
+  return field ? { [field]: query } : { query };
+}
+
+// ── Extraction + sanitization pipeline ───────────────────────────────────────
+
+function extractAndSanitize(rawText: string): string[] {
+  if (!rawText.trim()) return [];
+
+  // Try structured JSON first, then fall back to line-by-line
+  const lines = tryParseStructured(rawText) ?? rawText.split("\n");
+
+  const seen = new Set<string>();
+  const results: string[] = [];
+
+  for (const line of lines) {
+    const cleaned = sanitize(line);
+    if (!cleaned) continue;
+
+    // Dedup by normalized key
+    const key = cleaned.toLowerCase().replace(/[^a-z0-9]/g, "");
+    if (seen.has(key)) continue;
+
+    // Skip if too similar to a starter question
+    if (STARTER_QUESTIONS_LOWER.has(cleaned.toLowerCase())) continue;
+
+    seen.add(key);
+    results.push(cleaned);
+
+    if (results.length >= MAX_RECOMMENDATIONS) break;
+  }
+
+  return results;
+}
+
+/** Attempt to extract string lines from JSON structures Stitch might return. */
+function tryParseStructured(text: string): string[] | null {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    return null;
+  }
+
+  // { recommendations: [...] } or { items: [...] }
+  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) {
+    const obj = parsed as Record<string, unknown>;
+    const arr = obj.recommendations ?? obj.items ?? obj.results ?? obj.suggestions;
+    if (Array.isArray(arr)) {
+      return arr
+        .filter((v): v is string => typeof v === "string")
+        .filter(Boolean);
+    }
+  }
+
+  // [{ title: "..." }, ...] or ["...", ...]
+  if (Array.isArray(parsed)) {
+    return parsed.map((item) => {
+      if (typeof item === "string") return item;
+      if (item && typeof item === "object") {
+        const obj = item as Record<string, unknown>;
+        const label =
+          (typeof obj.title === "string" && obj.title) ||
+          (typeof obj.name === "string" && obj.name) ||
+          (typeof obj.text === "string" && obj.text) ||
+          "";
+        return label ? `Tell me about ${label}.` : "";
+      }
+      return "";
+    });
+  }
+
+  return null;
+}
+
+/** Clean a single recommendation line. Returns empty string if invalid. */
+function sanitize(value: string): string {
+  let cleaned = value
+    .replace(/^\s*[-*•]\s*/, "")     // list markers
+    .replace(/^\s*\d+[.)]\s*/, "")   // numbered lists
+    .replace(/^["']|["']$/g, "")     // wrapping quotes
     .trim();
 
+  // Reject JSON fragments, too-short, or too-long
   if (
-    cleaned.length < 8 ||
-    cleaned.includes("{") ||
-    cleaned.includes("}") ||
-    cleaned.includes(":\"") ||
-    cleaned.startsWith("[")
+    cleaned.length < MIN_TEXT_LENGTH ||
+    cleaned.length > MAX_TEXT_LENGTH ||
+    /[{}[\]]/.test(cleaned) ||
+    cleaned.includes(':"')
   ) {
     return "";
   }
 
-  return cleaned;
-}
-
-function safeParseJson<T>(value: string): T | null {
-  try {
-    return JSON.parse(value) as T;
-  } catch {
-    return null;
+  // Ensure trailing punctuation
+  if (!/[.?!]$/.test(cleaned)) {
+    cleaned += "?";
   }
+
+  return cleaned;
 }
