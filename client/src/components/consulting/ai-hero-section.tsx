@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Send, ChevronDown, X, Mail } from "lucide-react";
+import { Send, ChevronDown, X, Mail, Sparkles } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { PERSONAL_INFO } from "@/lib/constants";
+import { sanitizeRecommendations } from "@/lib/recommendation-utils";
 
 interface Message {
   role: "user" | "assistant";
@@ -17,6 +18,11 @@ interface LeadInfo {
   email: string;
 }
 
+interface StitchResponse {
+  recommendations?: unknown;
+  source?: string;
+}
+
 const STARTER_QUESTIONS = [
   "What's the story behind 3,000% e-notary growth?",
   "How do you approach inheriting a messy backlog?",
@@ -24,6 +30,8 @@ const STARTER_QUESTIONS = [
   "What's your take on AI replacing PMs?",
   "What are you looking for in your next role?",
 ];
+
+const DEV_MODE = import.meta.env.DEV;
 
 export function AIHeroSection() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -34,9 +42,11 @@ export function AIHeroSection() {
     null
   );
   const [error, setError] = useState<string | null>(null);
-  const [stitchRecommendations, setStitchRecommendations] = useState<string[]>([]);
-  const [isLoadingStitchRecommendations, setIsLoadingStitchRecommendations] =
-    useState(false);
+  const [stitchRecommendations, setStitchRecommendations] = useState<string[]>(
+    []
+  );
+  const [stitchSource, setStitchSource] = useState<string>("loading");
+  const [isLoadingStitch, setIsLoadingStitch] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
@@ -55,9 +65,14 @@ export function AIHeroSection() {
     }
   }, [messages]);
 
-  // Show lead form after first complete exchange (2 messages: user + assistant response)
+  // Show lead form after first complete exchange
   useEffect(() => {
-    if (messages.length >= 2 && !leadSubmitted && !leadDismissed && !showLeadForm) {
+    if (
+      messages.length >= 2 &&
+      !leadSubmitted &&
+      !leadDismissed &&
+      !showLeadForm
+    ) {
       const timer = setTimeout(() => {
         setShowLeadForm(true);
       }, 1500);
@@ -102,7 +117,7 @@ export function AIHeroSection() {
   }, [input]);
 
   const loadStitchRecommendations = useCallback(async (query?: string) => {
-    setIsLoadingStitchRecommendations(true);
+    setIsLoadingStitch(true);
 
     try {
       const response = await fetch("/api/stitch-recommendations", {
@@ -112,21 +127,26 @@ export function AIHeroSection() {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch Stitch recommendations");
+        throw new Error("Failed to fetch recommendations");
       }
 
-      const data = (await response.json()) as { recommendations?: string[] };
-      setStitchRecommendations(Array.isArray(data.recommendations) ? data.recommendations : []);
+      const data = (await response.json()) as StitchResponse;
+      const cleaned = sanitizeRecommendations(data.recommendations);
+      setStitchRecommendations(cleaned);
+      setStitchSource(data.source || "unknown");
     } catch (recommendationError) {
       console.error("Stitch recommendation error:", recommendationError);
       setStitchRecommendations([]);
+      setStitchSource("error");
     } finally {
-      setIsLoadingStitchRecommendations(false);
+      setIsLoadingStitch(false);
     }
   }, []);
 
   useEffect(() => {
-    loadStitchRecommendations("Suggest interview-style prompts for this portfolio chat.");
+    loadStitchRecommendations(
+      "Suggest interview-style prompts for this portfolio chat."
+    );
   }, [loadStitchRecommendations]);
 
   const sendMessage = useCallback(
@@ -134,7 +154,10 @@ export function AIHeroSection() {
       if (!messageText.trim() || isStreaming) return;
 
       setError(null);
-      const userMessage: Message = { role: "user", content: messageText.trim() };
+      const userMessage: Message = {
+        role: "user",
+        content: messageText.trim(),
+      };
       setMessages((prev) => [...prev, userMessage]);
       setInput("");
       setIsStreaming(true);
@@ -234,7 +257,6 @@ export function AIHeroSection() {
       return;
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(leadInfo.email)) {
       setLeadError("Please enter a valid email address");
@@ -285,193 +307,289 @@ export function AIHeroSection() {
 
   return (
     <section className="relative min-h-[calc(100vh-64px)] flex flex-col">
-      <div className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] via-transparent to-transparent pointer-events-none" />
+
+      <div className="relative flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="w-full max-w-3xl mx-auto">
-          {/* Intro Section - Only show when no messages */}
+          {/* Intro Section */}
           {!hasConversation && (
-            <div className="text-center mb-6 sm:mb-8">
-              {/* Photo */}
-              <div className="flex justify-center mb-3 sm:mb-4">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/20 rounded-full blur-xl scale-110" />
+            <div className="text-center mb-8 sm:mb-10 animate-in fade-in slide-in-from-bottom-4 duration-700">
+              {/* Avatar with glow */}
+              <div className="flex justify-center mb-4 sm:mb-5">
+                <div className="relative group">
+                  <div className="absolute -inset-1 bg-gradient-to-tr from-primary/40 to-accent/30 rounded-full blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                   <img
                     src={PERSONAL_INFO.avatar}
                     alt="Mike Watson"
-                    className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-card shadow-lg"
+                    className="relative w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover ring-2 ring-card shadow-xl"
                   />
                 </div>
               </div>
 
-              {/* Name & Title */}
-              <h1 className="text-2xl sm:text-4xl font-black text-foreground font-display mb-1">
+              {/* Identity */}
+              <h1 className="text-3xl sm:text-5xl font-black text-foreground font-display tracking-tight mb-1.5">
                 Mike Watson
               </h1>
-              <p className="text-base sm:text-lg text-primary font-semibold mb-3 sm:mb-4">
+              <p className="text-sm sm:text-base text-primary font-semibold tracking-wide uppercase mb-4 sm:mb-5">
                 Senior Product Manager
               </p>
 
-              {/* Value Proposition */}
-              <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto mb-2 px-2">
-                I trained an AI on 150+ newsletter posts, 10 years of PM work,
-                and the opinions I save for the second coffee.
-              </p>
-              <p className="text-base sm:text-xl font-semibold text-foreground/80">
-                Skip the resume. Interview me instead.
-              </p>
+              {/* Value proposition */}
+              <div className="max-w-lg mx-auto space-y-2 px-2">
+                <p className="text-sm sm:text-lg text-muted-foreground leading-relaxed">
+                  I trained an AI on 150+ newsletter posts, 10 years of PM
+                  work, and the opinions I save for the second coffee.
+                </p>
+                <p className="text-base sm:text-xl font-semibold text-foreground/90">
+                  Skip the resume. Interview me instead.
+                </p>
+              </div>
             </div>
           )}
 
-          {/* Chat Container — signature element: elevated card with shadow-only depth */}
+          {/* Chat Container */}
           <div
             ref={chatContainerRef}
-            className="bg-card rounded-2xl shadow-lg overflow-hidden"
+            className={`bg-card rounded-2xl shadow-xl ring-1 ring-border/50 overflow-hidden transition-shadow duration-300 ${
+              hasConversation ? "shadow-2xl" : ""
+            }`}
           >
             {/* Messages Area */}
             {hasConversation && (
-              <ScrollArea className="h-[300px] sm:h-[400px] px-3 sm:px-4 py-3 sm:py-4" ref={scrollRef}>
-                <div className="space-y-3 sm:space-y-4">
+              <ScrollArea
+                className="h-[320px] sm:h-[420px] px-4 sm:px-6 py-4 sm:py-5"
+                ref={scrollRef}
+              >
+                <div className="space-y-4 sm:space-y-5">
                   {messages.map((message, index) => (
                     <div
                       key={index}
-                      className={message.role === "user" ? "ml-4 sm:ml-8 md:ml-12" : "mr-4 sm:mr-8 md:mr-12"}
+                      className={`animate-in fade-in slide-in-from-bottom-2 duration-300 ${
+                        message.role === "user"
+                          ? "ml-6 sm:ml-12 md:ml-16"
+                          : "mr-6 sm:mr-12 md:mr-16"
+                      }`}
                     >
                       <div
-                        className={`text-xs font-medium tracking-wide mb-1 ${
+                        className={`text-[11px] font-semibold tracking-widest uppercase mb-1.5 ${
                           message.role === "user"
-                            ? "text-right text-muted-foreground"
-                            : "text-primary"
+                            ? "text-right text-muted-foreground/70"
+                            : "text-primary/80"
                         }`}
                       >
                         {message.role === "user" ? "You" : "Mike's AI"}
                       </div>
                       <div
-                        className={`prose prose-sm dark:prose-invert max-w-none text-sm sm:text-base ${
+                        className={`rounded-xl px-4 py-3 ${
                           message.role === "user"
-                            ? "text-right text-foreground/80"
-                            : "text-foreground/80"
+                            ? "bg-primary/5 text-right"
+                            : "bg-muted/40"
                         }`}
                       >
-                        {message.role === "assistant" ? (
-                          <ReactMarkdown
-                            components={{
-                              p: ({ children }) => (
-                                <p className="mb-2 last:mb-0">{children}</p>
-                              ),
-                              a: ({ href, children }) => (
-                                <a
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-primary hover:underline"
-                                >
-                                  {children}
-                                </a>
-                              ),
-                            }}
-                          >
-                            {message.content || "..."}
-                          </ReactMarkdown>
-                        ) : (
-                          <p>{message.content}</p>
-                        )}
+                        <div className="prose prose-sm dark:prose-invert max-w-none text-sm sm:text-base text-foreground/85">
+                          {message.role === "assistant" ? (
+                            <ReactMarkdown
+                              components={{
+                                p: ({ children }) => (
+                                  <p className="mb-2 last:mb-0">{children}</p>
+                                ),
+                                a: ({ href, children }) => (
+                                  <a
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-primary hover:underline"
+                                  >
+                                    {children}
+                                  </a>
+                                ),
+                              }}
+                            >
+                              {message.content || "..."}
+                            </ReactMarkdown>
+                          ) : (
+                            <p>{message.content}</p>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
+
+                  {/* Streaming indicator */}
+                  {isStreaming &&
+                    messages[messages.length - 1]?.role === "assistant" &&
+                    !messages[messages.length - 1]?.content && (
+                      <div className="flex items-center gap-1.5 text-muted-foreground pl-4">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse [animation-delay:150ms]" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary/60 animate-pulse [animation-delay:300ms]" />
+                      </div>
+                    )}
                 </div>
               </ScrollArea>
             )}
 
-            {/* Starter Questions */}
+            {/* Prompt Sections - pre-conversation */}
             {!hasConversation && (
-              <div className="px-3 sm:px-6 py-4 sm:py-5">
-                <p className="text-xs sm:text-sm text-muted-foreground text-center mb-3 sm:mb-4 tracking-wide">
-                  Ask about my experience, approach, or what I'm looking for next:
-                </p>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:justify-center">
-                  {STARTER_QUESTIONS.map((question, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleStarterClick(question)}
-                      className="px-4 py-3 sm:py-2 text-sm text-left sm:text-center bg-muted hover:bg-primary/10 text-foreground/80 rounded-xl sm:rounded-full transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px]"
-                    >
-                      {question}
-                    </button>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <p className="text-xs sm:text-sm text-muted-foreground text-center mb-2 tracking-wide">
-                    Smart follow-ups:
+              <div className="px-4 sm:px-6 py-5 sm:py-6 space-y-5 animate-in fade-in duration-500 delay-200">
+                {/* Starter Questions */}
+                <div>
+                  <p className="text-xs text-muted-foreground text-center mb-3 tracking-wide font-medium">
+                    Ask about my experience, approach, or what I'm looking for
+                    next
                   </p>
-                  {isLoadingStitchRecommendations ? (
-                    <p className="text-xs text-muted-foreground text-center">
-                      Loading suggestions...
-                    </p>
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:justify-center">
+                    {STARTER_QUESTIONS.map((question, index) => (
+                      <button
+                        key={index}
+                        onClick={() => handleStarterClick(question)}
+                        className="group px-4 py-2.5 sm:py-2 text-sm text-left sm:text-center bg-muted/60 hover:bg-muted text-foreground/80 hover:text-foreground rounded-xl sm:rounded-full transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px]"
+                        style={{
+                          animationDelay: `${index * 60}ms`,
+                        }}
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="flex items-center gap-3">
+                  <div className="flex-1 h-px bg-border/60" />
+                  <Sparkles className="w-3.5 h-3.5 text-primary/50" />
+                  <div className="flex-1 h-px bg-border/60" />
+                </div>
+
+                {/* Stitch Recommendations */}
+                <div>
+                  <p className="text-xs text-muted-foreground text-center mb-3 tracking-wide font-medium">
+                    AI-suggested follow-ups
+                    {DEV_MODE && (
+                      <span className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono bg-muted text-muted-foreground/60">
+                        {stitchSource}
+                      </span>
+                    )}
+                  </p>
+
+                  {isLoadingStitch ? (
+                    <div className="flex justify-center gap-2 py-3">
+                      {[0, 1, 2].map((i) => (
+                        <div
+                          key={i}
+                          className="h-8 rounded-full bg-muted animate-pulse"
+                          style={{
+                            width: `${80 + i * 30}px`,
+                            animationDelay: `${i * 150}ms`,
+                          }}
+                        />
+                      ))}
+                    </div>
                   ) : stitchRecommendations.length > 0 ? (
                     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:justify-center">
-                      {stitchRecommendations.map((recommendation, index) => (
+                      {stitchRecommendations.map((rec, index) => (
                         <button
-                          key={`${recommendation}-${index}`}
-                          onClick={() => handleStarterClick(recommendation)}
-                          className="px-4 py-3 sm:py-2 text-sm text-left sm:text-center bg-primary/10 hover:bg-primary/20 text-foreground rounded-xl sm:rounded-full transition-colors active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px]"
+                          key={`stitch-${index}`}
+                          onClick={() => handleStarterClick(rec)}
+                          className="group relative px-4 py-2.5 sm:py-2 text-sm text-left sm:text-center rounded-xl sm:rounded-full transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring min-h-[44px] bg-primary/[0.07] hover:bg-primary/[0.14] text-foreground/90 hover:text-foreground border border-primary/10 hover:border-primary/20"
+                          style={{
+                            animationDelay: `${index * 80 + 300}ms`,
+                          }}
                         >
-                          {recommendation}
+                          <Sparkles className="inline-block w-3 h-3 mr-1.5 text-primary/50 group-hover:text-primary/70 transition-colors -mt-0.5" />
+                          {rec}
                         </button>
                       ))}
                     </div>
                   ) : (
-                    <p className="text-xs text-muted-foreground text-center">
-                      Ask anything above to get started.
+                    <p className="text-xs text-muted-foreground/60 text-center py-1">
+                      Type anything below to get started.
                     </p>
                   )}
                 </div>
               </div>
             )}
 
+            {/* In-conversation follow-ups */}
+            {hasConversation &&
+              !isStreaming &&
+              stitchRecommendations.length > 0 && (
+                <div className="px-4 sm:px-6 py-3 border-t border-border/50 bg-muted/20">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Sparkles className="w-3 h-3 text-primary/50" />
+                    <p className="text-[11px] text-muted-foreground tracking-wide font-medium uppercase">
+                      Continue the conversation
+                      {DEV_MODE && (
+                        <span className="ml-1.5 font-mono text-[10px] text-muted-foreground/50">
+                          [{stitchSource}]
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {stitchRecommendations.map((rec, index) => (
+                      <button
+                        key={`follow-${index}`}
+                        onClick={() => handleStarterClick(rec)}
+                        className="px-3 py-1.5 text-xs bg-primary/[0.06] hover:bg-primary/[0.12] text-foreground/75 hover:text-foreground rounded-full transition-all duration-200 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring border border-primary/10 hover:border-primary/15"
+                      >
+                        {rec}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
             {/* Error Message */}
             {error && (
-              <div className="px-4 py-2 text-center text-sm text-destructive bg-destructive/5 border-t border-destructive/10">
+              <div className="px-4 py-2.5 text-center text-sm text-destructive bg-destructive/5 border-t border-destructive/10">
                 {error}
               </div>
             )}
 
             {/* Lead Capture Form */}
             {showLeadForm && !leadSubmitted && (
-              <div className="px-3 sm:px-4 py-3 bg-primary/5 border-t border-primary/10">
-                <div className="flex items-start justify-between gap-2 mb-2">
+              <div className="px-4 sm:px-6 py-4 bg-primary/[0.04] border-t border-primary/10 animate-in slide-in-from-bottom-2 duration-300">
+                <div className="flex items-start justify-between gap-2 mb-3">
                   <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-                    <Mail size={16} className="text-primary" />
+                    <Mail size={15} className="text-primary" />
                     <span>Want Mike to follow up?</span>
                   </div>
                   <button
                     onClick={dismissLeadForm}
-                    className="text-muted-foreground hover:text-foreground p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
+                    className="text-muted-foreground hover:text-foreground p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm transition-colors"
                     aria-label="Dismiss"
                   >
-                    <X size={16} />
+                    <X size={15} />
                   </button>
                 </div>
-                <form onSubmit={handleLeadSubmit} className="space-y-2">
+                <form onSubmit={handleLeadSubmit} className="space-y-2.5">
                   <div className="flex flex-col sm:flex-row gap-2">
                     <Input
                       type="text"
                       placeholder="Your name"
                       value={leadInfo.name}
-                      onChange={(e) => setLeadInfo({ ...leadInfo, name: e.target.value })}
-                      className="flex-1 h-11 sm:h-9 text-sm"
+                      onChange={(e) =>
+                        setLeadInfo({ ...leadInfo, name: e.target.value })
+                      }
+                      className="flex-1 h-11 sm:h-9 text-sm rounded-xl"
                       disabled={isSubmittingLead}
                     />
                     <Input
                       type="email"
                       placeholder="Your email"
                       value={leadInfo.email}
-                      onChange={(e) => setLeadInfo({ ...leadInfo, email: e.target.value })}
-                      className="flex-1 h-11 sm:h-9 text-sm"
+                      onChange={(e) =>
+                        setLeadInfo({ ...leadInfo, email: e.target.value })
+                      }
+                      className="flex-1 h-11 sm:h-9 text-sm rounded-xl"
                       disabled={isSubmittingLead}
                     />
                     <Button
                       type="submit"
                       disabled={isSubmittingLead}
-                      className="h-11 sm:h-9 px-4 text-sm whitespace-nowrap"
+                      className="h-11 sm:h-9 px-5 text-sm whitespace-nowrap rounded-xl"
                     >
                       {isSubmittingLead ? "..." : "Send"}
                     </Button>
@@ -481,12 +599,13 @@ export function AIHeroSection() {
                   )}
                   <div className="flex items-center justify-between">
                     <p className="text-xs text-muted-foreground">
-                      Leave your info and Mike will get a copy of this conversation.
+                      Leave your info and Mike will get a copy of this
+                      conversation.
                     </p>
                     <button
                       type="button"
                       onClick={dismissLeadForm}
-                      className="text-xs text-muted-foreground hover:text-foreground underline"
+                      className="text-xs text-muted-foreground hover:text-foreground underline transition-colors"
                     >
                       Skip
                     </button>
@@ -497,7 +616,7 @@ export function AIHeroSection() {
 
             {/* Lead Submitted Confirmation */}
             {leadSubmitted && (
-              <div className="px-3 sm:px-4 py-2 bg-green-50 dark:bg-green-900/20 border-t border-green-200/50 dark:border-green-800/50 text-center">
+              <div className="px-4 py-2.5 bg-green-50 dark:bg-green-900/20 border-t border-green-200/50 dark:border-green-800/50 text-center animate-in fade-in duration-300">
                 <p className="text-sm text-green-700 dark:text-green-400">
                   Thanks! Mike will receive this conversation.
                 </p>
@@ -505,7 +624,7 @@ export function AIHeroSection() {
             )}
 
             {/* Input Area */}
-            <div className="p-3 sm:p-4 bg-muted/50 border-t border-border">
+            <div className="p-3 sm:p-4 bg-muted/30 border-t border-border/60">
               <form onSubmit={handleSubmit} className="flex gap-2 items-end">
                 <Textarea
                   ref={textareaRef}
@@ -514,30 +633,29 @@ export function AIHeroSection() {
                   onKeyDown={handleKeyDown}
                   placeholder="Ask me anything..."
                   disabled={isStreaming}
-                  className="flex-1 min-h-[44px] max-h-[100px] resize-none text-base sm:text-sm rounded-xl"
+                  className="flex-1 min-h-[44px] max-h-[100px] resize-none text-base sm:text-sm rounded-xl bg-card border-border/60 focus:border-primary/40 transition-colors"
                   rows={1}
                 />
                 <Button
                   type="submit"
                   disabled={isStreaming || !input.trim()}
-                  className="h-11 w-11 sm:h-10 sm:w-10 p-0 rounded-xl flex-shrink-0"
+                  className="h-11 w-11 sm:h-10 sm:w-10 p-0 rounded-xl flex-shrink-0 transition-transform active:scale-95"
                 >
                   <Send size={18} className="sm:w-4 sm:h-4" />
                 </Button>
               </form>
 
               {remainingMessages !== null && (
-                <p className="text-xs text-muted-foreground text-center mt-2">
+                <p className="text-[11px] text-muted-foreground/70 text-center mt-2 tracking-wide">
                   {remainingMessages} messages remaining
                 </p>
               )}
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* Scroll indicator — subtle ease, no bounce */}
+      {/* Scroll indicator */}
       <div className="pb-6 flex flex-col items-center">
         <button
           onClick={scrollToContent}
