@@ -5,6 +5,21 @@
 const MIN_LENGTH = 10;
 const MAX_LENGTH = 120;
 
+/** Error-like phrases that should never render as recommendation chips. */
+const ERROR_PHRASES = [
+  "not found",
+  "entity was not found",
+  "requested entity",
+  "unauthorized",
+  "permission denied",
+  "internal error",
+  "service unavailable",
+  "rate limit",
+  "invalid request",
+  "bad request",
+  "forbidden",
+];
+
 /** Normalize a recommendation string: trim, fix punctuation, ensure question mark. */
 function normalize(text: string): string {
   let cleaned = text
@@ -13,13 +28,15 @@ function normalize(text: string): string {
     .replace(/^["']|["']$/g, "")
     .trim();
 
-  // Reject anything that looks like raw JSON/object data
+  // Reject anything that looks like raw JSON/object data or error messages
+  const lower = cleaned.toLowerCase();
   if (
     cleaned.includes("{") ||
     cleaned.includes("}") ||
     cleaned.includes(':"') ||
     cleaned.startsWith("[") ||
-    /^\s*$/.test(cleaned)
+    /^\s*$/.test(cleaned) ||
+    ERROR_PHRASES.some((phrase) => lower.includes(phrase))
   ) {
     return "";
   }

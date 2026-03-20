@@ -32,6 +32,24 @@ const MAX_RECOMMENDATIONS = 4;
 const MIN_TEXT_LENGTH = 10;
 const MAX_TEXT_LENGTH = 140;
 
+/** Phrases that indicate Stitch returned an error as content instead of as an error field. */
+const ERROR_PHRASES = [
+  "not found",
+  "entity was not found",
+  "requested entity",
+  "unauthorized",
+  "permission denied",
+  "access denied",
+  "internal error",
+  "service unavailable",
+  "rate limit",
+  "quota exceeded",
+  "invalid request",
+  "bad request",
+  "method not allowed",
+  "forbidden",
+];
+
 const FALLBACK_RECOMMENDATIONS = [
   "What product problems are you best at solving?",
   "Tell me about a project where AI made a measurable impact.",
@@ -126,6 +144,16 @@ export default async function handler(
     const rawText = (callResult.result?.content ?? [])
       .map((c) => c.text ?? "")
       .join("\n");
+
+    // Detect error messages returned as content instead of error field
+    if (looksLikeError(rawText)) {
+      return respond(
+        res,
+        FALLBACK_RECOMMENDATIONS,
+        "fallback",
+        `Stitch returned error-like content: ${rawText.slice(0, 100)}`
+      );
+    }
 
     const recommendations = extractAndSanitize(rawText);
 
@@ -267,6 +295,19 @@ function buildArguments(
   return field ? { [field]: query } : { query };
 }
 
+// ── Error detection ──────────────────────────────────────────────────────────
+
+/** Check if raw Stitch output looks like an error message rather than recommendations. */
+function looksLikeError(text: string): boolean {
+  if (!text.trim()) return true;
+  const lower = text.toLowerCase().trim();
+  // If the entire response is short and matches an error phrase, it's an error
+  if (lower.length < 200) {
+    return ERROR_PHRASES.some((phrase) => lower.includes(phrase));
+  }
+  return false;
+}
+
 // ── Extraction + sanitization pipeline ───────────────────────────────────────
 
 function extractAndSanitize(rawText: string): string[] {
@@ -346,12 +387,14 @@ function sanitize(value: string): string {
     .replace(/^["']|["']$/g, "")     // wrapping quotes
     .trim();
 
-  // Reject JSON fragments, too-short, or too-long
+  // Reject JSON fragments, too-short, too-long, or error-like content
+  const lower = cleaned.toLowerCase();
   if (
     cleaned.length < MIN_TEXT_LENGTH ||
     cleaned.length > MAX_TEXT_LENGTH ||
     /[{}[\]]/.test(cleaned) ||
-    cleaned.includes(':"')
+    cleaned.includes(':"') ||
+    ERROR_PHRASES.some((phrase) => lower.includes(phrase))
   ) {
     return "";
   }
