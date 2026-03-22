@@ -7,105 +7,129 @@ interface TechnicalProjectsProps {
 
 export function TechnicalProjects({ projects }: TechnicalProjectsProps) {
   return (
-    <section
-      id="technical-projects"
-      className="py-20 bg-card"
-    >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
-            Technical Projects
+    <section id="technical-projects" className="py-20 sm:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Header */}
+        <header className="mb-12 sm:mb-20">
+          <span className="font-label text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold mb-3 sm:mb-4 block">
+            Selected Works
+          </span>
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+            Products built from concept to code.
           </h2>
-          <p className="text-muted-foreground font-body">
-            Products I've built and shipped using modern development tools.
-          </p>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="p-8 rounded-xl bg-background shadow-sm hover:shadow-md transition-all duration-300 group"
-            >
-              {/* Icon */}
-              <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
-                <span className="material-symbols-outlined text-2xl">
-                  {project.icon}
-                </span>
-              </div>
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
+          {projects.map((project, index) => {
+            // First project gets featured treatment (2 cols)
+            const isFeatured = index === 0;
 
-              {/* Title */}
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-xl font-bold text-foreground font-headline">
-                  {project.title}
-                </h3>
-                {project.isComingSoon && (
-                  <span className="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-muted text-muted-foreground">
-                    Coming Soon
+            return (
+              <div
+                key={project.id}
+                className={`bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 ghost-border hover:shadow-[0_20px_40px_rgba(28,28,26,0.05)] transition-all duration-300 flex flex-col group ${
+                  isFeatured ? "lg:col-span-2 lg:row-span-2 sm:p-10" : ""
+                }`}
+              >
+                {/* Icon */}
+                <div
+                  className={`rounded-xl sm:rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 sm:mb-8 group-hover:scale-105 transition-transform ${
+                    isFeatured ? "size-14 sm:size-16" : "size-12"
+                  }`}
+                >
+                  <span
+                    className={`material-symbols-outlined ${
+                      isFeatured ? "text-3xl" : "text-2xl"
+                    }`}
+                  >
+                    {project.icon}
                   </span>
-                )}
-              </div>
+                </div>
 
-              {/* Description */}
-              <p className="text-foreground/70 mb-4 leading-relaxed font-body">
-                {project.description}
-              </p>
-
-              {/* Stack */}
-              <div className="mb-4">
-                <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2 font-body">
-                  Stack
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.map((tech, index) => (
+                {/* Stack pills */}
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  {project.stack.slice(0, isFeatured ? 6 : 3).map((tech, i) => (
                     <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium rounded-lg bg-muted text-foreground/70"
+                      key={i}
+                      className="bg-primary/5 text-primary px-3 sm:px-4 py-1 sm:py-1.5 rounded-full font-label text-[10px] sm:text-[11px] font-bold tracking-widest uppercase"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
-              </div>
 
-              {/* Links */}
-              {project.links && project.links.length > 0 && (
-                <div className="flex flex-wrap gap-3 pt-4 border-t border-border">
-                  {project.links.map((link, index) => {
-                    const isInternal = link.url.startsWith("/");
-                    if (isInternal) {
-                      return (
-                        <Link
-                          key={index}
-                          href={link.url}
-                          className="inline-flex items-center gap-2 text-primary font-bold hover:underline text-sm font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                        >
-                          {link.label}
-                          <span className="material-symbols-outlined text-sm">
-                            arrow_forward
-                          </span>
-                        </Link>
-                      );
-                    }
-                    return (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-primary font-bold hover:underline text-sm font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                      >
-                        {link.label}
-                        <span className="material-symbols-outlined text-sm">
-                          open_in_new
-                        </span>
-                      </a>
-                    );
-                  })}
+                {/* Title */}
+                <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                  <h3
+                    className={`font-headline font-extrabold text-foreground ${
+                      isFeatured
+                        ? "text-2xl sm:text-3xl md:text-4xl"
+                        : "text-xl sm:text-2xl"
+                    }`}
+                  >
+                    {project.title}
+                  </h3>
+                  {project.isComingSoon && (
+                    <span className="px-3 py-1 text-[10px] font-label font-bold uppercase tracking-widest rounded-full bg-surface-container-high text-muted-foreground">
+                      Coming Soon
+                    </span>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
+
+                {/* Description */}
+                <p
+                  className={`text-muted-foreground leading-relaxed font-body flex-1 mb-6 ${
+                    isFeatured ? "text-base sm:text-xl max-w-2xl" : "text-sm sm:text-base"
+                  }`}
+                >
+                  {project.description}
+                </p>
+
+                {/* Links */}
+                {project.links && project.links.length > 0 && (
+                  <div className="pt-4 sm:pt-6 border-t border-outline-variant/10">
+                    <div className="flex flex-wrap gap-4">
+                      {project.links.map((link, i) => {
+                        const isInternal = link.url.startsWith("/");
+                        const className =
+                          "font-label text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-2 group/link hover:gap-3 transition-all";
+
+                        if (isInternal) {
+                          return (
+                            <Link
+                              key={i}
+                              href={link.url}
+                              className={className}
+                            >
+                              {link.label}
+                              <span className="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">
+                                chevron_right
+                              </span>
+                            </Link>
+                          );
+                        }
+                        return (
+                          <a
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={className}
+                          >
+                            {link.label}
+                            <span className="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">
+                              open_in_new
+                            </span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

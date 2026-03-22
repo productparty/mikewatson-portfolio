@@ -6,80 +6,68 @@ interface ExperienceTimelineProps {
 
 export function ExperienceTimeline({ roles }: ExperienceTimelineProps) {
   return (
-    <section
-      id="experience"
-      className="py-20 bg-card"
-    >
-      <div className="max-w-[960px] mx-auto px-4 sm:px-10">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
-            Places I've Worked
-          </h2>
-          <p className="text-muted-foreground font-body">
-            A timeline of problems solved and value delivered.
-          </p>
+    <section id="experience" className="bg-surface-container-low py-20 sm:py-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Header row */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-6 sm:gap-8">
+          <div className="space-y-3 sm:space-y-4">
+            <span className="font-label text-[10px] text-primary uppercase tracking-[0.3em] font-bold">
+              The Journey
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold tracking-tight text-foreground">
+              Professional Trajectory
+            </h2>
+          </div>
+          <div className="max-w-md text-muted-foreground text-base sm:text-lg leading-relaxed font-body">
+            Scaling products from zero-to-one and optimizing systems at enterprise scale.
+          </div>
         </div>
 
-        <div className="relative border-l-2 border-border ml-4 md:ml-6 space-y-12">
+        {/* Experience cards */}
+        <div className="space-y-4">
           {roles.map((role) => (
-            <div key={role.id} className="relative pl-8 md:pl-12 group">
-              {/* Timeline dot */}
-              <div
-                className={`absolute -left-[9px] top-0 size-4 rounded-full border-4 transition-colors ${
-                  role.isCurrent
-                    ? "bg-card border-primary"
-                    : "bg-border group-hover:bg-primary group-hover:border-primary group-hover:bg-card border-transparent"
-                }`}
-              />
-
-              {/* Role card — shadow-only depth, no border */}
-              <div className="bg-background p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 cursor-default">
-                {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground font-headline">
-                      {role.title}
-                    </h3>
-                    <p className="text-sm font-medium text-muted-foreground font-body">
-                      {role.company} · {role.period}
-                    </p>
-                  </div>
-                  <span className="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold tracking-wide uppercase bg-muted text-muted-foreground whitespace-nowrap">
-                    {role.industry}
-                  </span>
+            <div
+              key={role.id}
+              className="group bg-card p-6 sm:p-8 rounded-xl ghost-border flex flex-col md:grid md:grid-cols-12 gap-4 sm:gap-8 items-start hover:shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-300"
+            >
+              {/* Left column: period + title */}
+              <div className="md:col-span-3">
+                <div className="font-label text-[10px] sm:text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                  {role.period}
                 </div>
+                <div className="font-headline font-bold text-lg sm:text-xl text-primary">
+                  {role.title}, {role.company}
+                </div>
+                <span className="inline-block mt-2 px-3 py-1 rounded-full text-[10px] font-label font-bold uppercase tracking-widest bg-surface-container-high text-muted-foreground">
+                  {role.industry}
+                </span>
+              </div>
 
-                {/* Bullets or Problem/Action/Outcome — signature: conversational structure */}
+              {/* Middle column: content */}
+              <div className="md:col-span-7 space-y-3">
                 {role.bullets ? (
                   <ul className="space-y-2 font-body">
                     {role.bullets.map((bullet, idx) => (
-                      <li key={idx} className="text-sm text-foreground/70 flex gap-2">
+                      <li
+                        key={idx}
+                        className="text-sm text-foreground/70 flex gap-2.5 leading-relaxed"
+                      >
                         <span className="text-primary mt-1 shrink-0">·</span>
                         <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <div className="space-y-3 font-body">
-                    <div className="flex gap-3 text-sm">
-                      <span className="font-bold min-w-[70px] text-muted-foreground tracking-wide uppercase text-xs pt-0.5">
-                        Problem
-                      </span>
-                      <span className="text-foreground/70">
-                        {role.problem}
-                      </span>
-                    </div>
-                    <div className="flex gap-3 text-sm">
-                      <span className="font-bold min-w-[70px] text-muted-foreground tracking-wide uppercase text-xs pt-0.5">
-                        Action
-                      </span>
-                      <span className="text-foreground/70">
-                        {role.action}
-                      </span>
-                    </div>
-                    {/* Outcome — signature callout echoing the chat response style */}
+                  <>
+                    <h4 className="text-lg sm:text-xl font-headline font-bold text-foreground">
+                      {role.problem}
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed font-body text-sm sm:text-base">
+                      {role.action}
+                    </p>
+                    {/* Outcome callout */}
                     <div className="mt-2 p-3 bg-primary/5 rounded-lg border-l-2 border-primary">
-                      <span className="font-bold text-xs tracking-wide uppercase text-primary block mb-1">
+                      <span className="font-label text-[10px] tracking-widest uppercase text-primary block mb-1 font-bold">
                         Outcome
                       </span>
                       <span className="font-semibold text-sm text-foreground">
@@ -96,8 +84,15 @@ export function ExperienceTimeline({ roles }: ExperienceTimelineProps) {
                         )}
                       </span>
                     </div>
-                  </div>
+                  </>
                 )}
+              </div>
+
+              {/* Right column: arrow */}
+              <div className="md:col-span-2 hidden md:flex md:justify-end">
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors">
+                  north_east
+                </span>
               </div>
             </div>
           ))}

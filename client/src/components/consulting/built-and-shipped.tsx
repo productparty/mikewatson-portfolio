@@ -83,80 +83,97 @@ const SHIPPED_APPS: ShippedApp[] = [
   },
 ];
 
-function PlatformBadge({ platform }: { platform: string }) {
-  const iconMap: Record<string, string> = {
-    iOS: "phone_iphone",
-    Android: "android",
-    Chrome: "extension",
-  };
-
-  return (
-    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider rounded-full bg-primary/10 text-primary">
-      <span className="material-symbols-outlined text-sm">
-        {iconMap[platform] || "devices"}
-      </span>
-      {platform}
-    </span>
-  );
-}
+const PLATFORM_ICON_MAP: Record<string, string> = {
+  iOS: "phone_iphone",
+  Android: "android",
+  Chrome: "extension",
+};
 
 export function BuiltAndShipped() {
   return (
-    <section id="built-and-shipped" className="py-20 bg-card">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
+    <section id="built-and-shipped" className="py-20 sm:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Header */}
+        <header className="mb-12 sm:mb-16">
+          <span className="font-label text-[10px] sm:text-xs uppercase tracking-widest text-primary font-bold mb-3 sm:mb-4 block">
+            Shipped Products
+          </span>
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-4">
             Built &amp; Shipped
           </h2>
-          <p className="text-muted-foreground font-body">
+          <p className="text-muted-foreground font-body text-base sm:text-lg max-w-xl">
             Privacy-first apps I designed, built, and shipped using React
             Native, Cursor, and Claude.
           </p>
-        </div>
+        </header>
 
-        {/* Horizontal scroll on mobile, grid on desktop */}
-        <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-x-visible md:pb-0">
-          {SHIPPED_APPS.map((app) => (
-            <div
-              key={app.name}
-              className="min-w-[300px] md:min-w-0 snap-start flex flex-col p-8 rounded-xl bg-background shadow-sm hover:shadow-md transition-all duration-300 group"
-            >
-              {/* App name */}
-              <h3 className="text-xl font-bold text-foreground font-headline mb-2">
-                {app.name}
-              </h3>
+        {/* App cards — bento grid with featured first item */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {SHIPPED_APPS.map((app, index) => {
+            const isFeatured = index === 0;
 
-              {/* Platform badges */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {app.platforms.map((platform) => (
-                  <PlatformBadge key={platform} platform={platform} />
-                ))}
-              </div>
+            return (
+              <div
+                key={app.name}
+                className={`bg-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 ghost-border hover:shadow-[0_20px_40px_rgba(28,28,26,0.05)] transition-all duration-300 flex flex-col group ${
+                  isFeatured ? "md:col-span-2 lg:col-span-2 sm:p-10" : ""
+                }`}
+              >
+                {/* App name */}
+                <h3
+                  className={`font-headline font-extrabold text-foreground mb-3 ${
+                    isFeatured ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"
+                  }`}
+                >
+                  {app.name}
+                </h3>
 
-              {/* Description */}
-              <p className="text-foreground/70 leading-relaxed font-body mb-6 flex-1">
-                {app.description}
-              </p>
-
-              {/* Links */}
-              <div className="flex flex-wrap gap-3 pt-4 border-t border-border">
-                {app.links.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-primary font-bold hover:underline text-sm font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  >
-                    {link.label}
-                    <span className="material-symbols-outlined text-sm">
-                      open_in_new
+                {/* Platform badges */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {app.platforms.map((platform) => (
+                    <span
+                      key={platform}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 font-label text-[10px] font-bold uppercase tracking-widest rounded-full bg-primary/10 text-primary"
+                    >
+                      <span className="material-symbols-outlined text-sm">
+                        {PLATFORM_ICON_MAP[platform] || "devices"}
+                      </span>
+                      {platform}
                     </span>
-                  </a>
-                ))}
+                  ))}
+                </div>
+
+                {/* Description */}
+                <p
+                  className={`text-muted-foreground leading-relaxed font-body flex-1 mb-6 ${
+                    isFeatured ? "text-base sm:text-lg max-w-2xl" : "text-sm sm:text-base"
+                  }`}
+                >
+                  {app.description}
+                </p>
+
+                {/* Links */}
+                <div className="pt-4 sm:pt-6 border-t border-outline-variant/10">
+                  <div className="flex flex-wrap gap-4">
+                    {app.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-label text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-2 group/link hover:gap-3 transition-all"
+                      >
+                        {link.label}
+                        <span className="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">
+                          open_in_new
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
