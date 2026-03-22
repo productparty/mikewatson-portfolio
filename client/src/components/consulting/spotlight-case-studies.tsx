@@ -6,102 +6,90 @@ interface SpotlightCaseStudiesProps {
 
 export function SpotlightCaseStudies({ caseStudies }: SpotlightCaseStudiesProps) {
   return (
-    <section id="case-studies" className="py-20 px-4 sm:px-10 max-w-[1280px] mx-auto">
-      <div className="mb-16 text-center max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
-          Spotlight Case Studies
-        </h2>
-        <p className="text-muted-foreground font-body">
-          Deep dives into complex challenges. From ambiguity to shipped value.
-        </p>
-      </div>
+    <section id="case-studies" className="py-20 sm:py-24 bg-surface-container-low">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Header with decorative line */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 sm:mb-16 gap-6 sm:gap-8">
+          <h2 className="text-3xl sm:text-4xl font-headline font-extrabold tracking-tight text-foreground">
+            Case Studies &amp; Impact
+          </h2>
+          <div className="h-[1px] flex-grow mx-8 bg-outline-variant/20 hidden md:block" />
+        </div>
 
-      <div className="flex flex-col gap-20">
-        {caseStudies.map((study, index) => {
-          const isEven = index % 2 === 0;
-
-          return (
-            <div
-              key={study.id}
-              className="group grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center"
-            >
-              {/* Image — shadow-only depth */}
-              <div
-                className={`relative overflow-hidden rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 bg-muted aspect-video ${
-                  isEven ? "order-2 lg:order-1" : "order-2"
-                }`}
-              >
+        {/* Case study cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+          {caseStudies.map((study) => (
+            <div key={study.id} className="group">
+              {/* Image with hover zoom */}
+              <div className="aspect-video rounded-xl overflow-hidden bg-surface-container mb-6 relative">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                   style={{ backgroundImage: `url('${study.imageUrl}')` }}
+                  role="img"
                   aria-label={study.imageAlt}
                 />
-                <div className="absolute inset-0 bg-foreground/5 group-hover:bg-transparent transition-colors" />
+                <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Content */}
-              <div
-                className={`flex flex-col gap-4 ${
-                  isEven ? "order-1 lg:order-2" : "order-1"
-                }`}
-              >
-                {/* Tags — tertiary typography: small, tracked, uppercase */}
+              <div className="space-y-3">
+                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
-                  {study.tags.map((tag, tagIndex) => (
+                  {study.tags.map((tag, i) => (
                     <span
-                      key={tagIndex}
-                      className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
-                        tagIndex === 0
-                          ? "bg-primary/10 text-primary"
-                          : "bg-muted text-muted-foreground"
+                      key={i}
+                      className={`font-label text-[10px] uppercase tracking-widest font-bold ${
+                        i === 0 ? "text-primary" : "text-muted-foreground"
                       }`}
                     >
                       {tag}
+                      {i < study.tags.length - 1 && (
+                        <span className="ml-2 text-outline-variant">&middot;</span>
+                      )}
                     </span>
                   ))}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight font-headline">
+                <h3 className="text-xl sm:text-2xl font-headline font-bold text-foreground group-hover:text-primary transition-colors">
                   {study.title}
                 </h3>
 
-                {/* Description — secondary typography */}
-                <p className="text-foreground/70 leading-relaxed font-body">
+                {/* Description */}
+                <p className="text-muted-foreground leading-relaxed font-body text-sm sm:text-base">
                   {study.description}
                 </p>
 
-                {/* Key Impact — signature: callout echoing chat response style */}
-                <div className="mt-4 p-4 bg-primary/5 border-l-2 border-primary rounded-r-lg">
-                  <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1 font-body">
-                    {study.keyImpact.label}
-                  </p>
-                  <p className="text-2xl font-black text-foreground font-headline">
-                    {study.keyImpact.value}{" "}
-                    {study.keyImpact.context && (
-                      <span className="text-base font-normal text-muted-foreground">
-                        {study.keyImpact.context}
-                      </span>
-                    )}
-                  </p>
+                {/* Key impact callout */}
+                <div className="inline-flex items-baseline gap-2 bg-primary/5 px-4 py-2 rounded-full">
+                  <span className="font-headline font-bold text-lg sm:text-xl text-primary">
+                    {study.keyImpact.value}
+                  </span>
+                  {study.keyImpact.context && (
+                    <span className="text-muted-foreground text-xs sm:text-sm font-body">
+                      {study.keyImpact.context}
+                    </span>
+                  )}
                 </div>
 
                 {/* Link */}
                 {study.linkUrl && (
-                  <a
-                    href={study.linkUrl}
-                    className="inline-flex items-center text-primary font-bold hover:underline mt-2 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm"
-                  >
-                    Read Case Study{" "}
-                    <span className="material-symbols-outlined text-sm ml-1">
-                      arrow_forward
-                    </span>
-                  </a>
+                  <div className="pt-2">
+                    <a
+                      href={study.linkUrl}
+                      className="font-label text-xs font-bold tracking-widest uppercase text-primary flex items-center gap-2 group/link hover:gap-3 transition-all"
+                    >
+                      Read Case Study
+                      <span className="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">
+                        chevron_right
+                      </span>
+                    </a>
+                  </div>
                 )}
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );

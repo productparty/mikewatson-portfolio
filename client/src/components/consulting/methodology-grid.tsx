@@ -6,79 +6,97 @@ interface MethodologyGridProps {
   cards: MethodologyCard[];
 }
 
+const METHODOLOGY_ICONS: Record<string, string> = {
+  "framework-first": "architecture",
+  "data-informed": "query_stats",
+  "alignment-driven": "hub",
+  "first-principles": "emergency",
+};
+
 export function MethodologyGrid({ cards }: MethodologyGridProps) {
   return (
-    <section
-      id="methodology"
-      className="py-20 bg-background"
-    >
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-10">
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <h2 className="text-3xl font-bold mb-3 text-foreground font-headline">
-              How I Work
-            </h2>
-            <p className="text-muted-foreground font-body">
-              My toolkit for navigating ambiguity and delivering outcomes.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="https://buymeacoffee.com/Productparty"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FFDD00]/10 text-yellow-600 dark:text-[#FFDD00] hover:bg-[#FFDD00]/20 transition-colors text-sm font-medium"
-            >
-              <SiBuymeacoffee className="text-lg" />
-              Buy Me a Coffee
-            </a>
-            <a
-              href="https://github.com/productparty/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-medium"
-            >
-              <SiGithub className="text-lg" />
-              GitHub
-            </a>
-            <a
-              href="https://www.passionfroot.me/productparty"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 hover:bg-sky-200 dark:hover:bg-sky-900/50 transition-colors text-sm font-medium"
-            >
-              <ExternalLink className="size-4" />
-              Sponsor / Ads
-            </a>
-          </div>
+    <section id="methodology" className="bg-primary py-20 sm:py-24 text-primary-foreground">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Header */}
+        <div className="max-w-2xl mb-12 sm:mb-20 space-y-4 sm:space-y-6">
+          <span className="font-label text-[10px] text-primary-fixed uppercase tracking-[0.3em] font-bold">
+            The Methodology
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-extrabold tracking-tight">
+            A framework for clarity.
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className="p-8 rounded-xl bg-card shadow-sm hover:shadow-md transition-all duration-300 group"
-            >
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-2 text-foreground font-headline">
-                {card.title}
-              </h3>
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {cards.map((card, index) => {
+            // Alternate wide (2-col) and narrow (1-col)
+            const isWide = index % 3 === 0;
+            const icon = METHODOLOGY_ICONS[card.id] || "lightbulb";
 
-              {/* Quote */}
-              <p className="text-foreground/70 mb-4 italic font-body">
-                {card.quote}
-              </p>
-
-              {/* In Practice — signature: callout echoing chat response style */}
-              <div className="text-sm bg-primary/5 p-4 rounded-lg border-l-2 border-primary font-body">
-                <span className="font-bold text-primary text-xs tracking-wide uppercase block mb-1">
-                  In Practice
+            return (
+              <div
+                key={card.id}
+                className={`p-8 sm:p-10 rounded-xl space-y-4 sm:space-y-6 ${
+                  isWide
+                    ? "md:col-span-2 bg-primary-container/80"
+                    : "bg-primary-container"
+                }`}
+              >
+                <span
+                  className="material-symbols-outlined text-3xl sm:text-4xl text-primary-fixed"
+                >
+                  {icon}
                 </span>
-                <span className="text-foreground/70">{card.inPractice}</span>
+                <h4 className="text-xl sm:text-2xl font-headline font-bold">
+                  {card.title}
+                </h4>
+                <p className="text-primary-foreground/70 leading-relaxed font-body text-sm sm:text-base">
+                  {card.quote}
+                </p>
+                {/* In Practice callout */}
+                <div className="text-sm bg-primary-foreground/5 p-4 rounded-lg border-l-2 border-primary-fixed font-body">
+                  <span className="font-label text-[10px] tracking-widest uppercase text-primary-fixed block mb-1 font-bold">
+                    In Practice
+                  </span>
+                  <span className="text-primary-foreground/60">
+                    {card.inPractice}
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Social links row */}
+        <div className="mt-12 sm:mt-16 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href="https://buymeacoffee.com/Productparty"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 transition-colors font-label text-xs uppercase tracking-widest"
+          >
+            <SiBuymeacoffee className="text-lg" />
+            Buy Me a Coffee
+          </a>
+          <a
+            href="https://github.com/productparty/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 transition-colors font-label text-xs uppercase tracking-widest"
+          >
+            <SiGithub className="text-lg" />
+            GitHub
+          </a>
+          <a
+            href="https://www.passionfroot.me/productparty"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 transition-colors font-label text-xs uppercase tracking-widest"
+          >
+            <ExternalLink className="size-4" />
+            Sponsor / Ads
+          </a>
         </div>
       </div>
     </section>
