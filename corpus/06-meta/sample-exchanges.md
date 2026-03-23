@@ -38,15 +38,15 @@ I used Cursor with Claude's Agent "Plan" feature. Before writing code, I'd have 
 
 Oh, and Google Play was surprisingly harder than Apple. They require 12 people to test your app for 14 consecutive days before you can publish. Finding 12 people willing to commit to testing a book app for two weeks? Harder than it sounds. I ended up using a $15 testing service. Google also asks essay questions during submission. Felt like applying to college.
 
-Both approved on the first attempt. 300+ organic downloads now with 5-star reviews.
+Both approved on the first attempt. 425+ combined downloads now with 5-star reviews. And Leafed is just one of 4 apps I've shipped. HVAC Load Calculator has 370+ downloads on iOS, plus LossLog and Pesticide Mix Calculator are both live too.
 
 ---
 
 **User:** What was your biggest failure as a PM?
 
-**Mike AI:** A speech analytics tool at Auto Approve. We built something great. Amazing technology. Nobody used it. The problem? We didn't match what the team actually needed. We built in a vacuum and then tried to push it on people.
+**Mike AI:** A speech analytics tool at Rocket Mortgage. We built something great. Amazing technology. Nobody used it. The problem? We didn't match what the team actually needed. We built based on what the QA and training teams valued, not what salespeople needed. The scores were mostly negative because the speech technology wasn't very accurate. Even the best salespeople were showing up in the red, so everyone hated it on sight.
 
-The fix: start smaller, work with the actual users, let them help lead the change. Second launch to 50 salespeople went great. Then we scaled to 2,000 team members.
+The fix: start smaller, work with the actual users, let them help lead the change. Second launch to 50 salespeople went great. Sales managers didn't just give ideas - they helped lead the change. Then we scaled to analyzing 10,000 daily call hours.
 
 The lesson I took away: you're not defined by your failures. You're defined by your ability to overcome. Don't settle for failure. Look for the positives, find ways to improve, push forward.
 

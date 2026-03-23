@@ -1,41 +1,41 @@
 # Mike Watson - Resume Base
 
 ## Professional Summary
-Senior Product Manager with 10+ years driving product strategy, operations, and delivery across fintech and enterprise software. Proven track record modernizing legacy systems, scaling product operations, and leading cross-functional teams through digital transformation that drives adoption growth, efficiency gains, and user satisfaction improvements.
+Senior Product Manager with 10+ years in fintech and enterprise software, now building products using modern AI development tools. Shipped 4 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude. Established product operations framework coordinating 7 cross-functional teams and delivered efficiency gains through chat automation and platform modernization initiatives.
 
 ## Core Expertise
-Product roadmaps, Agile transformation, Stakeholder coordination, Process optimization, Data analytics, Financial services, Regulatory compliance
+AI Product Development, Product Operations, API Integration, React Development, Agile Transformation, Data Analytics, Fintech & Enterprise SaaS
 
 ## Key Accomplishments
-- Scaled product operations from manual processes to structured delivery framework, improving team predictability and executive visibility across 6 cross-functional teams
+- Delivered customer data modernization project across 7 cross-functional teams (6 internal, 1 vendor), successfully piloting the company's #1 strategic priority affecting 18M customers
 - Drove 3,000%+ adoption increase of digital e-notary platform through UX optimization and systematic rollout approach, eliminating technical barriers
-- Delivered $2.5M+ efficiency gains by launching AI-powered chat platform, reducing 2,500 monthly customer contacts while improving conversion rates
+- Launched Intercom chat platform to address customer service bottleneck, reducing inbound volume by 2,500 contacts/month while maintaining service quality
 
 ## Professional Experience
 
-### Product Operations Manager | Pet Supplies Plus | Apr 2025 - Present
-Leading product delivery framework and cross-team coordination
-- Implemented a structured intake process and 2-week sprint cadence in JIRA, establishing a predictable delivery rhythm and improving planning accuracy across multiple product teams
-- Realigned six engineering teams around stalled strategic initiative, establishing a clear timeline and accountability framework that moved the project toward on-time delivery
-- Built an executive reporting dashboard tracking delivery health, team capacity, and strategic priorities, closing a critical visibility gap for C-suite decision making
+### Senior Product Manager | Pet Supplies Plus | Apr 2025 - Present
+Leading product delivery and cross-team coordination for top company initiatives
+- Delivered customer data modernization project across 7 cross-functional teams (6 internal, 1 vendor), successfully piloting the company's #1 strategic priority affecting 18M customers after the initiative had stalled for months
+- Created a structured product intake and vetting system, establishing an epic/feature/story framework and stakeholder alignment process that transformed how marketing initiatives move from concept to delivery across the organization
+- Currently managing 5 of the top 10 company initiatives from validation through delivery, all marketing-focused business drivers targeting revenue growth and customer experience improvement
 
-### Founder & Newsletter Creator | Product Party | Dec 2023 - Present
-Building product management community and thought leadership platform
-- Created a sponsored newsletter focused on product management insights, career development, and industry trends, growing to 2,000+ engaged subscribers across Substack and LinkedIn
-- Developed content strategy covering product frameworks, career advancement, and industry best practices, establishing thought leadership in the product management community
-- Built an engaged community of product professionals through a consistent weekly publishing schedule and actionable insights for career growth
+### Founder & Newsletter Creator | Product Party | Dec 2022 - Present
+Building product management community, thought leadership platform, and shipping software
+- Shipped 4 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude, including Leafed (privacy-first book tracker, 425+ downloads) and HVAC Load Calculator (370+ downloads), navigating full SDLC, App Store review, and production deployment for each
+- Grew product management newsletter to 2,000+ subscribers (32% open rate, 2.9% engagement) covering AI frameworks, career development, and technical best practices
+- Secured paid sponsorship from Chameleon.io and affiliate partnerships with ClickUp and Eleven Labs, while releasing two free Notion templates generating 50+ downloads and establishing thought leadership in the PM community
 
 ### Senior Product Owner | Credit Acceptance | Sep 2022 - Mar 2025
 Product strategy and delivery for automotive finance platform
 - Led 'Dealer Test Drive' pilot program leveraging AB testing methodology, achieving a 33% enrollment increase in underperforming states, resulting in nationwide rollout across 450+ dealership network
 - Modernized legacy Oracle CRM system through a user-centered design approach, conducting stakeholder interviews and iterative testing to deliver 10% improvement in quarterly user satisfaction scores
-- Transformed three waterfall teams into Agile methodology by implementing JIRA workflows, optimizing product backlogs, and establishing sprint ceremonies that improved delivery predictability
+- Transformed 20 engineers across two waterfall teams into Agile methodology by implementing JIRA workflows, optimizing product backlogs, and establishing sprint ceremonies that improved delivery predictability
 
 ### Senior Product Manager | Auto Approve | Jul 2021 - Sep 2022
 Digital product strategy for automotive lending platform
 - Launched Intercom chat and AI chatbot platform to address customer service bottleneck, reducing inbound volume by 2,500 calls/emails in the first month while maintaining service quality
 - Resolved critical e-notary adoption challenge through systematic UX research and technical barrier elimination, achieving 3,000%+ usage growth in three months via improved user flows
-- Consolidated three vendor engineering backlogs into a unified JIRA system, establishing a single source of truth for project status and improving cross-team transparency
+- Consolidated three vendor engineering teams (24 engineers) into a unified JIRA system, establishing a single source of truth for project status and improving cross-team transparency
 
 ### Digital Product Manager | Newrez | Nov 2020 - Jul 2021
 Product management for mortgage lending technology
@@ -45,7 +45,7 @@ Product management for mortgage lending technology
 
 ### Product Owner | Rocket Mortgage | Jun 2013 - Nov 2020
 Product strategy for loan origination and CRM platforms
-- Identified and capitalized on a 300% increase in Spanish-preferred leads through LOS technology enhancement, leading to the establishment of a dedicated 50-person bilingual sales team within six months
+- Identified and capitalized on a 300% increase in Spanish-preferred leads through LOS technology enhancement, leading to the establishment of a dedicated 50-person bilingual sales team within 8 months
 - Scaled speech analytics pilot from 1% manual review to analyzing 10,000 daily call hours, enabling compliance insights and formation of a 10-member quality improvement team
 - Developed migration strategy and roadmap to transition 400 team members from 20 legacy applications to Salesforce Financial Services Cloud, delivering the first MVP within one month of project kickoff
 

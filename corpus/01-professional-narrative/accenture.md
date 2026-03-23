@@ -18,7 +18,7 @@ Since I had never done anything like that before, it was fantastic. I was heavil
 
 ## The Excel Automation Story
 
-There were 16 different workstreams on this major SAP implementation, with a thousand-line project plan living in Excel. Every week, each workstream lead would update their relevant lines. Then they'd pass it to my boss, who would manually update the master list line by line from each of those groups.
+There were 15 different workstreams on this major SAP implementation, with a thousand-line project plan living in Excel. Every week, each workstream lead would update their relevant lines. Then they'd pass it to my boss, who would manually update the master list line by line from each of those groups.
 
 I built a VBA tool that changed everything:
 - Each team lead could click a button to export a slimmed-down version of their changes

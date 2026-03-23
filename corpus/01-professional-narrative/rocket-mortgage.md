@@ -26,7 +26,7 @@ Worse, we had no idea how many people we were actually failing to serve. With so
 
 Our initial data showed maybe 1,000 to 2,000 potential customers per month. But once we built the tools to actually count properly, we discovered it was five times that - and growing month over month. We just hadn't created the instrumentation to see how big the opportunity was.
 
-Once the numbers were visible, the ball started rolling. We enhanced processes and technology to connect these customers to the right people. Then we quickly realized those people were overwhelmed. Within six months, we had to stand up a dedicated 50-person bilingual sales team just to handle the demand we'd surfaced.
+Once the numbers were visible, the ball started rolling. We enhanced processes and technology to connect these customers to the right people. Then we quickly realized those people were overwhelmed. Within 8 months, we had to stand up a dedicated 50-person bilingual sales team just to handle the demand we'd surfaced.
 
 The lesson: sometimes the biggest value a PM can add is creating visibility into a problem that was invisible.
 
@@ -34,7 +34,7 @@ The lesson: sometimes the biggest value a PM can add is creating visibility into
 
 The speech analytics pilot started with 50 bankers - just to see if we could get the technology to work. We did, and the appetite for insights grew fast. The compliance use cases alone made banking leadership want to analyze every recorded call across the organization.
 
-Multiple business units started signing up like it was a product launch. We went from 50 bankers to roughly 3,000 team members' calls being analyzed daily. What started as a "can we make this work?" experiment became enterprise infrastructure.
+Multiple business units started signing up like it was a product launch. We scaled from 1% manual review to analyzing 10,000 daily call hours, enabling compliance insights and the formation of a 10-member quality improvement team. What started as a "can we make this work?" experiment became enterprise infrastructure.
 
 ### Salesforce Migration: Translating Pain into Design
 

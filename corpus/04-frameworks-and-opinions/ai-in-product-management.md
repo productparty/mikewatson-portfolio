@@ -4,7 +4,7 @@
 
 **Adopt AI for efficiency, not for thinking.**
 
-AI is a force multiplier for getting things done faster—not a replacement for human judgment. Our job isn't just to ship features; it's to solve human problems in human ways. AI can help you move faster, but you still need to bring the "why" and the empathy.
+AI is a force multiplier for getting things done faster -not a replacement for human judgment. Our job isn't just to ship features; it's to solve human problems in human ways. AI can help you move faster, but you still need to bring the "why" and the empathy.
 
 Non-developers can now build and ship real products with AI tools. I've proven this myself. The barrier to entry for turning ideas into working software has never been lower. If you have an idea and you're willing to work through problems with AI as your co-pilot, you can build it.
 
@@ -12,18 +12,22 @@ AI governance is becoming a critical PM skill. As AI gets embedded into more pro
 
 ## What I've Actually Built With AI
 
-- **Leafed** - A plant care app built using AI-assisted development
-- **HVAC Savings Calculator** - A tool for homeowners to estimate savings, built with Claude/Cursor
-- **AI Chat Anchor** - This portfolio site's AI chatbot you're talking to right now
-- **Meow Game** - A simple web game I built with ChatGPT/GPT-4 and Midjourney to prove that non-developers can ship real products with AI assistance
+Shipped 4 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
 
-I've written about my experience building apps with ChatGPT, walking through ideation, development, AWS deployment, and troubleshooting—all guided by AI. The whole point was to demonstrate that the "backlog imagineer" can become the builder.
+- **Leafed** - A privacy-first book tracker (425+ downloads, iOS + Android)
+- **HVAC Load Calculator** - Manual J load calculator for HVAC contractors (370+ downloads, iOS)
+- **LossLog** - iOS app
+- **Pesticide Mix Calculator** - iOS app
+
+Plus **AI Chat Anchor**, a Chrome extension for bookmarking AI chat responses, and this portfolio AI assistant itself (38 markdown corpus files, 45 promptfoo test cases, Claude API with streaming and prompt caching, built on Vite + React + Express + TypeScript, hosted on Vercel).
+
+I've written about my experience building apps with AI, walking through ideation, development, app store submission, and troubleshooting. The whole point was to demonstrate that the "backlog imagineer" can become the builder.
 
 ## What I Think the Future Looks Like
 
 I see an evolution where product, traditional software engineering, and QA start to blend into a singular world.
 
-The most senior folks will help with big-picture guardrails—architecture decisions, strategic direction, quality standards. But the "doer" level will be expected to handle a wide variety of things in most organizations.
+The most senior folks will help with big-picture guardrails -architecture decisions, strategic direction, quality standards. But the "doer" level will be expected to handle a wide variety of things in most organizations.
 
 A new product role might be to just build and deploy your own UI bug fixes as an example. The lines between "I wrote the spec" and "I shipped the fix" are going to blur significantly.
 

@@ -32,7 +32,7 @@ The company moved slowly. Historically it was "business leader has an idea, the 
 
 Since I'd only ever worked in an Agile way, I pretty quickly identified ways to help the teams I was working with day-to-day. We pulled in agile fundamentals incrementally - not a big transformation announcement, just practical changes that helped them deliver more rapidly.
 
-Three teams moved from waterfall to Agile methodology with JIRA workflows, optimized backlogs, and sprint ceremonies.
+I transformed 20 engineers across two waterfall teams into Agile methodology with JIRA workflows, optimized backlogs, and sprint ceremonies, establishing the first-ever delivery baselines.
 
 ## What Made This Role Valuable
 
@@ -42,7 +42,7 @@ I enjoyed working with many of the people there and had great opportunities to m
 
 - Led Dealer Test Drive pilot with 33% enrollment increase, resulting in nationwide rollout across 450+ dealerships
 - Modernized legacy Oracle CRM through user-centered approach, achieving 10% improvement in quarterly satisfaction scores
-- Transformed three waterfall teams to Agile methodology
+- Transformed 20 engineers across two waterfall teams to Agile methodology, establishing first-ever delivery baselines
 - Built direct relationships with customers and dealers in the field
 
 ## What This Role Taught Me

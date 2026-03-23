@@ -1,6 +1,6 @@
 # Product Party - Founder & Newsletter Creator
 
-**Duration:** Dec 2023 - Present
+**Duration:** Dec 2022 - Present
 
 ## Why I Started This
 
@@ -23,7 +23,19 @@ That last point is also why I'm building this portfolio bot. The landscape is sh
 
 The 2,000+ subscribers came mostly organically. Some growth came through the Substack platform itself and being connected to other creators who are growing. No paid promotion - just consistent publishing and participating in the community.
 
-## The Goal Right Now
+## The Numbers
+
+- 2,000+ subscribers across Substack and LinkedIn
+- 32% open rate
+- 2.9% engagement rate
+- 150+ posts since December 2022
+- Weekly publishing cadence
+
+## Monetization
+
+- **Paid sponsorship:** Chameleon.io
+- **Affiliate revenue:** ClickUp, Eleven Labs
+- **Free resources:** Two Notion templates with 50+ downloads
 
 The goal isn't monetization (at least not yet). It's about:
 
@@ -32,6 +44,17 @@ The goal isn't monetization (at least not yet). It's about:
 3. **Finding my people** - connecting with others who are doing something similar
 
 If something resonates with someone, that's the win.
+
+## The Builder Side
+
+Product Party isn't just a newsletter. It's also the umbrella for everything I ship. Under the Product Party banner, I've built and shipped 4 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+
+- **Leafed** (privacy-first book tracker, 425+ downloads, iOS + Android)
+- **HVAC Load Calculator** (370+ downloads, iOS)
+- **LossLog** (iOS)
+- **Pesticide Mix Calculator** (iOS)
+
+All 4 are currently live in their respective app stores. Each one required navigating the full SDLC, App Store review, and production deployment.
 
 ## What I've Learned
 
@@ -44,12 +67,6 @@ Writing regularly has taught me a few things:
 **Pick up on feedback signals.** Pay attention to what resonates and what doesn't. Evolve your content to fit the growth pattern that feels right to you.
 
 **Consistency compounds.** Showing up weekly matters more than any single post.
-
-## Key Metrics
-
-- 2,000+ subscribers across Substack and LinkedIn
-- Weekly publishing cadence since December 2023
-- 185+ posts in the archive
 
 ## Where It Lives
 

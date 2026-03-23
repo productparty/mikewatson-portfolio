@@ -20,11 +20,11 @@ I can get hyper-focused on certain problems and need to remind myself to come ba
 
 My biggest failure was a speech analytics tool designed to help our sales team improve performance. The tool listened to calls, transcribed them, and provided coaching insights.
 
-We missed something important: we didn't listen to what our sales team actually needed. We built based on what the QA and training teams valued, not what the salespeople needed. The tool gave out scores based on how the sales calls went, but these scores were mostly negative because the speech technology wasn't very accurate. Seeing how every team member—even the best ones—was showing up in the red made everyone dislike the tool as soon as they saw it.
+We missed something important: we didn't listen to what our sales team actually needed. We built based on what the QA and training teams valued, not what the salespeople needed. The tool gave out scores based on how the sales calls went, but these scores were mostly negative because the speech technology wasn't very accurate. Seeing how every team member -even the best ones -was showing up in the red made everyone dislike the tool as soon as they saw it.
 
-**How I recovered:** I started with a simpler version, working directly with sales managers. They didn't just give ideas—they helped lead the change. We engaged with actual salespeople in a smaller test group of 50 people, iterated based on their real needs and feedback, and eventually expanded to review 2,000 team members' calls nationally.
+**How I recovered:** I started with a simpler version, working directly with sales managers. They didn't just give ideas -they helped lead the change. We engaged with actual salespeople in a smaller test group of 50 people, iterated based on their real needs and feedback, and eventually expanded to review 2,000 team members' calls nationally.
 
-**What I learned:** We don't have to settle for failure. We should look for the positives and ways to improve and push forward. And most importantly—build with the actual users, not just the people who requested it.
+**What I learned:** We don't have to settle for failure. We should look for the positives and ways to improve and push forward. And most importantly -build with the actual users, not just the people who requested it.
 
 ## 6. How do you prioritize?
 
@@ -35,7 +35,7 @@ My approach:
 - **Don't wait for perfection**: No product is perfect at launch. The key lies in observing, understanding, and making consistent improvements based on feedback.
 - **Focus on compounding gains**: Concentrating on smaller, incremental improvements can lead to substantial gains over time. A steady hand at the wheel, guided by user feedback, beats pursuing the next disruptive idea.
 
-I'm a big supporter of iterating on ideas and testing them to validate—as long as you can tie the thread between these efforts and the bigger picture goal.
+I'm a big supporter of iterating on ideas and testing them to validate -as long as you can tie the thread between these efforts and the bigger picture goal.
 
 ## 7. Tell me about a time you had to push back on stakeholders
 
@@ -45,7 +45,7 @@ The moment we started setting clearer boundaries around new requests, everything
 
 **Three questions I now ask when requests come in:**
 
-1. **"Help me understand the urgency compared to our current roadmap."** This shifts from "can you do this" to "should we do this." Most people haven't done their homework—when you ask them to articulate why this matters more than planned work, half the time they realize it's not as urgent as they thought.
+1. **"Help me understand the urgency compared to our current roadmap."** This shifts from "can you do this" to "should we do this." Most people haven't done their homework -when you ask them to articulate why this matters more than planned work, half the time they realize it's not as urgent as they thought.
 
 2. **"What specific outcome are we trying to achieve, and how will we measure success?"** This forces requestors to think through their actual needs instead of just symptoms.
 
@@ -61,29 +61,29 @@ I start with a question: "What outcome would prove we're succeeding?" Then I wor
 - **One quality metric** to prevent destroying value while chasing growth
 - **One efficiency metric** like cost per acquisition or cycle time
 
-The key is using 3-5 metrics that balance each other. I also pair every metric with qualitative context—customer quotes and stories behind the numbers.
+The key is using 3-5 metrics that balance each other. I also pair every metric with qualitative context -customer quotes and stories behind the numbers.
 
 **The litmus test I use:** "If this number goes up, am I certain that's good for our customers and our business?" If you can't answer yes confidently, you're measuring the wrong thing.
 
 ## 9. Tell me about a time you had to make a decision with incomplete data
 
-Ambiguity is a given in product work—it's not necessarily a result of poor planning but a reflection of the intricate environments we navigate. Instead of resisting this lack of clarity, I convert it into a strength.
+Ambiguity is a given in product work -it's not necessarily a result of poor planning but a reflection of the intricate environments we navigate. Instead of resisting this lack of clarity, I convert it into a strength.
 
 **My approach:**
 - **Embrace ambiguity** with an adaptable mindset and openness to fresh possibilities
 - **Create clarity through communication**: The frequency and quality of interactions within the team and between stakeholders and customers lay the foundation for a shared vision
 - **Foster a learning culture**: Continuous testing of hypotheses, embracing wisdom from both victories and defeats
 
-I use the **70% rule** here too—move decisively with 70% of desired information, maintain flexibility to adapt as more information becomes available. This aligns with agile methodologies where iterative development improves based on feedback. Learning from outcomes feeds back into the decision-making process.
+I use the **70% rule** here too -move decisively with 70% of desired information, maintain flexibility to adapt as more information becomes available. This aligns with agile methodologies where iterative development improves based on feedback. Learning from outcomes feeds back into the decision-making process.
 
 ## 10. Where do you see yourself in 5 years?
 
 I want to continue growing as a product leader while building things that create real impact.
 
 **My focus areas:**
-- **More testing and validation**: Finding ways to leverage hypotheses and tests within organizations using low-effort approaches. Dreaming up ways to test is only part of the battle—the real challenge is putting on paper everything you'll need to tell a story about success.
+- **More testing and validation**: Finding ways to leverage hypotheses and tests within organizations using low-effort approaches. Dreaming up ways to test is only part of the battle -the real challenge is putting on paper everything you'll need to tell a story about success.
 - **Better change management**: Finding more effective ways to bring change to large organizations, including innovative approaches like short-form video for training distributed teams.
 - **Feature simplicity**: Helping shorten the time from a user's start date to feeling comfortable with products. I want to reduce complexity, not add to it.
 - **Building for good**: Contributing software to non-profit communities and helping organizations understand how to use AI effectively.
 
-I'm committed to showing up, trying things, and sharing what I learn along the way—whether that's within a company or through my own building and writing.
+I'm committed to showing up, trying things, and sharing what I learn along the way -whether that's within a company or through my own building and writing.

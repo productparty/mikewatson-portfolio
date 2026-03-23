@@ -30,7 +30,7 @@ We onboarded 5 team members as chat agents in addition to their day-to-day work.
 
 There were three different development vendors, each brought in based on different IT leadership decisions and relationships. They were trying to find the best fit, so as new tech teams accumulated, each came with their own request systems and backlogs.
 
-My job was to streamline all of them - get everyone into one JIRA, one source of truth, one way of working. It wasn't glamorous work, but it was necessary to get the most out of what we had.
+My job was to streamline all of them - 24 engineers across 3 vendor teams - into one JIRA, one source of truth, one way of working. It wasn't glamorous work, but it was necessary to get the most out of what we had.
 
 ## Why I Left
 
@@ -40,7 +40,7 @@ I had an opportunity to join a well-established product team at Credit Acceptanc
 
 - Launched Intercom chat and AI chatbot, reducing inbound volume by 2,500 calls/emails in the first month
 - Grew e-notary adoption 3,000%+ through UX research and flow fixes
-- Consolidated three vendor engineering backlogs into unified JIRA system
+- Consolidated three vendor engineering teams (24 engineers) into unified JIRA system
 - Expanded from single product owner to running all legacy business technology decisions
 
 ## What This Role Taught Me

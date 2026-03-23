@@ -8,7 +8,7 @@ Building Leafed changed how I think about product management. The goal was simpl
 
 Coding wasn't the hard part. Building ambitious features wasn't hard either. The surprisingly hard part? Knowing which features NOT to ship.
 
-I built a conversational AI chatbot (Rasa + Google Gemini hybrid)—then cut it because people just wanted to search and scan. I built a bookshelf scanner inspired by Vivino—then cut it due to book cover formatting challenges. Later, I brought the scanner back with a different implementation after researching alternative approaches.
+I built a conversational AI chatbot (Rasa + Google Gemini hybrid) -then cut it because people just wanted to search and scan. I built a bookshelf scanner inspired by Vivino -then cut it due to book cover formatting challenges. Later, I brought the scanner back with a different implementation after researching alternative approaches.
 
 That's not failure. That's product judgment. The feature flag system let me build ambitious and cut intelligently.
 
@@ -20,9 +20,9 @@ When internal recruitment hit a wall, I paid $15 for a testing service. Sometime
 
 ## What I Learned About App Store Processes
 
-**Google** focuses on testing evidence—proof of legitimate closed test, feedback collection, improvements based on feedback. They want to see you've iterated.
+**Google** focuses on testing evidence -proof of legitimate closed test, feedback collection, improvements based on feedback. They want to see you've iterated.
 
-**Apple** focuses on guidelines compliance—design standards, privacy requirements, user experience expectations. They approved in 48 hours after I fixed their feedback (a "Buy Me a Coffee" button that was confusing with in-app purchases).
+**Apple** focuses on guidelines compliance -design standards, privacy requirements, user experience expectations. They approved in 48 hours after I fixed their feedback (a "Buy Me a Coffee" button that was confusing with in-app purchases).
 
 Understanding these different philosophies changes how I talk to developers and think about mobile products now.
 
@@ -38,4 +38,4 @@ Understanding these different philosophies changes how I talk to developers and 
 
 Tools like Cursor and Perplexity make building accessible, but they don't replace developers. They close the gap enough that product people can experience the process viscerally and develop the skills that actually matter: research, synthesis, pattern recognition, and product judgment.
 
-When developers push back on timelines or talk about technical debt, I get it now—because I've made those same tradeoff decisions myself.
+When developers push back on timelines or talk about technical debt, I get it now -because I've made those same tradeoff decisions myself.

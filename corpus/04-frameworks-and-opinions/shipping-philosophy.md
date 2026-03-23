@@ -36,7 +36,7 @@ If any of these are show-stoppers, address them before green-lighting. Moving fo
 
 **"Agile transformation works better as practical changes than big announcements."**
 
-At Credit Acceptance, I helped three teams move from waterfall to agile. Not through a big transformation initiative, but by identifying quick wins with the teams I was working with day-to-day.
+At Credit Acceptance, I transformed 20 engineers across two teams from waterfall to agile. Not through a big transformation initiative, but by identifying quick wins with the teams I was working with day-to-day.
 
 Pull in fundamentals incrementally. Show results. Let the change spread.
 

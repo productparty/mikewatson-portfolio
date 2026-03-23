@@ -1,6 +1,17 @@
 # Leafed - Privacy-First Book Tracking App
 
-## What It Is
+## The Bigger Picture: 4 Apps Shipped
+
+Leafed is the flagship of 4 apps I've shipped to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+
+- **Leafed** (privacy-first book tracker, 425+ downloads, iOS + Android)
+- **HVAC Load Calculator** (Manual J calculator for HVAC contractors, 370+ downloads, iOS)
+- **LossLog** (iOS)
+- **Pesticide Mix Calculator** (iOS)
+
+All 4 are currently live. Each required navigating the full SDLC, App Store review, and production deployment.
+
+## What Leafed Is
 
 A privacy-first book tracking app for iOS and Android. Track your reading without every app trying to harvest your data or push social features you don't want.
 
@@ -100,6 +111,6 @@ The goal wasn't to move fast - it was to learn the full process. From first line
 
 ## Key Metrics
 
-- **300+ organic downloads** across iOS App Store and Google Play
+- **425+ combined downloads** (172 Google Play, 253 App Store)
 - **5-star reviews** from early users
 - No feedback mechanism built in due to the local/privacy-first nature of the app - users don't create accounts, so there's no way to reach them directly

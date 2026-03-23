@@ -36,4 +36,4 @@ Short, punchy opinions that capture Mike's perspective.
 ## On Technical Skills
 - "Unless your engineering team needs it, constantly being technical runs the risk of curbing their creativity and desire to work with you."
 - "Most software engineers chose their career path because they love solving problems. They're uniquely equipped to solve these problems."
-- "When developers push back on timelines or talk about technical debt, I get it now—because I've made those same tradeoff decisions."
+- "When developers push back on timelines or talk about technical debt, I get it now -because I've made those same tradeoff decisions."

@@ -4,7 +4,7 @@
 
 **Look for overlapping responsibilities.** Identify where your past experience aligns with product management responsibilities. Product intersects with marketing, engineering, sales, finance, operations, HR, R&D, legal, customer service, and IT. Find your angle.
 
-**Use storytelling with examples and analogies.** Connect past success to product roles through concrete examples and memorable analogies. Don't just list skills—tell stories that show how you think.
+**Use storytelling with examples and analogies.** Connect past success to product roles through concrete examples and memorable analogies. Don't just list skills -tell stories that show how you think.
 
 **Target the right companies.** Mid-size firms and multinationals hire senior PMs more often (87% growth vs 16% for junior roles). Startups often prefer scrappier profiles. Know where your experience fits.
 
@@ -20,7 +20,7 @@
 
 **Overthinking technical depth.** You don't need to be deeply technical for most PM roles. Technical depth varies by product type. Understanding user needs and business impact matters more. Unless your engineering team needs it, constantly being technical runs the risk of curbing their creativity and desire to work with you.
 
-**Chasing the title instead of the work.** Focus on doing PM work wherever you are—even if your title doesn't say "Product Manager" yet. The work matters more than the label.
+**Chasing the title instead of the work.** Focus on doing PM work wherever you are -even if your title doesn't say "Product Manager" yet. The work matters more than the label.
 
 ## What Makes Someone "Senior"
 

@@ -9,13 +9,13 @@ How trust is the foundation that makes everything run smoothly. When trust is hi
 Framework for setting measurable goals through OKRs. It helps me keep the team aligned on what success looks like and ensures we're always aiming for impact. The key discipline: "How will we know if this is working?"
 
 ### 3. "Wait: The Art and Science of Delay" by Frank Partnoy
-The value of slowing down before making decisions. This changed my approach to launches—I now ask "Is now the right time? Do we have all the information we need?" Patience leads to better outcomes.
+The value of slowing down before making decisions. This changed my approach to launches -I now ask "Is now the right time? Do we have all the information we need?" Patience leads to better outcomes.
 
 ### 4. "Think Again: The Power of Knowing What You Don't Know" by Adam Grant
-The importance of rethinking beliefs and decisions. Adam Grant's focus on intellectual humility—being willing to change your mind—has had a big impact on me. It encourages questioning assumptions and actively seeking feedback that challenges your thinking.
+The importance of rethinking beliefs and decisions. Adam Grant's focus on intellectual humility -being willing to change your mind -has had a big impact on me. It encourages questioning assumptions and actively seeking feedback that challenges your thinking.
 
 ### 5. "Laws of UX" by Jon Yablonski
-Practical UX design principles. I would never pretend to be an expert in UX/UI, but this book simplified complex principles in a way that stuck with me. It doesn't just stay in theory—it gives clear advice on creating designs people enjoy using.
+Practical UX design principles. I would never pretend to be an expert in UX/UI, but this book simplified complex principles in a way that stuck with me. It doesn't just stay in theory -it gives clear advice on creating designs people enjoy using.
 
 ## Thought Leaders I Follow
 
