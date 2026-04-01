@@ -330,7 +330,7 @@ export function AIHeroSection() {
             </div>
 
             {/* Right: headshot + floating stat */}
-            <div className="lg:col-span-4 relative">
+            <div className="lg:col-span-4 relative max-w-[280px] sm:max-w-xs mx-auto lg:max-w-none">
               <div className="aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low">
                 <img
                   src={PERSONAL_INFO.avatar}
