@@ -131,6 +131,16 @@ export function BuiltAndShipped() {
             Privacy-first apps I designed, built, and shipped using React
             Native, Cursor, and Claude.
           </p>
+          <div className="flex flex-wrap gap-6 mt-6">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-xl">download</span>
+              <span className="font-label text-sm font-bold text-foreground">1,000+ organic downloads</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-xl">star</span>
+              <span className="font-label text-sm font-bold text-foreground">HVAC Load Calculator: 600+ downloads, 12 five-star ratings</span>
+            </div>
+          </div>
         </header>
 
         {/* App cards — bento grid with featured first item */}
