@@ -306,8 +306,14 @@ export function AIHeroSection() {
   const hasConversation = messages.length > 0;
 
   return (
-    <section className="relative">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-12 sm:pt-16 pb-8">
+    <section className="relative overflow-hidden">
+      {/* Warm gradient mesh background */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        <div className="absolute -top-[120px] -right-[80px] w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(15,102,114,0.08)_0%,rgba(15,102,114,0.02)_50%,transparent_70%)] blur-[40px]" />
+        <div className="absolute -bottom-[100px] -left-[60px] w-[500px] h-[500px] rounded-full bg-[radial-gradient(circle,rgba(166,238,251,0.1)_0%,rgba(166,238,251,0.03)_50%,transparent_70%)] blur-[50px]" />
+        <div className="absolute top-[200px] left-[40%] w-[400px] h-[400px] rounded-full bg-[radial-gradient(circle,rgba(138,210,223,0.06)_0%,transparent_60%)] blur-[60px]" />
+      </div>
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 pt-12 sm:pt-16 pb-8">
         {/* Two-column hero — collapses when conversation starts */}
         {!hasConversation && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end mb-16 sm:mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -692,7 +698,7 @@ export function AIHeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="pb-6 sm:pb-8 flex flex-col items-center">
+      <div className="relative pb-6 sm:pb-8 flex flex-col items-center">
         <button
           onClick={scrollToContent}
           className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
