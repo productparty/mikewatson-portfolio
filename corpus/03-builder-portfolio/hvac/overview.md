@@ -99,5 +99,5 @@ Future features planned:
 ## Key Metrics
 
 - **370+ downloads** on iOS
-- All 4 shipped apps currently live (Leafed, HVAC Load Calculator, LossLog, Pesticide Mix Calculator)
+- All 6 shipped apps currently live (Leafed, HVAC Load Calculator, Water Damage Report, Pesticide Mix Calculator, Attentionly, A2L Safe Charge)
 - [TO BE FILLED: Conversion rate (free to pro), user feedback]

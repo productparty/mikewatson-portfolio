@@ -17,10 +17,10 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 
 | File | Status | What It Covers | Key Stories/Metrics |
 |---|---|---|---|
-| resume-base.md | COMPLETE | Full resume in narrative format with all roles, accomplishments, education | Professional summary, all role bullets aligned to resume, 4 apps shipped framing |
+| resume-base.md | COMPLETE | Full resume in narrative format with all roles, accomplishments, education | Professional summary, all role bullets aligned to resume, 6 apps shipped framing |
 | career-arc.md | COMPLETE | Origin story, career thread from tinkerer to PM, how approach evolved | DVD project origin, growth-driven moves, discovering "Product Manager" title |
 | pet-supplies-plus.md | COMPLETE | Current contract role, two major projects, product ops foundation | Customer data modernization (18M customers, 7 teams, 800 stores, stalled then delivered), Pricing project shipped 2 months early, 5 of top 10 initiatives |
-| product-party.md | COMPLETE | Newsletter, 4-app builder story, monetization, community building | 2,000+ subs, 32% open rate, 2.9% engagement, 150+ posts since Dec 2022, Chameleon.io sponsorship, ClickUp/Eleven Labs affiliates, 4 shipped apps |
+| product-party.md | COMPLETE | Newsletter, 6-app builder story, monetization, community building | 2,000+ subs, 32% open rate, 2.9% engagement, 150+ posts since Dec 2022, Chameleon.io sponsorship, ClickUp/Eleven Labs affiliates, 6 shipped apps |
 | credit-acceptance.md | COMPLETE | 2.5-year tenure with Dealer Test Drive, Oracle CRM, Agile transformation | 33% enrollment lift across 450+ dealerships, 10% CRM satisfaction improvement, 20 engineers across 2 teams waterfall-to-agile |
 | auto-approve.md | COMPLETE | Startup experience as tech employee #2, e-notary, Intercom, vendor consolidation | 3,000%+ e-notary growth in 3 months, 2,500 contacts/month Intercom deflection, 24 engineers across 3 vendor teams consolidated into JIRA |
 | newrez.md | COMPLETE | 8-month tenure, 21 mortgage brands, BBB complaints, regulatory sprint | 10% lead conversion increase across 21 brands, 33% BBB complaint reduction, regulatory compliance across 800K-user platform in 1 month |
@@ -43,7 +43,7 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 | claude-skills/overview.md | PARTIAL | Claude project skills overview | Has Product Party content skill; missing other skills [TO BE FILLED] |
 | claude-skills/product-party-content-SKILL.md | COMPLETE | Full content system for newsletter writing | Voice rules, anti-detection, headline patterns, SUCCES audit, theme mix, banned phrases |
 | hvac/overview.md | COMPLETE | HVAC Load Calculator - Manual J for contractors | 370+ iOS downloads, freemium model ($9.99 pro), React Native/Expo, ZIP code database, one-shot AI build experiment |
-| leafed/overview.md | COMPLETE | Flagship app with 4-app portfolio framing | 425+ combined downloads (172 GP + 253 AS), privacy-first book tracker, feature flag system, app store journey, non-developer PM story |
+| leafed/overview.md | COMPLETE | Flagship app with 6-app portfolio framing | 425+ combined downloads (172 GP + 253 AS), privacy-first book tracker, feature flag system, app store journey, non-developer PM story |
 | leafed/lessons-learned.md | COMPLETE | Product lessons from building and shipping Leafed | Feature cuts (AI chatbot, scanner), Google Play 14-day testing, product workflow |
 | leafed/technical-journey.md | COMPLETE | Technical details of building as non-developer | Cursor/Claude/ChatGPT/Gemini toolkit, design system challenges, native device testing |
 | other-projects/README.md | PARTIAL | 12+ side projects cataloged | MCP server, UFC predictions, games, utilities; missing interview questions about which to highlight |
@@ -55,7 +55,7 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 | adaptability.md | COMPLETE | Why adaptability matters more than originating ideas | Intercom at Auto Approve, Accenture scheduling platform, tech employee #2 expansion |
 | agile-transformation.md | COMPLETE | Agile philosophy and Credit Acceptance experience | Substance over ceremony, start with willing teams, right-size the process |
 | ai-and-product.md | COMPLETE | How AI is reshaping PM, hybrid skillset, building in public | Role blending thesis, non-developer building proof, future of PM |
-| ai-in-product-management.md | COMPLETE | Core AI position with shipped products as evidence | 4 shipped apps listed correctly, portfolio AI assistant, AI governance as PM skill |
+| ai-in-product-management.md | COMPLETE | Core AI position with shipped products as evidence | 6 shipped apps listed correctly, portfolio AI assistant, AI governance as PM skill |
 | career-advice.md | COMPLETE | Breaking into PM, career progression, common mistakes | Web not ladder, default essential, relationship investment, "senior" definition |
 | influences-and-books.md | COMPLETE | 5 books with explanations, thought leaders | Speed of Trust, Measure What Matters, Wait, Think Again, Laws of UX |
 | prioritization-approach.md | COMPLETE | 70% rule, feature diet, loudest voice handling | Three stakeholder pushback questions, explicit trade-off framework |
@@ -99,7 +99,7 @@ Last synced with job search Claude project: 2026-03-23
 Changes made this session:
 - Fixed PSP title to Senior Product Manager, added customer data modernization (18M customers, 7 teams, 800 stores) and pricing project (shipped 2 months early)
 - Fixed Product Party start date to Dec 2022, corrected post count to 150+, added 32% open rate / 2.9% engagement, corrected sponsorship (Chameleon.io paid, ClickUp/Eleven Labs affiliate)
-- Added 4-app shipped framing throughout (Leafed 425+, HVAC 370+, LossLog, Pesticide Mix Calculator)
+- Added 6-app shipped framing throughout (Leafed 425+, HVAC 370+, Water Damage Report, Pesticide Mix Calculator)
 - Fixed Credit Acceptance to 20 engineers / 2 teams (was "three teams")
 - Added 24 engineers across 3 vendor teams to Auto Approve
 - Fixed Rocket Mortgage bilingual team to 8 months (was 6), added 10,000 daily call hours metric
@@ -113,6 +113,6 @@ Changes made this session:
 - Removed em dashes from 8 core corpus files (voice rule compliance)
 
 Next time you update the corpus, also update these job search project files:
-- career-narratives-library.md (Story 03 in particular for app shipping - now 4 apps with specific download counts)
-- resume-critique-framework.md (builder amplification section - 4-app framing, solo non-developer PM)
+- career-narratives-library.md (Story 03 in particular for app shipping - now 6 apps with specific download counts)
+- resume-critique-framework.md (builder amplification section - 6-app framing, solo non-developer PM)
 - job-application-skill.md (cover letter templates - PSP now has two concrete project stories with delivery dates)

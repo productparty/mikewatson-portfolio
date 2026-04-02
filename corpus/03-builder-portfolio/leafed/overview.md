@@ -1,15 +1,17 @@
 # Leafed - Privacy-First Book Tracking App
 
-## The Bigger Picture: 4 Apps Shipped
+## The Bigger Picture: 6 Apps Shipped
 
-Leafed is the flagship of 4 apps I've shipped to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+Leafed is the flagship of 6 apps I've shipped to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
 
 - **Leafed** (privacy-first book tracker, 425+ downloads, iOS + Android)
 - **HVAC Load Calculator** (Manual J calculator for HVAC contractors, 370+ downloads, iOS)
-- **LossLog** (iOS)
+- **Water Damage Report** (iOS)
 - **Pesticide Mix Calculator** (iOS)
+- **Attentionly** (time audit app, iOS)
+- **A2L Safe Charge** (HVAC refrigerant safety calculator, iOS)
 
-All 4 are currently live. Each required navigating the full SDLC, App Store review, and production deployment.
+All 6 are currently live. Each required navigating the full SDLC, App Store review, and production deployment.
 
 ## What Leafed Is
 

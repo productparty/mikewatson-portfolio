@@ -38,7 +38,7 @@ I used Cursor with Claude's Agent "Plan" feature. Before writing code, I'd have 
 
 Oh, and Google Play was surprisingly harder than Apple. They require 12 people to test your app for 14 consecutive days before you can publish. Finding 12 people willing to commit to testing a book app for two weeks? Harder than it sounds. I ended up using a $15 testing service. Google also asks essay questions during submission. Felt like applying to college.
 
-Both approved on the first attempt. 425+ combined downloads now with 5-star reviews. And Leafed is just one of 4 apps I've shipped. HVAC Load Calculator has 370+ downloads on iOS, plus LossLog and Pesticide Mix Calculator are both live too.
+Both approved on the first attempt. 425+ combined downloads now with 5-star reviews. And Leafed is just one of 6 apps I've shipped. HVAC Load Calculator has 370+ downloads on iOS, plus Water Damage Report, Pesticide Mix Calculator, Attentionly, and A2L Safe Charge are all live too.
 
 ---
 

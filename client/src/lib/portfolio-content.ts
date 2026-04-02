@@ -41,9 +41,9 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     problem:
       "Strategic initiatives stalled across multiple teams with no structured delivery framework in place.",
     action:
-      "Established end-to-end product intake system where none existed—creating epic/feature/story framework, automated reporting dashboard, and stakeholder alignment process. Took over company's #1 strategic priority (customer data modernization affecting 18M customers) after it stalled, coordinating 7 cross-functional teams to pilot deployment.",
+      "Inherited stalled customer data modernization project and drove it to pilot across 7 cross-functional teams (6 internal, 1 vendor), advancing the company's #1 strategic priority affecting 18M customers across 800 stores. Rescued floundering pricing project ranked #3 company priority, coordinating 4 departments and 1 vendor. Created structured product intake and vetting system with epic/feature/story framework.",
     outcome:
-      "Currently managing 5 of top 10 company initiatives; eliminated manual status reporting; piloted customer data modernization project",
+      "Customer data modernization on track for full rollout by April 2026; pricing project shipped 2 months early (March vs. May 2026 target)",
     isCurrent: true,
   },
   {
@@ -95,9 +95,9 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     industry: "Fintech",
     icon: "rocket_launch",
     bullets: [
-      "Built demand measurement into LOS, uncovering 300% more Hispanic market leads than expected—leading to 50-person bilingual sales team within 6 months",
+      "Built demand measurement into LOS, uncovering 300% more Hispanic market leads than expected—leading to 50-person bilingual sales team within 8 months",
       "Scaled speech analytics from 1% manual review to analyzing 10,000 daily call hours, enabling compliance insights and 10-member quality team formation",
-      "Led Salesforce migration strategy affecting 5,000 team members across 20+ legacy applications, delivering first MVP within 1 month",
+      "Developed migration strategy transitioning 400 team members from 20 legacy applications to Salesforce Financial Services Cloud, delivering first MVP within 1 month of kickoff",
     ],
   },
   {
@@ -151,7 +151,7 @@ export const SPOTLIGHT_CASE_STUDIES: SpotlightCaseStudy[] = [
     tags: ["Stakeholder Mgmt", "Scale"],
     title: "Hispanic Market Growth Initiative",
     description:
-      "Uncovered hidden demand by creating measurement capabilities into the LOS. Championed business case that revealed 300% higher volume than expected, leading to dedicated 50-person Sales team within 6 months.",
+      "Uncovered hidden demand by creating measurement capabilities into the LOS. Championed business case that revealed 300% higher volume than expected, leading to dedicated 50-person Sales team within 8 months.",
     keyImpact: {
       label: "Key Impact",
       value: "300% Lead Increase",
@@ -277,7 +277,7 @@ export const TOOLS_BUILD_WITH = {
 export const CONTACT_INFO = {
   email: "mwatson1983@gmail.com",
   linkedin: "https://www.linkedin.com/in/michaeljameswatson/",
-  resumePdf: "https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf",
+  resumePdf: "https://mikewatson.us/Michael_Watson_Resume_April_2026.pdf",
   ctaHeadline: "Ready to solve complex problems together?",
   ctaSubheadline:
     "Senior Product Manager who builds and ships. Deployed mobile apps, created automation systems, and rescued stalled initiatives across fintech and enterprise software.",

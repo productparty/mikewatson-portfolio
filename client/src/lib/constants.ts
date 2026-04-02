@@ -14,8 +14,8 @@ export const PERSONAL_INFO = {
     constants: "https://constants.com/u/productparty"
   },
   resume: {
-    pdf: "https://mikewatson.us/Michael_Watson_Resume_January_2026.pdf",
-    word: "https://mikewatson.us/Michael_Watson_Resume_January_2026.docx"
+    pdf: "https://mikewatson.us/Michael_Watson_Resume_April_2026.pdf",
+    word: "https://mikewatson.us/Michael_Watson_Resume_April_2026.docx"
   },
   skills: [
     "Product Management",
@@ -56,9 +56,15 @@ export const PERSONAL_INFO = {
   ],
   experience: [
     {
+      title: "Senior Product Manager",
+      company: "Pet Supplies Plus",
+      period: "April 2025 - Present",
+      description: "Leading product delivery and cross-team coordination for top company initiatives including customer data modernization and pricing."
+    },
+    {
       title: "Senior Product Owner",
       company: "Credit Acceptance Corporation",
-      period: "September 2022 - Present",
+      period: "September 2022 - March 2025",
       description: "Led digital transformation initiatives, improved system performance, and implemented Agile methodologies."
     },
     {

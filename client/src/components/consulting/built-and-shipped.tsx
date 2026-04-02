@@ -30,7 +30,7 @@ const SHIPPED_APPS: ShippedApp[] = [
     ],
   },
   {
-    name: "LossLog",
+    name: "Water Damage Report",
     description:
       "Document water damage in seconds, generate insurance-ready PDF reports. GPS-stamped, timestamped evidence capture with guided checklists. Works offline.",
     platforms: ["iOS"],
@@ -64,6 +64,32 @@ const SHIPPED_APPS: ShippedApp[] = [
       {
         label: "App Store",
         url: "https://apps.apple.com/us/app/hvac-load-calculator-manual-j/id6758120488",
+        icon: "phone_iphone",
+      },
+    ],
+  },
+  {
+    name: "Attentionly",
+    description:
+      "Time audit app that helps you understand where your attention actually goes. Track activities, visualize patterns, and reclaim focus.",
+    platforms: ["iOS"],
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/us/app/attentionly-time-audit/id6761147386",
+        icon: "phone_iphone",
+      },
+    ],
+  },
+  {
+    name: "A2L Safe Charge",
+    description:
+      "HVAC refrigerant safety calculator for A2L refrigerants. Quick charge limit calculations for technicians in the field.",
+    platforms: ["iOS"],
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/us/app/a2l-safe-charge/id6760899340",
         icon: "phone_iphone",
       },
     ],
