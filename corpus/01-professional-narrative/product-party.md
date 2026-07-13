@@ -47,16 +47,18 @@ If something resonates with someone, that's the win.
 
 ## The Builder Side
 
-Product Party isn't just a newsletter. It's also the umbrella for everything I ship. Under the Product Party banner, I've built and shipped 6 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+Product Party isn't just a newsletter. It's also the umbrella for everything I ship. Under the Product Party banner, I've built and shipped 8 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
 
 - **Leafed** (privacy-first book tracker, 425+ downloads, iOS + Android)
-- **HVAC Load Calculator** (370+ downloads, iOS)
+- **HVAC Load Calculator** (Manual J calculator, 600+ downloads, 12 five-star ratings, iOS + Android)
+- **HVAC Load Calculator Canada** (load calculator tuned for Canadian climates, iOS)
+- **HVAC Duct Tools** (duct sizing and airflow verification, iOS)
+- **A2L Safe Charge** (HVAC refrigerant safety calculator, iOS)
 - **Water Damage Report** (iOS)
 - **Pesticide Mix Calculator** (iOS)
 - **Attentionly** (time audit app, iOS)
-- **A2L Safe Charge** (HVAC refrigerant safety calculator, iOS)
 
-All 6 are currently live in their respective app stores. Each one required navigating the full SDLC, App Store review, and production deployment.
+All 8 are currently live in their respective app stores. The four HVAC apps form a toolkit with a shared marketing site at hvacloadcalculator.online. Each app required navigating the full SDLC, App Store review, and production deployment.
 
 ## What I've Learned
 

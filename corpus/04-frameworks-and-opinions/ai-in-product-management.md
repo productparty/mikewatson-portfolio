@@ -12,14 +12,18 @@ AI governance is becoming a critical PM skill. As AI gets embedded into more pro
 
 ## What I've Actually Built With AI
 
-Shipped 6 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+Shipped 8 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
 
 - **Leafed** - A privacy-first book tracker (425+ downloads, iOS + Android)
-- **HVAC Load Calculator** - Manual J load calculator for HVAC contractors (370+ downloads, iOS)
+- **HVAC Load Calculator** - Manual J load calculator for HVAC contractors (600+ downloads, iOS + Android)
+- **HVAC Load Calculator Canada** - Load calculator tuned for Canadian climates (iOS)
+- **HVAC Duct Tools** - Duct sizing and airflow verification for installers (iOS)
+- **A2L Safe Charge** - HVAC refrigerant safety calculator (iOS)
 - **Water Damage Report** - iOS app
 - **Pesticide Mix Calculator** - iOS app
 - **Attentionly** - Time audit app (iOS)
-- **A2L Safe Charge** - HVAC refrigerant safety calculator (iOS)
+
+The four HVAC apps form a toolkit with a shared marketing site at hvacloadcalculator.online.
 
 Plus **AI Chat Anchor**, a Chrome extension for bookmarking AI chat responses, and this portfolio AI assistant itself (38 markdown corpus files, 45 promptfoo test cases, Claude API with streaming and prompt caching, built on Vite + React + Express + TypeScript, hosted on Vercel).
 

@@ -4,9 +4,9 @@
 
 I'm a long-time product professional who's worked heavily in the fintech space. I'm skilled at getting into new teams, learning technology, process, and people quickly, and finding ways to make the lives of the teams and users better.
 
-## 2. Why are you leaving your current role?
+## 2. Why did you leave your last role?
 
-I'm currently running on contract positions and would love to join a forward-moving company where I can bring my fun tech skills and have a longer-term impact.
+My time at Pet Supplies Plus was a contract engagement - the mission was bringing product discipline to an org without a product function, and I got my biggest projects piloted or shipped during that year. In April 2026 I joined RouteOne full-time as a Product Owner, back in fintech, working on a data-based product that fits my analytics-heavy background.
 
 ## 3. What's your greatest strength as a PM?
 

@@ -14,7 +14,8 @@ Most of my career moves have been growth-driven. I saw bigger opportunities and 
 - **Rocket → Newrez**: Continued growth, new challenges in mortgage tech
 - **Newrez → Auto Approve**: Took a shot at the startup world
 - **Auto Approve → Credit Acceptance**: Realized I was craving the structure and scale of corporate again
-- **Credit Acceptance → Pet Supplies Plus**: Currently working with PSP as a client
+- **Credit Acceptance → Pet Supplies Plus**: A contract year bringing product discipline to an org without a product function
+- **Pet Supplies Plus → RouteOne**: Back to fintech full-time as a Product Owner, focused on a data-based product for the automotive finance platform
 
 ## Discovering "Product Manager"
 

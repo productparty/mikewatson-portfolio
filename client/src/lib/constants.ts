@@ -56,10 +56,16 @@ export const PERSONAL_INFO = {
   ],
   experience: [
     {
+      title: "Product Owner",
+      company: "RouteOne",
+      period: "April 2026 - Present",
+      description: "Driving strategy and delivery for a data-focused product on RouteOne's automotive finance platform connecting dealers and lenders."
+    },
+    {
       title: "Senior Product Manager",
       company: "Pet Supplies Plus",
-      period: "April 2025 - Present",
-      description: "Leading product delivery and cross-team coordination for top company initiatives including customer data modernization and pricing."
+      period: "April 2025 - April 2026",
+      description: "Led product delivery and cross-team coordination for top company initiatives including customer data modernization and pricing."
     },
     {
       title: "Senior Product Owner",

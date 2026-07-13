@@ -1,8 +1,14 @@
-# Closing Engine - HVAC Manual J Calculator
+# HVAC Load Calculator - Manual J Calculator
 
 ## What It Is
 
-A freemium iOS/iPadOS Manual J load calculator for HVAC contractors. Perform residential heating and cooling load calculations with professional PDF export.
+A freemium Manual J load calculator for HVAC contractors on iOS and Android. Perform residential heating and cooling load calculations with professional PDF export.
+
+It's the anchor of a four-app HVAC toolkit, all with a shared marketing site at **hvacloadcalculator.online**:
+- **HVAC Load Calculator** (Manual J, US - iOS + Android)
+- **HVAC Load Calculator Canada** (tuned for Canadian climates - iOS)
+- **HVAC Duct Tools** (duct sizing, airflow verification, gauge references, saved projects - iOS)
+- **A2L Safe Charge** (A2L refrigerant charge-limit safety calculator - iOS)
 
 ## The Problem It Solves
 
@@ -98,6 +104,6 @@ Future features planned:
 
 ## Key Metrics
 
-- **370+ downloads** on iOS
-- All 6 shipped apps currently live (Leafed, HVAC Load Calculator, Water Damage Report, Pesticide Mix Calculator, Attentionly, A2L Safe Charge)
+- **600+ downloads** with **12 five-star ratings**
+- All 8 shipped apps currently live (Leafed, HVAC Load Calculator, HVAC Load Calculator Canada, HVAC Duct Tools, A2L Safe Charge, Water Damage Report, Pesticide Mix Calculator, Attentionly)
 - [TO BE FILLED: Conversion rate (free to pro), user feedback]

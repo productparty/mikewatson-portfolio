@@ -1,6 +1,6 @@
 # Corpus Index
 ## Mike Watson Portfolio Knowledge Base
-## Last updated: 2026-03-23
+## Last updated: 2026-07-13
 
 ---
 
@@ -17,10 +17,11 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 
 | File | Status | What It Covers | Key Stories/Metrics |
 |---|---|---|---|
-| resume-base.md | COMPLETE | Full resume in narrative format with all roles, accomplishments, education | Professional summary, all role bullets aligned to resume, 6 apps shipped framing |
+| resume-base.md | COMPLETE | Full resume in narrative format with all roles, accomplishments, education | Professional summary, all role bullets aligned to resume, 8 apps shipped framing, RouteOne current role |
+| routeone.md | COMPLETE | Current role: Product Owner at RouteOne since Apr 2026, data-based product on automotive F&I platform | Deliberately general (nothing public yet); AI guardrails for what not to invent |
 | career-arc.md | COMPLETE | Origin story, career thread from tinkerer to PM, how approach evolved | DVD project origin, growth-driven moves, discovering "Product Manager" title |
-| pet-supplies-plus.md | COMPLETE | Current contract role, two major projects, product ops foundation | Customer data modernization (18M customers, 7 teams, 800 stores, stalled then delivered), Pricing project shipped 2 months early, 5 of top 10 initiatives |
-| product-party.md | COMPLETE | Newsletter, 6-app builder story, monetization, community building | 2,000+ subs, 32% open rate, 2.9% engagement, 150+ posts since Dec 2022, Chameleon.io sponsorship, ClickUp/Eleven Labs affiliates, 6 shipped apps |
+| pet-supplies-plus.md | COMPLETE | Contract role Apr 2025 - Apr 2026, two major projects, product ops foundation | Customer data modernization (18M customers, 7 teams, 800 stores, stalled then delivered), Pricing project shipped 2 months early, 5 of top 10 initiatives |
+| product-party.md | COMPLETE | Newsletter, 8-app builder story, monetization, community building | 2,000+ subs, 32% open rate, 2.9% engagement, 150+ posts since Dec 2022, Chameleon.io sponsorship, ClickUp/Eleven Labs affiliates, 8 shipped apps incl. 4-app HVAC toolkit (hvacloadcalculator.online) |
 | credit-acceptance.md | COMPLETE | 2.5-year tenure with Dealer Test Drive, Oracle CRM, Agile transformation | 33% enrollment lift across 450+ dealerships, 10% CRM satisfaction improvement, 20 engineers across 2 teams waterfall-to-agile |
 | auto-approve.md | COMPLETE | Startup experience as tech employee #2, e-notary, Intercom, vendor consolidation | 3,000%+ e-notary growth in 3 months, 2,500 contacts/month Intercom deflection, 24 engineers across 3 vendor teams consolidated into JIRA |
 | newrez.md | COMPLETE | 8-month tenure, 21 mortgage brands, BBB complaints, regulatory sprint | 10% lead conversion increase across 21 brands, 33% BBB complaint reduction, regulatory compliance across 800K-user platform in 1 month |
@@ -42,8 +43,8 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 | aichatanchor/overview.md | PARTIAL | Chrome extension for bookmarking AI chat responses | Privacy-first, works across ChatGPT/Claude/Gemini; missing key metrics (installs, stars, feedback) |
 | claude-skills/overview.md | PARTIAL | Claude project skills overview | Has Product Party content skill; missing other skills [TO BE FILLED] |
 | claude-skills/product-party-content-SKILL.md | COMPLETE | Full content system for newsletter writing | Voice rules, anti-detection, headline patterns, SUCCES audit, theme mix, banned phrases |
-| hvac/overview.md | COMPLETE | HVAC Load Calculator - Manual J for contractors | 370+ iOS downloads, freemium model ($9.99 pro), React Native/Expo, ZIP code database, one-shot AI build experiment |
-| leafed/overview.md | COMPLETE | Flagship app with 6-app portfolio framing | 425+ combined downloads (172 GP + 253 AS), privacy-first book tracker, feature flag system, app store journey, non-developer PM story |
+| hvac/overview.md | COMPLETE | HVAC Load Calculator + 4-app HVAC toolkit (hvacloadcalculator.online) | 600+ downloads, 12 five-star ratings, freemium model ($9.99 pro), React Native/Expo, Canada + Duct Tools + A2L siblings, one-shot AI build experiment |
+| leafed/overview.md | COMPLETE | Flagship app with 8-app portfolio framing | 425+ combined downloads (172 GP + 253 AS), privacy-first book tracker, feature flag system, app store journey, non-developer PM story |
 | leafed/lessons-learned.md | COMPLETE | Product lessons from building and shipping Leafed | Feature cuts (AI chatbot, scanner), Google Play 14-day testing, product workflow |
 | leafed/technical-journey.md | COMPLETE | Technical details of building as non-developer | Cursor/Claude/ChatGPT/Gemini toolkit, design system challenges, native device testing |
 | other-projects/README.md | PARTIAL | 12+ side projects cataloged | MCP server, UFC predictions, games, utilities; missing interview questions about which to highlight |
@@ -55,7 +56,7 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 | adaptability.md | COMPLETE | Why adaptability matters more than originating ideas | Intercom at Auto Approve, Accenture scheduling platform, tech employee #2 expansion |
 | agile-transformation.md | COMPLETE | Agile philosophy and Credit Acceptance experience | Substance over ceremony, start with willing teams, right-size the process |
 | ai-and-product.md | COMPLETE | How AI is reshaping PM, hybrid skillset, building in public | Role blending thesis, non-developer building proof, future of PM |
-| ai-in-product-management.md | COMPLETE | Core AI position with shipped products as evidence | 6 shipped apps listed correctly, portfolio AI assistant, AI governance as PM skill |
+| ai-in-product-management.md | COMPLETE | Core AI position with shipped products as evidence | 8 shipped apps listed correctly, portfolio AI assistant, AI governance as PM skill |
 | career-advice.md | COMPLETE | Breaking into PM, career progression, common mistakes | Web not ladder, default essential, relationship investment, "senior" definition |
 | influences-and-books.md | COMPLETE | 5 books with explanations, thought leaders | Speed of Trust, Measure What Matters, Wait, Think Again, Laws of UX |
 | prioritization-approach.md | COMPLETE | 70% rule, feature diet, loudest voice handling | Three stakeholder pushback questions, explicit trade-off framework |
@@ -69,8 +70,8 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 | File | Status | What It Covers | Key Stories/Metrics |
 |---|---|---|---|
 | common-interview-questions.md | COMPLETE | 10 detailed interview Q&A with stories | Tell me about yourself, failures (speech analytics), prioritization (70% rule), stakeholder pushback, measurement framework |
-| contact-and-availability.md | COMPLETE | How to reach Mike, current status, location | Detroit area, remote preferred, open to hybrid, contract while exploring |
-| what-im-looking-for.md | COMPLETE | Role preferences, location, company values | Senior PM/PO (W2), fintech/enterprise/AI, remote from Detroit, ships side projects |
+| contact-and-availability.md | COMPLETE | How to reach Mike, current status, location | Detroit area, full-time PO at RouteOne since Apr 2026, not actively looking but open to connecting |
+| what-im-looking-for.md | COMPLETE | Role preferences (general context; currently employed at RouteOne) | Senior PM/PO (W2), fintech/enterprise/AI, remote from Detroit, ships side projects |
 | working-style.md | COMPLETE | Day-to-day approach, communication, tools | Business context over technical implementation, direct communication, JIRA/Confluence/Figma/Cursor |
 
 ## 06-meta
@@ -96,7 +97,18 @@ Status: COMPLETE = interview-depth narrative, ready for AI use
 ## Sync Notes
 
 Last synced with job search Claude project: 2026-03-23
-Changes made this session:
+
+Changes made 2026-07-13:
+- Added RouteOne as current role (Product Owner, Apr 2026 - Present, data-based product on automotive F&I platform) - new routeone.md, kept deliberately general
+- Converted Pet Supplies Plus to past role (Apr 2025 - Apr 2026, contract) with past-tense narrative
+- Updated app count from 6 to 8 everywhere: added HVAC Load Calculator Canada and HVAC Duct Tools (both live on the App Store)
+- Introduced 4-app HVAC toolkit framing with shared site hvacloadcalculator.online (Load Calc US, Canada, Duct Tools, A2L Safe Charge)
+- Updated HVAC Load Calculator metrics to 600+ downloads / 12 five-star ratings and iOS + Android
+- Updated job-status framing to "happily employed at RouteOne, not actively looking, open to connecting" (contact-and-availability, what-im-looking-for, common-interview-questions Q2)
+- Added RouteOne confidentiality guardrail to topics-to-avoid.md
+- Updated sample-exchanges.md experience-overview and Leafed exchanges to match
+
+Changes made 2026-03-23:
 - Fixed PSP title to Senior Product Manager, added customer data modernization (18M customers, 7 teams, 800 stores) and pricing project (shipped 2 months early)
 - Fixed Product Party start date to Dec 2022, corrected post count to 150+, added 32% open rate / 2.9% engagement, corrected sponsorship (Chameleon.io paid, ClickUp/Eleven Labs affiliate)
 - Added 6-app shipped framing throughout (Leafed 425+, HVAC 370+, Water Damage Report, Pesticide Mix Calculator)

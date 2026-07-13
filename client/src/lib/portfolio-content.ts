@@ -32,10 +32,24 @@ export const HERO_CONTENT: HeroContent = {
 
 export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
   {
+    id: "routeone",
+    title: "Product Owner",
+    company: "RouteOne",
+    period: "Apr 2026 - Present",
+    industry: "Fintech",
+    icon: "analytics",
+    problem:
+      "Automotive finance platform connecting dealers and lenders needs its data capabilities productized.",
+    action:
+      "Driving strategy and delivery for a data-focused product on RouteOne's automotive F&I platform.",
+    outcome: "Currently in progress",
+    isCurrent: true,
+  },
+  {
     id: "pet-supplies-plus",
     title: "Senior Product Manager",
     company: "Pet Supplies Plus",
-    period: "Apr 2025 - Present",
+    period: "Apr 2025 - Apr 2026",
     industry: "Retail",
     icon: "storefront",
     problem:
@@ -43,8 +57,7 @@ export const EXPERIENCE_TIMELINE: ExperienceRole[] = [
     action:
       "Inherited stalled customer data modernization project and drove it to pilot across 7 cross-functional teams (6 internal, 1 vendor), advancing the company's #1 strategic priority affecting 18M customers across 800 stores. Rescued floundering pricing project ranked #3 company priority, coordinating 4 departments and 1 vendor. Created structured product intake and vetting system with epic/feature/story framework.",
     outcome:
-      "Customer data modernization on track for full rollout by April 2026; pricing project shipped 2 months early (March vs. May 2026 target)",
-    isCurrent: true,
+      "Customer data modernization piloted and set up for full rollout; pricing project shipped 2 months early (March vs. May 2026 target)",
   },
   {
     id: "credit-acceptance",

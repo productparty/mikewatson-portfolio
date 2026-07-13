@@ -1,5 +1,8 @@
 # What I'm Looking For
 
+## Current Status
+As of April 2026, I'm a full-time Product Owner at RouteOne and not actively looking. The preferences below describe what matters to me in product work generally - useful context for anyone wanting to understand how I think about roles, or for future conversations.
+
 ## Role
 - Senior Product Manager or Senior Product Owner (W2)
 - Open to: fintech, enterprise software, companies leveraging AI thoughtfully

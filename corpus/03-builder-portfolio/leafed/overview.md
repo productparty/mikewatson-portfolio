@@ -1,17 +1,19 @@
 # Leafed - Privacy-First Book Tracking App
 
-## The Bigger Picture: 6 Apps Shipped
+## The Bigger Picture: 8 Apps Shipped
 
-Leafed is the flagship of 6 apps I've shipped to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
+Leafed is the flagship of 8 apps I've shipped to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude:
 
 - **Leafed** (privacy-first book tracker, 425+ downloads, iOS + Android)
-- **HVAC Load Calculator** (Manual J calculator for HVAC contractors, 370+ downloads, iOS)
+- **HVAC Load Calculator** (Manual J calculator for HVAC contractors, 600+ downloads, iOS + Android)
+- **HVAC Load Calculator Canada** (load calculator tuned for Canadian climates, iOS)
+- **HVAC Duct Tools** (duct sizing and airflow verification, iOS)
+- **A2L Safe Charge** (HVAC refrigerant safety calculator, iOS)
 - **Water Damage Report** (iOS)
 - **Pesticide Mix Calculator** (iOS)
 - **Attentionly** (time audit app, iOS)
-- **A2L Safe Charge** (HVAC refrigerant safety calculator, iOS)
 
-All 6 are currently live. Each required navigating the full SDLC, App Store review, and production deployment.
+All 8 are currently live. The four HVAC apps share a marketing site at hvacloadcalculator.online. Each app required navigating the full SDLC, App Store review, and production deployment.
 
 ## What Leafed Is
 

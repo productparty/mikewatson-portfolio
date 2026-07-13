@@ -1,7 +1,7 @@
 # Mike Watson - Resume Base
 
 ## Professional Summary
-Senior Product Manager with 10+ years in fintech and enterprise software, now building products using modern AI development tools. Shipped 4 apps to iOS and/or Android using React, Cursor, and Claude. Established product operations framework coordinating 6 cross-functional teams and delivered efficiency gains through chat automation and platform modernization initiatives.
+Product leader with 10+ years in fintech and enterprise software, now building products using modern AI development tools. Shipped 8 apps to iOS and/or Android using React, Cursor, and Claude, including a four-app HVAC toolkit (hvacloadcalculator.online). Established product operations framework coordinating 6 cross-functional teams and delivered efficiency gains through chat automation and platform modernization initiatives.
 
 ## Core Expertise
 AI Product Development, Product Operations, API Integration, React Development, Agile Transformation, Data Analytics, Fintech & Enterprise SaaS
@@ -13,15 +13,20 @@ AI Product Development, Product Operations, API Integration, React Development, 
 
 ## Professional Experience
 
-### Senior Product Manager | Pet Supplies Plus | Apr 2025 - Present
-Leading product delivery and cross-team coordination for top company initiatives
-- Inherited stalled customer data modernization project and drove it to pilot across 7 cross-functional teams (6 internal, 1 vendor), advancing the company's #1 strategic priority affecting 18M customers across 800 stores, on track for full rollout by April 2026
+### Product Owner | RouteOne | Apr 2026 - Present
+Product strategy and delivery for a data-based product on RouteOne's automotive F&I platform
+- Driving strategy and delivery for a data-focused product on the platform connecting car dealerships with lenders
+- Returned to fintech/automotive finance after a contract year building product operations at Pet Supplies Plus
+
+### Senior Product Manager | Pet Supplies Plus | Apr 2025 - Apr 2026
+Led product delivery and cross-team coordination for top company initiatives
+- Inherited stalled customer data modernization project and drove it to pilot across 7 cross-functional teams (6 internal, 1 vendor), advancing the company's #1 strategic priority affecting 18M customers across 800 stores, setting up the April 2026 full rollout
 - Rescued a floundering pricing project ranked #3 company priority, coordinating 4 departments and 1 vendor to accelerate delivery by 2 months, shipping to market in March 2026 versus the original May 2026 target
 - Created a structured product intake and vetting system, establishing an epic/feature/story framework and stakeholder alignment process that transformed how marketing initiatives move from concept to delivery across the organization
 
 ### Founder & Newsletter Creator | Product Party | Dec 2022 - Present
 Building product management community, thought leadership platform, and shipping software
-- Shipped 4 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude, including Leafed (privacy-first book tracker, 425+ downloads) and HVAC Load Calculator (370+ downloads), navigating full SDLC, App Store review, and production deployment for each
+- Shipped 8 apps to iOS and/or Android as a solo non-developer PM using React, Cursor, and Claude, including Leafed (privacy-first book tracker, 425+ downloads) and a four-app HVAC toolkit anchored by HVAC Load Calculator (600+ downloads, 12 five-star ratings; hvacloadcalculator.online), navigating full SDLC, App Store review, and production deployment for each
 - Grew product management newsletter to 2,000+ subscribers (32% open rate, 2.9% engagement) covering AI frameworks, career development, and technical best practices
 - Secured paid sponsorship from Chameleon.io and affiliate partnerships with ClickUp and Eleven Labs, while releasing two free Notion templates generating 50+ downloads and establishing thought leadership in the PM community
 

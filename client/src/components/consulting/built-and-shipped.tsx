@@ -58,13 +58,59 @@ const SHIPPED_APPS: ShippedApp[] = [
   {
     name: "HVAC Load Calculator",
     description:
-      "Manual J BTU sizing calculator for HVAC contractors. Quick load calculations in the field.",
-    platforms: ["iOS"],
+      "Manual J BTU sizing calculator for HVAC contractors. Quick load calculations in the field. Part of a four-app HVAC toolkit at hvacloadcalculator.online.",
+    platforms: ["iOS", "Android"],
     links: [
       {
         label: "App Store",
         url: "https://apps.apple.com/us/app/hvac-load-calculator-manual-j/id6758120488",
         icon: "phone_iphone",
+      },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.productparty.hvacloadcalc",
+        icon: "android",
+      },
+      {
+        label: "Website",
+        url: "https://hvacloadcalculator.online/",
+        icon: "language",
+      },
+    ],
+  },
+  {
+    name: "HVAC Duct Tools",
+    description:
+      "Duct sizing and airflow verification for HVAC installers. Friction-rate duct sizing, capacity checks, gauge references, and saved projects. Offline-first, built for the field.",
+    platforms: ["iOS"],
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/us/app/hvac-duct-tools/id6786886923",
+        icon: "phone_iphone",
+      },
+      {
+        label: "Website",
+        url: "https://hvacloadcalculator.online/",
+        icon: "language",
+      },
+    ],
+  },
+  {
+    name: "HVAC Load Calculator Canada",
+    description:
+      "Heating and cooling load calculator tuned for Canadian climates and building practices. Quick equipment sizing for contractors across Canada.",
+    platforms: ["iOS"],
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/ca/app/hvac-load-calculator-canada/id6784766138",
+        icon: "phone_iphone",
+      },
+      {
+        label: "Website",
+        url: "https://hvacloadcalculator.online/",
+        icon: "language",
       },
     ],
   },
@@ -91,6 +137,11 @@ const SHIPPED_APPS: ShippedApp[] = [
         label: "App Store",
         url: "https://apps.apple.com/us/app/a2l-safe-charge/id6760899340",
         icon: "phone_iphone",
+      },
+      {
+        label: "Website",
+        url: "https://hvacloadcalculator.online/",
+        icon: "language",
       },
     ],
   },
@@ -128,8 +179,18 @@ export function BuiltAndShipped() {
             Built &amp; Shipped
           </h2>
           <p className="text-muted-foreground font-body text-base sm:text-lg max-w-xl">
-            Privacy-first apps I designed, built, and shipped using React
-            Native, Cursor, and Claude.
+            Eight mobile apps and a Chrome extension I designed, built, and
+            shipped using React Native, Cursor, and Claude — including a
+            four-app HVAC toolkit at{" "}
+            <a
+              href="https://hvacloadcalculator.online/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-2"
+            >
+              hvacloadcalculator.online
+            </a>
+            .
           </p>
           <div className="flex flex-wrap gap-6 mt-6">
             <div className="flex items-center gap-2">
