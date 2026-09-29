@@ -91,7 +91,7 @@ const SHIPPED_APPS: ShippedApp[] = [
       },
       {
         label: "Website",
-        url: "https://hvacloadcalculator.online/",
+        url: "https://hvacloadcalculator.online/duct-tools.html",
         icon: "language",
       },
     ],
@@ -109,7 +109,7 @@ const SHIPPED_APPS: ShippedApp[] = [
       },
       {
         label: "Website",
-        url: "https://hvacloadcalculator.online/",
+        url: "https://hvacloadcalculator.online/load-calculator-canada.html",
         icon: "language",
       },
     ],
@@ -140,7 +140,7 @@ const SHIPPED_APPS: ShippedApp[] = [
       },
       {
         label: "Website",
-        url: "https://hvacloadcalculator.online/",
+        url: "https://hvacloadcalculator.online/a2l-safe-charge.html",
         icon: "language",
       },
     ],
